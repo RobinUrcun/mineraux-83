@@ -1,0 +1,16 @@
+.headerNav {
+  ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    li {
+      padding: 20px;
+      font-size: 20px;
+      a,
+      a:visited {
+        color: $main-color;
+        text-decoration: none;
+      }
+    }
+  }
+}
