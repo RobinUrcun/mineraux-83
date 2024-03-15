@@ -1,0 +1,24 @@
+.cartSectionWrapper {
+  padding: 70px;
+  padding-left: 15%;
+  padding-right: 15%;
+  .cartSectionTotal {
+    padding-top: 30px;
+    position: relative;
+    font-size: 25px;
+    text-align: end;
+    &::after {
+      content: "";
+      width: 100%;
+      height: 1px;
+      background-color: $button-Color;
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+  .cartOrderBtn {
+    width: 70px;
+  }
+}

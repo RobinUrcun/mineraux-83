@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function UserInfo() {
   return (
@@ -8,9 +9,9 @@ export default function UserInfo() {
         <button>Connexion</button>
         <button>Inscription</button>
       </div>
-      <div className="userInfoShoppingCart">
+      <Link href="/panier" className="userInfoShoppingCart">
         <Image src="/assets/panier.png" width={40} height={40} alt="panier" />
-      </div>
+      </Link>
     </div>
   );
 }

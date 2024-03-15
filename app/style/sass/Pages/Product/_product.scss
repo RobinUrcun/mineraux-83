@@ -1,0 +1,42 @@
+.productArticle {
+  display: flex;
+  flex-direction: row;
+  .bold {
+    font-weight: 500;
+  }
+  .productInfo {
+    font-size: 20px;
+    font-weight: 300;
+
+    width: 50%;
+    h1 {
+      font-size: 50px;
+    }
+    .productInfoDescription {
+      margin: 30px auto;
+    }
+    .productInfoProvenance {
+      margin: 20px auto;
+    }
+    .productInfoSize {
+      margin: 20px auto;
+    }
+    .productInfoWeight {
+      margin: 20px auto;
+    }
+    .productInfoPrice {
+      font-weight: 200;
+      font-size: 45px;
+      &::before {
+        content: "";
+        display: block;
+        height: 1px;
+        width: 90%;
+        background-color: rgba(128, 128, 128, 0.551);
+      }
+      p {
+        padding-top: 30px;
+      }
+    }
+  }
+}

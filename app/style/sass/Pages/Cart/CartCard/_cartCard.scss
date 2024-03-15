@@ -1,0 +1,50 @@
+.cartWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  height: 200px;
+  .cartProductWrapper {
+    display: flex;
+    align-items: center;
+  }
+  &::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: $button-Color;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+  }
+
+  .QtyAndPrice {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 25px;
+    select {
+      margin-left: 10px;
+      font-size: 20px;
+    }
+    .cartQty {
+      height: 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .removeItem {
+        font-size: 25px;
+        font-weight: 200;
+        cursor: pointer;
+        &:hover {
+          font-weight: 300;
+        }
+      }
+    }
+    .cartPrice {
+      min-width: 120px;
+      margin-left: 50px;
+    }
+  }
+}

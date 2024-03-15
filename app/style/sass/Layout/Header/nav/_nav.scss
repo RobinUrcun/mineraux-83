@@ -3,13 +3,33 @@
     display: flex;
     flex-direction: row;
     list-style-type: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+
     li {
-      padding: 20px;
+      padding-left: 20px;
+      padding-right: 20px;
       font-size: 20px;
+
       a,
       a:visited {
         color: $main-color;
         text-decoration: none;
+      }
+      a::after {
+        content: "";
+        height: 1px;
+        width: 1px;
+        margin-top: 5px;
+        display: block;
+        background-color: $main-color;
+        opacity: 0;
+        transition: opacity 1s, width 1s;
+      }
+      &:hover a::after {
+        opacity: 1;
+        width: 100%;
       }
     }
   }

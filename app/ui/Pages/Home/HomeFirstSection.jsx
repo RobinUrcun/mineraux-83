@@ -8,7 +8,7 @@ export default function HomeFirstSection() {
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum a, illo
         neque culpa similique tempora ipsa
       </h1>
-      <Image src="/assets/geode.webp" width={400} height={400} alt="Geode" />
+      <Image src="/assets/geode2.png" width={400} height={400} alt="Geode" />
     </section>
   );
 }

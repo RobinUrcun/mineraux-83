@@ -6,10 +6,10 @@ export default function nav({ section }) {
     <nav className={`${section}Nav`}>
       <ul>
         <li>
-          <Link href="/">Home</Link>
+          <Link href="/">Accueil</Link>
         </li>
         <li>
-          <Link href="/pierre">Nos mineraux</Link>
+          <Link href="/boutique">Boutique</Link>
         </li>
         <li>
           <Link href="/about">À propos</Link>

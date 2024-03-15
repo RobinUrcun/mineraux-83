@@ -1,0 +1,9 @@
+.boutiqueSection {
+  padding: 50px;
+  .boutiqueProducts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}

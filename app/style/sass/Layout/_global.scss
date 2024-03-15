@@ -3,3 +3,9 @@
   font-style: normal;
   color: $main-color;
 }
+body {
+  background-image: url("/assets/background/background.jpg");
+  background-repeat: repeat;
+  background-position: center;
+  background-size: cover;
+}

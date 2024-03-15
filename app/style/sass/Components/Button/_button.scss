@@ -1,0 +1,17 @@
+.button {
+  display: block;
+  margin: 50px auto;
+  width: 50%;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 25px;
+  color: white;
+  border: 1px black solid;
+  background-color: $button-Color;
+  opacity: 0.8;
+  transition: opacity 0.5s;
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+  }
+}
