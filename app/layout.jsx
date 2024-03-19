@@ -1,3 +1,5 @@
+
+
 import Header from "./ui/Layout/Header/Header";
 import Footer from "./ui/Layout/Footer/Footer";
 import reset from "@/app/style/reset.css";
@@ -14,5 +16,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-
-

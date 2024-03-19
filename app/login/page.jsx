@@ -3,8 +3,11 @@ import React from "react";
 import Button from "../ui/Components/Button/Button";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function page() {
+  const router = useRouter();
+
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
 
@@ -37,6 +40,7 @@ export default function page() {
               })
             )
             .catch((error) => console.log(error));
+          router.push("/boutique");
         }}
       >
         <input

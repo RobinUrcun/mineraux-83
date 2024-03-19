@@ -67,20 +67,20 @@ body {
   justify-content: center;
   align-items: center;
 }
-.userInfo .userInfoAuth button {
+.userInfo .userInfoAuth a {
   opacity: 0.8;
   padding: 5px 10px;
   font-size: 18px;
   border: none;
   border-radius: 5px;
-  height: -moz-fit-content;
   height: fit-content;
   background-color: rgb(75, 107, 133);
   color: white;
   margin: auto 10px;
   transition: opacity 0.5s;
+  text-decoration: none;
 }
-.userInfo .userInfoAuth button:hover {
+.userInfo .userInfoAuth a:hover {
   opacity: 1;
 }
 .userInfo .userInfoShoppingCart {
@@ -219,6 +219,7 @@ body {
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 10px;
   transition: transform 0.5s, box-shadow 0.5s;
+  text-decoration: none;
 }
 .productCard:hover {
   transform: scale(1.05);
@@ -235,8 +236,7 @@ body {
 .productCard .productCardImgCont img {
   width: 300px;
   height: 240px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   overflow: hidden;
 }
 .productCard .productCardImgCont:hover .productCardImg {
@@ -333,8 +333,7 @@ body {
 .caroussel .carousselImg img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .caroussel .carousselImg .caroussel_arrow {
   position: absolute;
