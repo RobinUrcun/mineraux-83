@@ -61,13 +61,13 @@ body {
   display: flex;
   flex-direction: row;
 }
-.userInfo .userInfoAuth {
+.userInfo .userInfoAuthDisconect {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-.userInfo .userInfoAuth a {
+.userInfo .userInfoAuthDisconect a {
   opacity: 0.8;
   padding: 5px 10px;
   font-size: 18px;
@@ -80,8 +80,18 @@ body {
   transition: opacity 0.5s;
   text-decoration: none;
 }
-.userInfo .userInfoAuth a:hover {
+.userInfo .userInfoAuthDisconect a:hover {
   opacity: 1;
+}
+.userInfo .userInfoAuthConect {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 20px;
+}
+.userInfo .userInfoAuthConect img {
+  margin-left: 20px;
+  cursor: pointer;
 }
 .userInfo .userInfoShoppingCart {
   display: flex;

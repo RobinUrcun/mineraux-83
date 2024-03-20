@@ -2,12 +2,13 @@
 import React from "react";
 import Button from "../ui/Components/Button/Button";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useRouter } from "next/navigation";
+import { UserContext } from "@/app/utils/context/userContext";
 
 export default function page() {
   const router = useRouter();
-
+  const { isUserConnected, setIsUserConnected } = useContext(UserContext);
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
 
@@ -37,6 +38,7 @@ export default function page() {
               response.json().then((data) => {
                 localStorage.setItem("userInfoToken", data.token);
                 localStorage.setItem("userInfoUserId", data.userId);
+                setIsUserConnected("true");
               })
             )
             .catch((error) => console.log(error));
