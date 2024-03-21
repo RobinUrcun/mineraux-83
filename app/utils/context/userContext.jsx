@@ -4,15 +4,18 @@ import { useState, createContext } from "react";
 
 export const UserContext = createContext();
 export default function UserInfo({ children }) {
-  const localStorageContent = !localStorage.getItem("userInfoUserId")
-    ? false
-    : true;
-  const [isUserConnected, setIsUserConnected] = useState(localStorageContent);
+  const [userInfo, setUserInfo] = useState({
+    isUserConnected: !localStorage.getItem("userInfoUserId") ? false : true,
+    userRole: !localStorage.getItem("userInfoRole")
+      ? false
+      : localStorage.getItem("userInfoRole"),
+  });
+
   return (
     <UserContext.Provider
       value={{
-        isUserConnected: isUserConnected,
-        setIsUserConnected: setIsUserConnected,
+        userInfo: userInfo,
+        setUserInfo: setUserInfo,
       }}
     >
       {children}

@@ -9,12 +9,15 @@ import { disconnect } from "process";
 import Image from "next/image";
 
 export default function userInfoAuth() {
-  const { isUserConnected, setIsUserConnected } = useContext(UserContext);
+  const { userInfo, setUserInfo } = useContext(UserContext);
   function deconnection() {
     localStorage.clear();
-    setIsUserConnected(false);
+    setUserInfo({
+      isUserConnected: false,
+      userRole: false,
+    });
   }
-  if (isUserConnected === false) {
+  if (userInfo.isUserConnected === false) {
     return (
       <div className="userInfoAuthDisconect">
         <Link href="/login">Connexion</Link>
@@ -24,12 +27,14 @@ export default function userInfoAuth() {
   } else {
     return (
       <div className="userInfoAuthConect">
-        <Link href="/monCompte">Mon compte</Link>
+        <Link href={userInfo.userRole == "ADMIN" ? "/admin" : "/mon-compte"}>
+          Mon compte
+        </Link>
         <Image
           onClick={deconnection}
           src="/form/logo_disconect.png"
           width={30}
-          height={34}
+          height={30}
           alt="Cliquer pour vous déconnecter"
         />
       </div>

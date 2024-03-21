@@ -205,7 +205,9 @@ body {
 .button {
   display: block;
   margin: 50px auto;
-  width: 50%;
+  width: fit-content;
+  padding-left: 30px;
+  padding-right: 30px;
   height: 50px;
   border-radius: 10px;
   font-size: 25px;
@@ -218,6 +220,10 @@ body {
 }
 .button:hover {
   opacity: 1;
+}
+
+.disabled {
+  opacity: 0.5 !important;
 }
 
 .productCard {
@@ -483,4 +489,29 @@ body {
 .loginSection .helpLogin a:hover {
   text-decoration: underline;
   color: rgb(75, 107, 133);
+}
+
+.signupSectionWrapper {
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  width: 400px;
+  margin: 30px auto;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 30px 50px 0;
+}
+.signupSectionWrapper form {
+  display: flex;
+  flex-direction: column;
+}
+.signupSectionWrapper form input {
+  padding-left: 15px;
+  height: 30px;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-top: 30px;
+}
+.signupSectionWrapper form .errorInput {
+  border-color: red;
 }/*# sourceMappingURL=index.css.map */

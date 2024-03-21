@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { use } from "react";
 import Button from "../ui/Components/Button/Button";
 import Link from "next/link";
 import { useState, useContext } from "react";
@@ -8,7 +8,7 @@ import { UserContext } from "@/app/utils/context/userContext";
 
 export default function page() {
   const router = useRouter();
-  const { isUserConnected, setIsUserConnected } = useContext(UserContext);
+  const { userInfo, setUserInfo } = useContext(UserContext);
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
 
@@ -36,13 +36,20 @@ export default function page() {
           })
             .then((response) =>
               response.json().then((data) => {
+                console.log(data);
                 localStorage.setItem("userInfoToken", data.token);
                 localStorage.setItem("userInfoUserId", data.userId);
-                setIsUserConnected("true");
+                localStorage.setItem("userInfoRole", data.userRole);
+                setUserInfo({
+                  isUserConnected: true,
+                  userRole: data.userRole,
+                });
+                router.push("/boutique");
               })
             )
-            .catch((error) => console.log(error));
-          router.push("/boutique");
+            .catch((error) => {
+              router.push("/404");
+            });
         }}
       >
         <input
