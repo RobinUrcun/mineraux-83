@@ -1,0 +1,21 @@
+.addProduct {
+  h2 {
+    font-size: 40px;
+    text-align: center;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    input {
+      margin-top: 30px;
+      font-size: 20px;
+      border-radius: 5px;
+      border: 1px rgb(211, 208, 208) solid;
+      padding: 3px;
+      padding-left: 10px;
+    }
+    .button {
+      margin: 40px auto 0;
+    }
+  }
+}

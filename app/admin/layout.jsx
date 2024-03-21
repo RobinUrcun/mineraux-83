@@ -34,13 +34,15 @@ export default function layout({ children }) {
   }, []);
   if (userDonee.role == "ADMIN") {
     return (
-      <section>
+      <section className="sectionAdmin">
         <Head1>Administration</Head1>
-        <nav>
-          <Link href="/admin/gerer">Gerrer mes Pierres</Link>
-          <Link href="/admin/creer">Ajouter une Pierre</Link>
+        <div className="sectionAdminWrapper">
+          <nav>
+            <Link href="/admin/gerer">Gerrer mes Pierres</Link>
+            <Link href="/admin/creer">Ajouter une Pierre</Link>
+          </nav>
           {children}
-        </nav>
+        </div>
       </section>
     );
   }
