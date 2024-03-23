@@ -7,32 +7,35 @@ import { useRouter } from "next/navigation";
 
 export default function layout({ children }) {
   const router = useRouter();
-  const [userDonee, setUserDonnee] = useState("");
+  const [userDonee, setUserDonnee] = useState(null);
 
-  useEffect(() => {
-    const fetchDonnee = async function () {
-      await fetch(
-        `http://localhost:3001/api/user/info/${localStorage.getItem(
-          "userInfoUserId"
-        )}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            authorization: `Bearer ${localStorage.getItem("userInfoToken")}`,
-          },
-        }
+  const fetchDonnee = async function () {
+    await fetch(
+      `http://localhost:3001/api/user/info/${localStorage.getItem(
+        "userInfoUserId"
+      )}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("userInfoToken")}`,
+        },
+      }
+    )
+      .then((response) =>
+        response.json().then((data) => {
+          setUserDonnee(data.user.role);
+        })
       )
-        .then((response) =>
-          response.json().then((data) => {
-            setUserDonnee(data.user);
-          })
-        )
-        .catch((error) => console.log(error));
-    };
-    fetchDonnee();
-  }, []);
-  if (userDonee.role == "ADMIN") {
+      .catch((error) => {
+        console.log(error);
+        setUserDonnee("error");
+      });
+  };
+  fetchDonnee();
+  if (userDonee === null) {
+    return <div>chargement</div>;
+  } else if (userDonee == "ADMIN") {
     return (
       <section className="sectionAdmin">
         <Head1>Administration</Head1>
@@ -40,10 +43,15 @@ export default function layout({ children }) {
           <nav>
             <Link href="/admin/gerer">Gerrer mes Pierres</Link>
             <Link href="/admin/creer">Ajouter une Pierre</Link>
+            <Link href="/admin/mes-ventes">Mes ventes</Link>
           </nav>
           {children}
         </div>
       </section>
     );
+  } else if (userDonee === "user") {
+    return <div>Petit malin ...</div>;
+  } else if (userDonee === "error") {
+    router.push("/404");
   }
 }

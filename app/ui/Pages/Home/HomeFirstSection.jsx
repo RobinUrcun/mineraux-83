@@ -5,8 +5,8 @@ export default function HomeFirstSection() {
   return (
     <section className="homeFirstSection">
       <h1>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum a, illo
-        neque culpa similique tempora ipsa
+        <span>Mineraux du monde spécialise du Var et de la Corse</span>
+        <span>Sciage et polissage dans mon atelier</span>
       </h1>
       <Image src="/assets/geode2.png" width={400} height={400} alt="Geode" />
     </section>
