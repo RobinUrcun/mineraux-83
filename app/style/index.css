@@ -16,12 +16,11 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   padding: 50px;
-  padding-top: 20px;
+  padding-top: 0;
   color: rgb(82, 79, 79);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 60px;
 }
 .header .headerWrapper {
   display: flex;
@@ -108,7 +107,6 @@ body {
 }
 
 .homeFirstSection {
-  margin-top: 100px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -129,6 +127,29 @@ body {
 }
 .homeFirstSection h1 span:last-child {
   font-size: 40px;
+}
+
+.homePresentationSection {
+  width: 60%;
+  min-width: 600px;
+  margin: auto;
+  padding: 50px;
+  text-align: center;
+}
+.homePresentationSection h2 {
+  font-size: 40px;
+  margin: 70px auto 40px;
+}
+.homePresentationSection p {
+  font-size: 30px;
+  font-weight: 300;
+}
+.homePresentationSection::before {
+  content: "";
+  display: inline-block;
+  width: 90%;
+  height: 1px;
+  background-color: black;
 }
 
 .footer {
@@ -414,7 +435,7 @@ body {
   content: "";
   width: 100%;
   height: 1px;
-  background-color: linear-gradient(190deg, #485a6f, 60%, #994d61);
+  background-color: #485a6f;
   display: inline-block;
   position: absolute;
   top: 0;
@@ -439,7 +460,7 @@ body {
   content: "";
   width: 100%;
   height: 1px;
-  background-color: linear-gradient(190deg, #485a6f, 60%, #994d61);
+  background-color: #485a6f;
   display: inline-block;
   position: absolute;
   top: 0;
@@ -604,6 +625,23 @@ body {
 }
 .addProduct form .button {
   margin: 40px auto 0;
+}
+.addProduct form .addPicture {
+  width: fit-content;
+  padding: 10px 20px;
+}
+.addProduct form .imageUpload {
+  margin-top: 30px;
+}
+.addProduct form .imageUpload label {
+  cursor: pointer;
+  padding: 5px 20px;
+  border: 1px solid grey;
+  border-radius: 20px;
+  font-size: 20px;
+}
+.addProduct form .imageUpload input {
+  display: none;
 }
 
 .manageProduct {

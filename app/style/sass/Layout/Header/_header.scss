@@ -2,12 +2,11 @@
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   padding: 50px;
-  padding-top: 20px;
+  padding-top: 0;
   color: $main-color;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 60px;
   .headerWrapper {
     display: flex;
     flex-direction: row;

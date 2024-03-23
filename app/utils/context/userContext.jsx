@@ -5,24 +5,16 @@ import { useState, useEffect, createContext } from "react";
 export const UserContext = createContext();
 export default function UserInfo({ children }) {
   const [userInfo, setUserInfo] = useState({
-    isUserConnected: !!localStorage.getItem("userInfoUserId"),
-    userRole: localStorage.getItem("userInfoRole") || false,
+    isUserConnected: null,
+    userRole: null,
   });
 
-  // useEffect(() => {
-  //   if (!localStorage.getItem("userInfoUserId")) {
-  //     setUserInfo({
-  //       userRole: false,
-  //       isUserConnected: false,
-  //     });
-  //   } else {
-  //     setUserInfo({
-  //       userRole: localStorage.getItem("userInfoRole"),
-  //       isUserConnected: true,
-  //     });
-  //   }
-  // }, []);
-
+  useEffect(() => {
+    setUserInfo({
+      isUserConnected: !!localStorage.getItem("userInfoUserId"),
+      userRole: localStorage.getItem("userInfoRole") || false,
+    });
+  }, []);
   return (
     <UserContext.Provider
       value={{

@@ -41,7 +41,7 @@ export default function layout({ children }) {
         <Head1>Administration</Head1>
         <div className="sectionAdminWrapper">
           <nav>
-            <Link href="/admin/gerer">Gerrer mes Pierres</Link>
+            <Link href="/admin/gerer">Gerer mes Pierres</Link>
             <Link href="/admin/creer">Ajouter une Pierre</Link>
             <Link href="/admin/mes-ventes">Mes ventes</Link>
           </nav>
