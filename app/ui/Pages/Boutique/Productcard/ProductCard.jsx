@@ -6,7 +6,7 @@ import { addToCart } from "@/app/utils/cart/addToCart";
 
 export default function ProductCard({ product }) {
   return (
-    <Link href={`/produit/id`} className="productCard">
+    <Link href={`/produit/${product._id}`} className="productCard">
       <div className="productCardImgCont">
         <img src={product.image} alt="ok" className="productCardImg" />
       </div>
@@ -21,7 +21,13 @@ export default function ProductCard({ product }) {
             })}
           </p>
         </div>
-        <div onClick={addToCart} className="productCardAdd">
+        <div
+          onClick={(e) => {
+            e.preventDefault();
+            addToCart(product._id);
+          }}
+          className="productCardAdd"
+        >
           <Image
             src="/assets/panier.png"
             width={40}

@@ -1,16 +1,11 @@
 import React from "react";
 import Image from "next/image";
 
-export default function Caroussel() {
+export default function Caroussel({ imgUrl }) {
   return (
     <div className="caroussel">
       <div className="carousselImg">
-        <Image
-          src="/assets/geode2.png"
-          width={400}
-          height={500}
-          alt="logement"
-        />
+        <img src={imgUrl} alt="logement" />
 
         <div
           //   onClick={previousPicture}

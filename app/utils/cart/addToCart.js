@@ -1,5 +1,5 @@
 "use client";
-export function addToCart() {
+export function addToCart(article) {
   fetch("http://localhost:3001/api/user/cart/", {
     method: "PUT",
     headers: {
@@ -7,7 +7,7 @@ export function addToCart() {
       authorization: `Bearer ${localStorage.getItem("userInfoToken")}`,
     },
     body: JSON.stringify({
-      articleId: "test2",
+      articleId: article,
     }),
   });
 }
