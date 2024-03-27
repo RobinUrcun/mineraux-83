@@ -9,30 +9,29 @@ export default function layout({ children }) {
   const router = useRouter();
   const [userDonee, setUserDonnee] = useState(null);
 
-  const fetchDonnee = async function () {
-    await fetch(
-      `http://localhost:3001/api/user/info/${localStorage.getItem(
-        "userInfoUserId"
-      )}`,
-      {
+  useEffect(() => {
+    const fetchDonnee = async function () {
+      await fetch(`http://localhost:3001/api/user/role/`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
           authorization: `Bearer ${localStorage.getItem("userInfoToken")}`,
         },
-      }
-    )
-      .then((response) =>
-        response.json().then((data) => {
-          setUserDonnee(data.user.role);
-        })
-      )
-      .catch((error) => {
-        console.log(error);
-        setUserDonnee("error");
-      });
-  };
-  fetchDonnee();
+      })
+        .then((response) =>
+          response.json().then((data) => {
+            setUserDonnee(data.user.role);
+          })
+        )
+        .catch((error) => {
+          console.log(error);
+          setUserDonnee("error");
+        });
+    };
+    fetchDonnee();
+  }, []);
+  console.log(userDonee);
+
   if (userDonee === null) {
     return <div>chargement</div>;
   } else if (userDonee == "ADMIN") {
@@ -49,8 +48,6 @@ export default function layout({ children }) {
         </div>
       </section>
     );
-  } else if (userDonee === "user") {
-    return <div>Petit malin ...</div>;
   } else if (userDonee === "error") {
     router.push("/404");
   }

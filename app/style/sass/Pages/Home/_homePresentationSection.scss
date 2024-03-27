@@ -1,16 +1,21 @@
 .homePresentationSection {
-  width: 60%;
   min-width: 600px;
   margin: auto;
   padding: 50px;
   text-align: center;
+
+  background-color: rgb(255, 255, 255);
   h2 {
     font-size: 40px;
+    color: $deg-color-begin;
+
     margin: 70px auto 40px;
   }
   p {
     font-size: 30px;
     font-weight: 300;
+    padding: 0 15% 30px;
+    color: $deg-color-begin;
   }
   &::before {
     content: "";

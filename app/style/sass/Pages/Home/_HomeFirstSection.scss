@@ -3,7 +3,13 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  padding-bottom: 50px;
+  height: calc(100vh - 260px);
   h1 {
+    background: linear-gradient(to top, $deg-color-begin, $deg-color-end);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
     font-size: 50px;
     font-weight: 100;
     max-width: 50%;
@@ -12,11 +18,12 @@
     display: flex;
     flex-direction: column;
     span:first-child {
-      font-weight: 300;
+      font-weight: 400;
       margin-bottom: 30px;
     }
     span:last-child {
       font-size: 40px;
+      -webkit-text-fill-color: white;
     }
   }
 }

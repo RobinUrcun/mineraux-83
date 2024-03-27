@@ -41,11 +41,13 @@
         font-size: 20px;
         font-weight: 400;
         margin-bottom: 5px;
+        color: rgb(122, 122, 122);
       }
       .productManage {
         display: flex;
         flex-direction: row;
         justify-content: center;
+
         button,
         a {
           cursor: pointer;
@@ -58,6 +60,7 @@
           display: flex;
           align-items: center;
           text-decoration: none;
+          color: rgb(122, 122, 122);
 
           background-color: transparent;
           &:hover {

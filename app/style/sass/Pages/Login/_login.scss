@@ -3,8 +3,6 @@
   font-size: 25px;
   width: 400px;
   margin: auto;
-  background-color: white;
-  border: 1px solid black;
   border-radius: 20px;
   padding: 50px;
   margin: 30px auto;
@@ -29,9 +27,10 @@
     a {
       text-decoration: none;
       margin-top: 10px;
+      color: white;
+
       &:hover {
         text-decoration: underline;
-        color: $button-Color;
       }
     }
   }
