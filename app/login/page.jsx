@@ -35,6 +35,7 @@ export default function page() {
               body: JSON.stringify({
                 email: emailValue,
                 password: passwordValue,
+                cart: localStorage.getItem("panier"),
               }),
             })
               .then((response) =>

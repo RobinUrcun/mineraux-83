@@ -317,7 +317,8 @@ body {
 }
 .boutiqueSection .productCard .productCardInfo .productCardInfoCont .productCardPrice {
   opacity: 0.7;
-  color: grey;
+  color: rgb(77, 74, 74);
+  font-size: 23px;
 }
 .boutiqueSection .productCard .productCardInfo .productCardAdd::before {
   content: "";

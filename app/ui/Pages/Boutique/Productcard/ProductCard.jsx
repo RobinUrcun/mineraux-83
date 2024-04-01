@@ -3,8 +3,11 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { addToCart } from "@/app/utils/cart/addToCart";
+import { useContext } from "react";
+import { UserContext } from "@/app/utils/context/userContext";
 
 export default function ProductCard({ product }) {
+  const { userInfo, setUserInfo } = useContext(UserContext);
   return (
     <Link href={`/produit/${product._id}`} className="productCard">
       <div className="productCardImgCont">
@@ -24,7 +27,7 @@ export default function ProductCard({ product }) {
         <div
           onClick={(e) => {
             e.preventDefault();
-            addToCart(product._id);
+            addToCart(product._id, userInfo);
           }}
           className="productCardAdd"
         >

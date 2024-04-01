@@ -1,8 +1,7 @@
 import React from "react";
-import Image from "next/image";
+import { removeFromCart } from "@/app/utils/cart/removeFromCart";
 
-export default function Cart({ product }) {
-  console.log(product);
+export default function Cart({ product, userInfo, onRemove }) {
   return (
     <div className="cartWrapper">
       <div className="cartProductWrapper">
@@ -19,7 +18,15 @@ export default function Cart({ product }) {
               <option value="1">1</option>
             </select>
           </div>
-          <div className="removeItem">Supprimer</div>
+          <div
+            onClick={() => {
+              removeFromCart(product._id, userInfo);
+              onRemove(product._id);
+            }}
+            className="removeItem"
+          >
+            Supprimer
+          </div>
         </div>
         <div className="cartPrice">
           Prix :
