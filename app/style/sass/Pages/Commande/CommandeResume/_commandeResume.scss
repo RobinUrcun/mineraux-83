@@ -1,16 +1,18 @@
 .commandeResume {
   padding: 20px;
   width: 100%;
-  background-color: rgb(21, 21, 21);
+  background-color: $background-menu-clr;
   border-radius: 15px;
   display: flex;
   flex-direction: row;
+  margin-top: 30px;
+  justify-content: center;
   .addressResume {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%;
+
     h2 {
       font-size: 30px;
       margin: 30px;
@@ -31,6 +33,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
   }
 }

@@ -1,5 +1,5 @@
 .manageProduct {
-  background-color: rgb(243, 243, 248);
+  background-color: $background-menu-clr;
   margin-left: 30px;
   margin-right: 30px;
   border-radius: 10px;
@@ -15,19 +15,17 @@
     overflow: hidden;
     border-radius: 10px;
     cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 10px;
-    transition: transform 0.5s, box-shadow 0.5s;
+
     text-decoration: none;
 
     .productCardImgCont {
       height: 150px;
       width: 200px;
-      overflow: hidden;
 
       img {
         width: 200px;
+        height: 150px;
         object-fit: cover;
-        overflow: hidden;
       }
     }
     .productCardInfo {

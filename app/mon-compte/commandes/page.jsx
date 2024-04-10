@@ -2,8 +2,8 @@ import React from "react";
 
 export default function page() {
   return (
-    <article className="venteProduct">
-      <h2>Mes ventes</h2>
+    <article className="monCompteCommandes">
+      <h2>Mes Commandes</h2>
     </article>
   );
 }
