@@ -1,17 +1,22 @@
 .button {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: fit-content;
   padding-left: 30px;
   padding-right: 30px;
-
+  text-decoration: none;
   height: 50px;
   border-radius: 10px;
   font-size: 25px;
   color: white;
-  border: 1px black solid;
   background: $button-Color;
   opacity: 0.8;
   transition: opacity 0.5s;
+  border-width: 2px;
+  border-style: outset;
+  border-color: buttonorder;
+  border-image: initial;
   cursor: pointer;
   &:hover {
     opacity: 1;

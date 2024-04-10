@@ -24,7 +24,7 @@
       text-align: center;
     }
   }
-  &:after {
+  &::before {
     content: "";
     width: 100%;
     height: 1px;

@@ -1,0 +1,52 @@
+.commandeAddress {
+  height: fit-content;
+  background-color: rgb(21, 21, 21);
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  h2 {
+    font-size: 30px;
+    text-align: center;
+    margin: 30px;
+  }
+  .commandeAddressWrapper {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    label {
+      text-wrap: nowrap;
+      padding-right: 20px;
+      padding-left: 20px;
+      font-size: 20px;
+    }
+    input {
+      width: 100%;
+      border-radius: 5px;
+      border: none;
+      font-size: 20px;
+      color: rgb(76, 75, 75);
+    }
+  }
+  .button {
+    margin: 30px auto 30px;
+  }
+  .widgetWrapper {
+    margin-top: 30px;
+    color: rgb(76, 75, 75);
+
+    #Zone_Widget {
+      color: rgb(76, 75, 75);
+
+      input {
+        color: rgb(76, 75, 75);
+      }
+      .PR-AutoCplCity,
+      .PR-List-Item {
+        div {
+          color: rgb(3, 3, 3) !important;
+        }
+      }
+    }
+  }
+}

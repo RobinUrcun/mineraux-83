@@ -14,16 +14,20 @@ export default function page() {
     const fetchData = async function () {
       fetch(`http://localhost:3001/api/product/${url}`)
         .then((response) => {
-          response.json().then((data) => setProduct(data));
+          response.json().then((data) => {
+            console.log(data[0]);
+            setProduct(data[0]);
+          });
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.log("erreur"));
     };
     fetchData();
   }, []);
+  console.log(product);
   return (
     <section className="sectionProduct">
       <article className="productArticle">
-        <Caroussel imgUrl={product.image} />
+        <Caroussel imgUrl={product.image} name={product} />
         <div className="productInfo">
           <h1>{product.title}</h1>
           <p className="productInfoDescription">{product.description}</p>

@@ -1,22 +1,18 @@
 import React from "react";
 import Link from "next/link";
 
-export default function CardGestion() {
+export default function CardGestion({ product }) {
   return (
     <div className="productCard">
       <div className="productCardImgCont">
-        <img
-          src="/assets/exempleCard.png"
-          alt="ok"
-          className="productCardImg"
-        />
+        <img src={product.image} alt="ok" className="productCardImg" />
       </div>
       <div className="productCardInfo">
-        <h2 className="productCardName">Diorite</h2>
+        <h2 className="productCardName">{product.title}</h2>
 
         <div className="productManage">
           <form>
-            <Link href="/admin/gerer/:id">Modifer</Link>
+            <Link href={`/admin/gerer/${product._id}`}>Modifer</Link>
           </form>
           <form>
             <button>Supprimer</button>

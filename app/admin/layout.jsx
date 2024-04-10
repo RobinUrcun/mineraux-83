@@ -4,6 +4,7 @@ import Head1 from "../ui/Components/head1/Head1";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Loader from "../ui/Components/Loader/Loader";
 
 export default function layout({ children }) {
   const router = useRouter();
@@ -33,7 +34,7 @@ export default function layout({ children }) {
   console.log(userDonee);
 
   if (userDonee === null) {
-    return <div>chargement</div>;
+    return <Loader />;
   } else if (userDonee == "ADMIN") {
     return (
       <section className="sectionAdmin">

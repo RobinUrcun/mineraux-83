@@ -17,7 +17,7 @@ export default function userInfoAuth() {
       userRole: false,
     });
   }
-  if (userInfo.isUserConnected === false) {
+  if (!userInfo.isUserConnected) {
     return (
       <div className="userInfoAuthDisconect">
         <Link href="/login">Connexion</Link>

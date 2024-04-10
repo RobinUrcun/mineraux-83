@@ -48,6 +48,7 @@ export default function page() {
                     isUserConnected: true,
                     userRole: data.userRole,
                   });
+                  localStorage.removeItem("panier");
                   router.push("/boutique");
                 })
               )

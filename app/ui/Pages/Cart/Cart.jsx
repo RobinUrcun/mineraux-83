@@ -29,7 +29,7 @@ export default function Cart({ product, userInfo, onRemove }) {
           </div>
         </div>
         <div className="cartPrice">
-          Prix :
+          Prix :{" "}
           {(product.price / 100).toLocaleString("fr-FR", {
             style: "currency",
             currency: "EUR",
