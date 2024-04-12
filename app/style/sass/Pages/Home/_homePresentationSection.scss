@@ -1,27 +1,30 @@
 .homePresentationSection {
   min-width: 600px;
   margin: auto;
-  padding: 50px;
   text-align: center;
+  min-height: calc(100vh);
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  .homePresentationArticle {
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
 
-  background-color: rgb(255, 255, 255);
-  h2 {
-    font-size: 40px;
-    color: $deg-color-begin;
-
-    margin: 70px auto 40px;
-  }
-  p {
-    font-size: 30px;
-    font-weight: 300;
-    padding: 0 15% 30px;
-    color: $deg-color-begin;
-  }
-  &::before {
-    content: "";
-    display: inline-block;
-    width: 90%;
-    height: 1px;
-    background-color: black;
+    h2 {
+      font-size: 40px;
+      color: $deg-color-begin;
+      margin-bottom: 50px;
+    }
+    p {
+      font-size: 30px;
+      font-weight: 300;
+      color: $deg-color-begin;
+      margin-bottom: 50px;
+    }
   }
 }

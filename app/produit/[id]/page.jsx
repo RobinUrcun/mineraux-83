@@ -2,11 +2,14 @@
 
 import React from "react";
 import Caroussel from "@/app/ui/Components/Caroussel/Caroussel";
-import Button from "@/app/ui/Components/Button/Button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { UserContext } from "@/app/utils/context/userContext";
 import { useParams } from "next/navigation";
+import { addToCart } from "@/app/utils/cart/addToCart";
 
 export default function page() {
+  const { userInfo, setUserInfo } = useContext(UserContext);
+  console.log(userInfo);
   const [product, setProduct] = useState({});
   const url = useParams().id;
   console.log(url);
@@ -51,7 +54,9 @@ export default function page() {
               })}
             </p>
           </div>
-          <Button>Ajouter au panier</Button>
+          <div className="button" onClick={addToCart(product._id, userInfo)}>
+            Ajouter au panier
+          </div>
         </div>
       </article>
     </section>

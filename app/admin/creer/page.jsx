@@ -3,7 +3,6 @@
 import React from "react";
 import Button from "@/app/ui/Components/Button/Button";
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { stringify } from "querystring";
 
 export default function page() {

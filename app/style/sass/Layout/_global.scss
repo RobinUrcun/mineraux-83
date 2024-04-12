@@ -7,6 +7,9 @@
   .leaflet-bar span {
     color: black;
   }
+  input {
+    color: rgb(63, 62, 62);
+  }
 }
 
 body {
@@ -14,4 +17,7 @@ body {
   background-repeat: repeat;
   background-position: center;
   background-size: cover;
+}
+html {
+  scroll-behavior: smooth;
 }

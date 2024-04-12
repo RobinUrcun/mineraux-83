@@ -7,8 +7,10 @@ import { useState, useEffect, useContext } from "react";
 import { UserContext } from "@/app/utils/context/userContext";
 import Link from "next/link";
 import Loader from "../ui/Components/Loader/Loader";
+import { useRouter } from "next/navigation";
 
 export default function page() {
+  const router = useRouter();
   const { userInfo, setUserInfo } = useContext(UserContext);
   const [productCart, setProductCart] = useState([]);
   const [totalCart, setTotalCart] = useState(0);
@@ -17,6 +19,7 @@ export default function page() {
   useEffect(() => {
     console.log(userInfo);
     if (userInfo.isUserConnected) {
+      console.log("toto");
       const fetchData = async function () {
         await fetch("http://localhost:3001/api/user/cart", {
           method: "GET",
@@ -26,15 +29,22 @@ export default function page() {
           },
         })
           .then((response) => {
-            response.json().then((data) => setProductCart(data));
+            response
+              .json()
+              .then((data) => setProductCart(data))
+              .catch((error) => console.log(error));
           })
-          .catch((err) => console.log(err));
+          .catch((err) => {
+            console.log(err);
+            router.push("/erreur");
+          });
       };
       fetchData();
     } else {
       const lsPanier = localStorage.getItem("panier");
-      const ParseLsPanier =
-        lsPanier === null ? [] : JSON.parse(localStorage.getItem("panier"));
+      const ParseLsPanier = !lsPanier
+        ? []
+        : JSON.parse(localStorage.getItem("panier"));
       if (ParseLsPanier.length >= 1) {
         const productsIds = ParseLsPanier.join(",");
         const fetchData = async function () {
