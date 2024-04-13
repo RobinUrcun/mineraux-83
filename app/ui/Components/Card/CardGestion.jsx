@@ -8,7 +8,7 @@ export default function CardGestion({ product }) {
         <img src={product.image} alt="ok" className="productCardImg" />
       </div>
       <div className="productCardInfo">
-        <h2 className="productCardName">{product.title}</h2>
+        <h3 className="productCardName">{product.title}</h3>
 
         <div className="productManage">
           <form>

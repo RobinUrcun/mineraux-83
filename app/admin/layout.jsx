@@ -21,7 +21,7 @@ export default function layout({ children }) {
       })
         .then((response) =>
           response.json().then((data) => {
-            setUserDonnee(data.user.role);
+            setUserDonnee(data.role);
           })
         )
         .catch((error) => {

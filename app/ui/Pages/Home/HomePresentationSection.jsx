@@ -6,7 +6,7 @@ export default function HomePresentationSection() {
   return (
     <section id="homePresentationSection" className="homePresentationSection">
       <article className="homePresentationArticle">
-        <h2>**Bienvenue dans le Monde des Minéraux !**</h2>
+        <h2>Bienvenue dans le Monde des Minéraux !</h2>
         <p>
           Au cœur de notre site de vente de minéraux, nous vous invitons à
           explorer les merveilles de la Terre, cristallisées dans des formes,

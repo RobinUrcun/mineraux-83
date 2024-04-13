@@ -17,6 +17,11 @@
       font-size: 30px;
       margin: 30px;
     }
+    .adressResumeNames {
+      display: flex;
+      flex-direction: row;
+      column-gap: 10px;
+    }
     .adressResumeCity {
       display: flex;
       flex-direction: row;

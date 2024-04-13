@@ -27,7 +27,13 @@ export default function HomeFirstSection() {
             />
           </Link>
         </div>
-        <Image src="/assets/geode2.png" width={400} height={400} alt="Geode" />
+        <Image
+          src="/assets/geode2.png"
+          width={400}
+          height={400}
+          alt="Geode"
+          className="homepageMainImage"
+        />
       </article>
     </section>
   );
