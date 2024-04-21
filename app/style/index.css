@@ -13,6 +13,10 @@
   color: rgb(63, 62, 62);
 }
 
+.errorInput {
+  border-color: red;
+}
+
 body {
   background-color: black;
   background-repeat: repeat;
@@ -755,9 +759,6 @@ img {
 .signupSectionWrapper form .button {
   margin: 50px auto;
 }
-.signupSectionWrapper form .errorInput {
-  border-color: red;
-}
 
 .sectionAdmin {
   display: flex;
@@ -1068,7 +1069,7 @@ img {
   display: flex;
   flex-direction: row;
   margin-top: 30px;
-  justify-content: center;
+  justify-content: space-around;
 }
 .commandeResume .addressResume {
   display: flex;
@@ -1220,7 +1221,7 @@ img {
 @keyframes enterH1 {
   0% {
     opacity: 0;
-    transform: translateY(-100%);
+    transform: translateY(-30%);
   }
   100% {
     opacity: 1;
@@ -1230,7 +1231,7 @@ img {
 @keyframes enterMainImg {
   0% {
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateX(30%);
   }
   100% {
     opacity: 1;

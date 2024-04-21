@@ -5,6 +5,7 @@ import Button from "@/app/ui/Components/Button/Button";
 import { useState, useEffect } from "react";
 import Loader from "@/app/ui/Components/Loader/Loader";
 import { useRouter } from "next/navigation";
+import { validEmail, validPassword, validName } from "@/app/utils/regex/regex";
 
 export default function page() {
   const router = useRouter();
@@ -20,7 +21,12 @@ export default function page() {
       })
         .then((response) =>
           response.json().then((data) => {
-            setUserData(data);
+            setUserData({
+              ...data,
+              actualPassword: null,
+              newPassword: null,
+              verifNewPassword: null,
+            });
           })
         )
         .catch((error) => {
@@ -39,12 +45,15 @@ export default function page() {
     return (
       <article className="monCompteInformations">
         <h2>Mes informations</h2>
-        <form>
+        <form onSubmit={()=>{
+          const fetchData = async function(){}
+        }}>
           <div className="monCompteInformationsEmail">{userData.email}</div>
           <input
             type="text"
             placeholder="Nom"
             value={userData.name}
+            className={validName.test(userData.name) ? null : "errorInput"}
             onChange={(e) => {
               setUserData({ ...userData, name: e.target.value });
             }}
@@ -53,14 +62,68 @@ export default function page() {
             type="text"
             placeholder="Prenom"
             value={userData.surname}
+            className={validName.test(userData.surname) ? null : "errorInput"}
             onChange={(e) => {
               setUserData({ ...userData, surname: e.target.value });
             }}
           />
-          <input type="password" placeholder="Mot de passe actuel" />
-          <input type="password" placeholder="Nouveau mot de passe" />
-          <input type="password" placeholder="Nouveau mot de passe" />
-          <Button>Modifier</Button>
+          <input
+            type="password"
+            placeholder="Mot de passe actuel"
+            className={
+              !userData.actualPassword
+                ? null
+                : validPassword.test(userData.actualPassword)
+                ? null
+                : "errorInput"
+            }
+            onChange={(e) => {
+              setUserData({ ...userData, actualPassword: e.target.value });
+              console.log(userData);
+            }}
+          />
+          <input
+            type="password"
+            placeholder="Nouveau mot de passe"
+            className={
+              !userData.newPassword
+                ? null
+                : validPassword.test(userData.newPassword)
+                ? null
+                : "errorInput"
+            }
+            onChange={(e) => {
+              setUserData({ ...userData, newPassword: e.target.value });
+            }}
+          />
+          <input
+            type="password"
+            placeholder="Nouveau mot de passe"
+            className={
+              !userData.verifNewPassword
+                ? null
+                : validPassword.test(userData.verifNewPassword)
+                ? null
+                : "errorInput"
+            }
+            onChange={(e) => {
+              setUserData({ ...userData, verifNewPassword: e.target.value });
+            }}
+          />
+          <Button
+            type="submit"
+            disabled={
+              validName.test(userData.name) &&
+              validName.test(userData.surname) &&
+              validPassword.test(userData.actualPassword) &&
+              validPassword.test(userData.newPassword) &&
+              userData.newPassword === userData.verifNewPassword
+                ? null
+                : "true"
+            }
+          >
+            Modifier
+          </Button>
         </form>
       </article>
     );

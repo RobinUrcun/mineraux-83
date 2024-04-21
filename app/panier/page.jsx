@@ -14,7 +14,6 @@ export default function page() {
   const { userInfo, setUserInfo } = useContext(UserContext);
   const [productCart, setProductCart] = useState([]);
   const [totalCart, setTotalCart] = useState(0);
-  console.log(userInfo);
 
   useEffect(() => {
     console.log(userInfo);
@@ -41,8 +40,8 @@ export default function page() {
       };
       fetchData();
     } else {
-      const lsPanier = localStorage.getItem("panier");
-      const ParseLsPanier = !lsPanier
+      console.log(localStorage.getItem("panier"));
+      const ParseLsPanier = !localStorage.getItem("panier")
         ? []
         : JSON.parse(localStorage.getItem("panier"));
       if (ParseLsPanier.length >= 1) {
