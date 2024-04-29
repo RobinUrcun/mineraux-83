@@ -49,7 +49,7 @@ export default function layout({ children }) {
         </div>
       </section>
     );
-  } else if (userDonee === "error") {
-    router.push("/404");
+  } else {
+    router.push("/erreur");
   }
 }

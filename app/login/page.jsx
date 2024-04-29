@@ -40,20 +40,24 @@ export default function page() {
                   : localStorage.getItem("panier"),
               }),
             })
-              .then((response) =>
-                response.json().then((data) => {
-                  console.log(data);
-                  localStorage.setItem("userInfoToken", data.token);
-                  localStorage.setItem("userInfoUserId", data.userId);
-                  localStorage.setItem("userInfoRole", data.userRole);
-                  setUserInfo({
-                    isUserConnected: true,
-                    userRole: data.userRole,
+              .then((response) => {
+                if (response.status === 403) {
+                  alert("Email ou mot de passe invalide");
+                } else {
+                  response.json().then((data) => {
+                    console.log(data);
+                    localStorage.setItem("userInfoToken", data.token);
+                    localStorage.setItem("userInfoUserId", data.userId);
+                    localStorage.setItem("userInfoRole", data.userRole);
+                    setUserInfo({
+                      isUserConnected: true,
+                      userRole: data.userRole,
+                    });
+                    localStorage.removeItem("panier");
+                    router.push("/boutique");
                   });
-                  localStorage.removeItem("panier");
-                  router.push("/boutique");
-                })
-              )
+                }
+              })
               .catch((error) => {
                 router.push("/404");
               });

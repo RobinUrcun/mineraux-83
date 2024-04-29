@@ -2,7 +2,6 @@
 import React from "react";
 import Head1 from "../ui/Components/head1/Head1";
 import Cart from "../ui/Pages/Cart/Cart";
-import Button from "../ui/Components/Button/Button";
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "@/app/utils/context/userContext";
 import Link from "next/link";
@@ -18,7 +17,6 @@ export default function page() {
   useEffect(() => {
     console.log(userInfo);
     if (userInfo.isUserConnected) {
-      console.log("toto");
       const fetchData = async function () {
         await fetch("http://localhost:3001/api/user/cart", {
           method: "GET",
@@ -28,14 +26,17 @@ export default function page() {
           },
         })
           .then((response) => {
-            response
-              .json()
-              .then((data) => setProductCart(data))
-              .catch((error) => console.log(error));
+            if (response.status === 401) {
+              router.push("/erreur");
+            } else {
+              response
+                .json()
+                .then((data) => setProductCart(data))
+                .catch((error) => console.log(error));
+            }
           })
           .catch((err) => {
             console.log(err);
-            router.push("/erreur");
           });
       };
       fetchData();

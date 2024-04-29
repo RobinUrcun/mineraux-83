@@ -2,54 +2,33 @@
 
 import React from "react";
 import Button from "@/app/ui/Components/Button/Button";
-import { useState, useEffect } from "react";
-import { stringify } from "querystring";
 
 export default function page() {
-  const [newProduct, setNewProduct] = useState({
-    title: null,
-    description: null,
-    price: null,
-    size: null,
-    weight: null,
-    origin: null,
-    image: [],
-  });
-  useEffect(() => {
-    console.log(newProduct);
-  }, [newProduct]);
-  const [image, setImage] = useState();
-
-  const [nbrInput, setNbrInput] = useState([""]);
-  const addInput = () => {
-    setNbrInput([...nbrInput, "input"]);
-  };
-  const uploadImage = function (event) {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const base64Image = e.target.result;
-        console.log(base64Image);
-
-        setNewProduct({
-          ...newProduct,
-          image: [...newProduct.image, base64Image],
-        });
-      };
-      reader.readAsDataURL(file);
-    }
-  };
   const submitProduct = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    fetch("http://localhost:3001/api/product", {
+    const elements = e.target.elements;
+    console.log(elements.file.files[0]);
+    const formData = new FormData();
+
+    formData.append("title", elements.title.value);
+    formData.append("description", elements.description.value);
+    formData.append("price", elements.price.value * 100);
+    formData.append("size", elements.size.value);
+    formData.append("weight", elements.weight.value);
+    formData.append("origin", elements.origin.value);
+    formData.append("reference", elements.reference.value);
+    formData.append("mainFile", elements.mainFile.files[0]);
+    for (let i = 0; i < elements.file.files.length; i++) {
+      formData.append("files", elements.file.files[i]);
+    }
+
+    fetch("http://localhost:3001/api/product/", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
         authorization: `Bearer ${localStorage.getItem("userInfoToken")}`,
       },
-      body: JSON.stringify(newProduct),
+      body: formData,
     })
       .then(() => {
         console.log("fonctionne");
@@ -60,72 +39,55 @@ export default function page() {
   return (
     <article className="addProduct">
       <h2>Nouvelle Pierre</h2>
-      <form onSubmit={submitProduct}>
+      <form onSubmit={submitProduct} enctype="multipart/form-data">
         <input
+          name="title"
           type="text"
+          id="title"
           placeholder="Nom de la pierre"
-          onChange={(e) => {
-            setNewProduct({ ...newProduct, title: e.target.value });
-          }}
         />
-        <input
-          type="text"
+        <textarea
+          name="description"
+          id="description"
           placeholder="Description"
-          onChange={(e) => {
-            setNewProduct({ ...newProduct, description: e.target.value });
-          }}
         />
         <input
+          name="price"
+          id="price"
+          step="0.01"
           type="number"
           placeholder="Prix"
-          onChange={(e) => {
-            setNewProduct({ ...newProduct, price: e.target.value * 100 });
-          }}
         />
+        <input name="size" id="size" type="text" placeholder="Taille" />
         <input
-          type="text"
-          placeholder="Taille"
-          onChange={(e) => {
-            setNewProduct({ ...newProduct, size: e.target.value });
-          }}
-        />
-        <input
+          name="weight"
+          id="weight"
           type="number"
           placeholder="Poids (en grammes)"
-          onChange={(e) => {
-            setNewProduct({ ...newProduct, weight: e.target.value });
-          }}
         />
+        <input name="origin" id="origin" type="text" placeholder="Provenance" />
         <input
+          name="reference"
           type="text"
-          placeholder="Provenance"
-          onChange={(e) => {
-            setNewProduct({ ...newProduct, origin: e.target.value });
-          }}
+          id="reference"
+          placeholder="Référence"
         />
+        <label htmlFor="mainFile">Photo principale</label>
         <input
+          name="mainFile"
+          id="mainFile"
           type="file"
           accept="image/png, image/jpeg"
-          onChange={(e) => {
-            uploadImage(e);
-          }}
         />
+        <label htmlFor="file">Photos</label>
 
-        {newProduct.image.map((image, index) => {
-          console.log(index);
-          console.log("file" + stringify(index));
-          return (
-            <input
-              key={index}
-              type="file"
-              accept="image/png, image/jpeg"
-              onChange={(e) => {
-                uploadImage(e);
-              }}
-            />
-          );
-        })}
-
+        <input
+          name="file"
+          id="file"
+          type="file"
+          accept="image/png, image/jpeg"
+          multiple
+        />
         <Button>Créer une pierre</Button>
       </form>
     </article>

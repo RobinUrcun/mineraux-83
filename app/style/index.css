@@ -216,7 +216,6 @@ img {
   margin: 10px auto;
   max-width: 500px;
   position: relative;
-  padding-top: 80%;
 }
 @media screen and (min-width: 500px) {
   .gallery {
@@ -413,6 +412,11 @@ img {
   opacity: 0.7;
   color: rgb(77, 74, 74);
   font-size: 23px;
+}
+.boutiqueSection .productCard .productCardInfo .productCardAdd {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .boutiqueSection .productCard .productCardInfo .productCardAdd::before {
   content: "";
@@ -810,6 +814,7 @@ img {
   flex-direction: column;
 }
 .addProduct form input,
+.addProduct form textarea,
 .addProduct form .addPicture {
   margin-top: 30px;
   font-size: 20px;
@@ -882,6 +887,8 @@ img {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
+  text-wrap: nowrap;
 }
 .manageProduct .productCard .productCardInfo .productManage button,
 .manageProduct .productCard .productCardInfo .productManage a {

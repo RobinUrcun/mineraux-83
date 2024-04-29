@@ -88,9 +88,14 @@ export default function page() {
                   surname: regexVerif.surname,
                 }),
               })
-                .then((response) => response.json().then((data) => {}))
+                .then((response) => {
+                  if (response.status === 400) {
+                    alert("adresse mail deja utilisée");
+                  } else if (response.status === 201) {
+                    router.push("/boutique");
+                  }
+                })
                 .catch((error) => console.log(error));
-              router.push("/boutique");
             }
           }}
         >

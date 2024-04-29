@@ -17,6 +17,7 @@ export default function CardGestion({ product }) {
           <form>
             <button>Supprimer</button>
           </form>
+          <Link href={`/admin/creer/${product._id}`}>Produit similaire</Link>
         </div>
       </div>
     </div>

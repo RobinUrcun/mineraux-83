@@ -57,6 +57,9 @@
         }
       }
       .productCardAdd {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         &::before {
           content: "";
           display: inline-block;

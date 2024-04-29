@@ -54,7 +54,13 @@ export default function page() {
               })}
             </p>
           </div>
-          <div className="button" onClick={addToCart(product._id, userInfo)}>
+          <div
+            className="button"
+            onClick={(e) => {
+              e.preventDefault();
+              addToCart(product._id, userInfo);
+            }}
+          >
             Ajouter au panier
           </div>
         </div>

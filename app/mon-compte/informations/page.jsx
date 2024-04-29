@@ -19,16 +19,22 @@ export default function page() {
           authorization: `Bearer ${localStorage.getItem("userInfoToken")}`,
         },
       })
-        .then((response) =>
-          response.json().then((data) => {
-            setUserData({
-              ...data,
-              actualPassword: null,
-              newPassword: null,
-              verifNewPassword: null,
+        .then((response) => {
+          console.log(response.status);
+
+          if (response.status === 401) {
+            router.push("/erreur");
+          } else {
+            response.json().then((data) => {
+              setUserData({
+                ...data,
+                actualPassword: null,
+                newPassword: null,
+                verifNewPassword: null,
+              });
             });
-          })
-        )
+          }
+        })
         .catch((error) => {
           console.log(error);
           setUserData("error");
@@ -45,9 +51,11 @@ export default function page() {
     return (
       <article className="monCompteInformations">
         <h2>Mes informations</h2>
-        <form onSubmit={()=>{
-          const fetchData = async function(){}
-        }}>
+        <form
+          onSubmit={() => {
+            const fetchData = async function () {};
+          }}
+        >
           <div className="monCompteInformationsEmail">{userData.email}</div>
           <input
             type="text"
