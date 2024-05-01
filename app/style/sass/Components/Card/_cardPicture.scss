@@ -1,0 +1,26 @@
+.picturesWrapper {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  row-gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  .pictureWrapper {
+    position: relative;
+    max-width: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+    .pictureDelete {
+      cursor: pointer;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.331);
+      top: 10px;
+      right: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+    }
+  }
+}

@@ -1,10 +1,14 @@
 "use client";
 
 import React from "react";
+import { useState } from "react";
 import Button from "@/app/ui/Components/Button/Button";
+import Loader from "@/app/ui/Components/Loader/Loader";
 
 export default function page() {
+  const [isLoading, setIsLoading] = useState(false);
   const submitProduct = (e) => {
+    setIsLoading(true);
     e.preventDefault();
     e.stopPropagation();
     const elements = e.target.elements;
@@ -32,14 +36,18 @@ export default function page() {
     })
       .then(() => {
         console.log("fonctionne");
+        setIsLoading(false);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        setIsLoading(false);
+      });
   };
 
   return (
     <article className="addProduct">
       <h2>Nouvelle Pierre</h2>
-      <form onSubmit={submitProduct} enctype="multipart/form-data">
+      <form onSubmit={submitProduct} encType="multipart/form-data">
         <input
           name="title"
           type="text"
@@ -88,7 +96,7 @@ export default function page() {
           accept="image/png, image/jpeg"
           multiple
         />
-        <Button>Créer une pierre</Button>
+        {!isLoading ? <Button>Créer une pierre</Button> : <Loader />}
       </form>
     </article>
   );

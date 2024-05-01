@@ -1,4 +1,5 @@
-.addProduct {
+.addProduct,
+.modifyProduct {
   background-color: $background-menu-clr;
   margin-left: 30px;
   margin-right: 30px;
@@ -9,8 +10,7 @@
     display: flex;
     flex-direction: column;
     input,
-    textarea,
-    .addPicture {
+    textarea {
       margin-top: 30px;
       font-size: 20px;
       border-radius: 5px;
@@ -19,22 +19,14 @@
       padding-left: 10px;
       color: rgb(122, 122, 122);
     }
+    label {
+      margin-top: 30px;
+      font-size: 20px;
+
+      padding-left: 10px;
+    }
     .button {
       margin: 40px auto 0;
-    }
-    .imageUpload {
-      margin: 10px auto;
-      label {
-        cursor: pointer;
-        padding: 5px 20px;
-        border: 1px solid grey;
-        border-radius: 20px;
-        font-size: 20px;
-        color: rgb(122, 122, 122);
-      }
-      input {
-        display: block;
-      }
     }
   }
 }

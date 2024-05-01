@@ -802,20 +802,23 @@ img {
   text-align: center;
 }
 
-.addProduct {
+.addProduct,
+.modifyProduct {
   background-color: rgba(46, 46, 46, 0.545);
   margin-left: 30px;
   margin-right: 30px;
   border-radius: 10px;
   padding: 40px;
 }
-.addProduct form {
+.addProduct form,
+.modifyProduct form {
   display: flex;
   flex-direction: column;
 }
 .addProduct form input,
 .addProduct form textarea,
-.addProduct form .addPicture {
+.modifyProduct form input,
+.modifyProduct form textarea {
   margin-top: 30px;
   font-size: 20px;
   border-radius: 5px;
@@ -824,22 +827,15 @@ img {
   padding-left: 10px;
   color: rgb(122, 122, 122);
 }
-.addProduct form .button {
-  margin: 40px auto 0;
-}
-.addProduct form .imageUpload {
-  margin: 10px auto;
-}
-.addProduct form .imageUpload label {
-  cursor: pointer;
-  padding: 5px 20px;
-  border: 1px solid grey;
-  border-radius: 20px;
+.addProduct form label,
+.modifyProduct form label {
+  margin-top: 30px;
   font-size: 20px;
-  color: rgb(122, 122, 122);
+  padding-left: 10px;
 }
-.addProduct form .imageUpload input {
-  display: block;
+.addProduct form .button,
+.modifyProduct form .button {
+  margin: 40px auto 0;
 }
 
 .manageProduct {
@@ -1266,4 +1262,31 @@ img {
 }
 .errorSection a:hover {
   text-decoration: underline;
+}
+
+.picturesWrapper {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  row-gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.picturesWrapper .pictureWrapper {
+  position: relative;
+  max-width: 250px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.picturesWrapper .pictureWrapper .pictureDelete {
+  cursor: pointer;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.331);
+  top: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
 }/*# sourceMappingURL=index.css.map */

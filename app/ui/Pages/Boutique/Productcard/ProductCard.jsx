@@ -11,7 +11,11 @@ export default function ProductCard({ product }) {
   return (
     <Link href={`/produit/${product._id}`} className="productCard">
       <div className="productCardImgCont">
-        <img src={product.image} alt="ok" className="productCardImg" />
+        <img
+          src={`https://lithosphere83-bucket.s3.eu-west-3.amazonaws.com/upload/${product.mainFile[0]}`}
+          alt="ok"
+          className="productCardImg"
+        />
       </div>
       <div className="productCardInfo">
         <div className="productCardInfoCont">
