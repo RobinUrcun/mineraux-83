@@ -13,7 +13,7 @@ export default function CardPictures({ picture, typeOfFile, data, setData }) {
         },
         body: JSON.stringify({
           typeOfFile: typeOfFile,
-          pictureKey: picture,
+          pictureKey: [picture],
           dataId: data._id,
         }),
       })

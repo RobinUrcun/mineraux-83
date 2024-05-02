@@ -149,6 +149,9 @@ export default function page() {
             id="reference"
             placeholder="Référence"
             value={data.reference}
+            onChange={(e) => {
+              setData({ ...data, reference: e.target.value });
+            }}
           />
           <label htmlFor="mainFile">Photo principale</label>
           <div className="picturesWrapper">

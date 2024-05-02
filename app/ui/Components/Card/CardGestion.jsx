@@ -2,12 +2,15 @@ import React from "react";
 import Link from "next/link";
 
 export default function CardGestion({ product }) {
-  const deleteProduct = function () {
-    fetch(`http://localhost:3001/api/product/${product._id}`, {
+  const deleteProduct = function (e) {
+    console.log(product.mainFile);
+    e.preventDefault();
+    fetch(`http://localhost:3001/api/product/singleProduct/${product._id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("userInfoToken")}`,
       },
+
     })
       .then(() => {
         console.log("supprimé");
