@@ -5,7 +5,7 @@ import CardGestion from "@/app/ui/Components/Card/CardGestion";
 import { useState, useEffect } from "react";
 
 export default function page() {
-  const [productsManage, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchData = async function () {
       await fetch("http://localhost:3001/api/product").then((response) => {
@@ -20,8 +20,13 @@ export default function page() {
   }, []);
   return (
     <article className="manageProduct">
-      {productsManage.map((product) => (
-        <CardGestion product={product} />
+      {products.map((product) => (
+        <CardGestion
+          product={product}
+          products={products}
+          setProducts={setProducts}
+          key={product._id}
+        />
       ))}
     </article>
   );

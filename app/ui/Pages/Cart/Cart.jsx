@@ -6,7 +6,10 @@ export default function Cart({ product, userInfo, onRemove }) {
     <div className="cartWrapper">
       <div className="cartProductWrapper">
         <div className="cartProductImgWrapper">
-          <img src={product.image} alt="Votre produit" />
+          <img
+            src={`https://lithosphere83-bucket.s3.eu-west-3.amazonaws.com/upload/${product.mainFile[0]}`}
+            alt="Votre produit"
+          />
         </div>
         <h3>{product.title}</h3>
       </div>

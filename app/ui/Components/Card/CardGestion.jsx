@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-export default function CardGestion({ product }) {
+export default function CardGestion({ product, products, setProducts }) {
   const deleteProduct = function (e) {
     console.log(product.mainFile);
     e.preventDefault();
@@ -10,10 +10,13 @@ export default function CardGestion({ product }) {
       headers: {
         authorization: `Bearer ${localStorage.getItem("userInfoToken")}`,
       },
-
     })
       .then(() => {
         console.log("supprimé");
+        const filterProducts = products.filter((singleProduct) => {
+          return singleProduct._id !== product._id;
+        });
+        setProducts(filterProducts);
       })
       .catch((error) => console.log(error));
   };
