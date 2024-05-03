@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 
 export default function CardPictures({ picture, typeOfFile, data, setData }) {
+  console.log("picture :", picture);
   const deletePicture = () => {
     if (typeOfFile === "file") {
       console.log("requete envoyé");

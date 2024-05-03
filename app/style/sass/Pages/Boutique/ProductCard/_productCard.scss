@@ -24,7 +24,6 @@
       align-items: end;
 
       .productCardImg {
-        transition: transform 0.5s;
         width: 290px;
         height: 235px;
         border-top-left-radius: 9px;
@@ -32,10 +31,6 @@
 
         object-fit: cover;
         overflow: hidden;
-      }
-
-      &:hover .productCardImg {
-        transform: scale(1.15);
       }
     }
     .productCardInfo {
@@ -45,8 +40,17 @@
       flex-direction: row;
       justify-content: space-between;
       .productCardInfoCont {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 80%;
         .productCardName {
-          font-size: 25px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          font-size: 20px;
           margin-bottom: 5px;
           color: grey;
         }

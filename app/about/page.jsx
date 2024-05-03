@@ -48,7 +48,7 @@ export default function page() {
           </div>
           <p className="aboutContent">{categories[index].content}</p>
           <div
-            className="imgRing=Arrow"
+            className="imgRingArrow"
             onClick={() => {
               if (index === categories.length - 1) {
                 const newIndex = 0;

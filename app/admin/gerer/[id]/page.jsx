@@ -156,7 +156,7 @@ export default function page() {
           <label htmlFor="mainFile">Photo principale</label>
           <div className="picturesWrapper">
             <CardPictures
-              picture={data.mainFile[0]}
+              picture={data.mainFile}
               typeOfFile={"mainFile"}
               data={data}
               setData={setData}
@@ -171,6 +171,7 @@ export default function page() {
           <label htmlFor="file">Photos</label>
           <div className="picturesWrapper">
             {data.file.map((file) => (
+ 
               <CardPictures
                 key={file}
                 picture={file}
