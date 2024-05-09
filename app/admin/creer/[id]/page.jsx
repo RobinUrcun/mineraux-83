@@ -19,7 +19,6 @@ export default function page() {
       fetch(`http://localhost:3001/api/product/${url}`)
         .then((response) => {
           if (response.status === 200) {
-            console.log(response);
             response.json().then((data) => {
               delete data[0].mainFile;
               delete data[0].file;
@@ -36,7 +35,6 @@ export default function page() {
     };
     fetchData();
   }, []);
-  console.log(data);
 
   const submitForm = function (e) {
     setIsLoading(true);
@@ -67,7 +65,6 @@ export default function page() {
       body: formData,
     })
       .then(() => {
-        console.log("fonctionne");
         setIsLoading(false);
       })
       .catch((error) => {

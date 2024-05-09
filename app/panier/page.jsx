@@ -15,7 +15,6 @@ export default function page() {
   const [totalCart, setTotalCart] = useState(0);
 
   useEffect(() => {
-    console.log(userInfo);
     if (userInfo.isUserConnected) {
       const fetchData = async function () {
         await fetch("http://localhost:3001/api/user/cart", {
@@ -41,7 +40,6 @@ export default function page() {
       };
       fetchData();
     } else {
-      console.log(localStorage.getItem("panier"));
       const ParseLsPanier = !localStorage.getItem("panier")
         ? []
         : JSON.parse(localStorage.getItem("panier"));
@@ -64,9 +62,7 @@ export default function page() {
         setProductCart([]);
       }
     }
-    console.log(productCart);
   }, [userInfo]);
-  console.log(productCart);
 
   useEffect(() => {
     const newTotalcart = productCart.reduce(
@@ -83,7 +79,6 @@ export default function page() {
 
     setProductCart(filteredProducts);
   };
-  console.log(productCart);
   return (
     <section className="cartSection">
       <Head1>Votre panier</Head1>

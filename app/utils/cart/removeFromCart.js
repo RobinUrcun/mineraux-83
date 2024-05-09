@@ -1,5 +1,4 @@
 export function removeFromCart(productId, userInfo) {
-  console.log(userInfo);
   if (userInfo.isUserConnected) {
     fetch("http://localhost:3001/api/user/cart/", {
       method: "DELETE",

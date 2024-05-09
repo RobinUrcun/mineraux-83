@@ -20,8 +20,6 @@ export default function page() {
         },
       })
         .then((response) => {
-          console.log(response.status);
-
           if (response.status === 401) {
             router.push("/erreur");
           } else {
@@ -36,13 +34,11 @@ export default function page() {
           }
         })
         .catch((error) => {
-          console.log(error);
           setUserData("error");
         });
     };
     fetchData();
   }, []);
-  console.log(userData);
   if (userData === null) {
     return <Loader />;
   } else if (userData === "error") {
@@ -87,7 +83,6 @@ export default function page() {
             }
             onChange={(e) => {
               setUserData({ ...userData, actualPassword: e.target.value });
-              console.log(userData);
             }}
           />
           <input

@@ -12,7 +12,6 @@ export default function page() {
     e.preventDefault();
     e.stopPropagation();
     const elements = e.target.elements;
-    console.log(elements.file.files[0]);
     const formData = new FormData();
 
     formData.append("title", elements.title.value);
@@ -35,7 +34,6 @@ export default function page() {
       body: formData,
     })
       .then(() => {
-        console.log("fonctionne");
         setIsLoading(false);
       })
       .catch((error) => {

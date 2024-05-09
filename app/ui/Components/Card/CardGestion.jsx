@@ -3,7 +3,6 @@ import Link from "next/link";
 
 export default function CardGestion({ product, products, setProducts }) {
   const deleteProduct = function (e) {
-    console.log(product.mainFile);
     e.preventDefault();
     fetch(`http://localhost:3001/api/product/singleProduct/${product._id}`, {
       method: "DELETE",
@@ -12,7 +11,6 @@ export default function CardGestion({ product, products, setProducts }) {
       },
     })
       .then(() => {
-        console.log("supprimé");
         const filterProducts = products.filter((singleProduct) => {
           return singleProduct._id !== product._id;
         });

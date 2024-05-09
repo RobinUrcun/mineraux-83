@@ -45,7 +45,6 @@ export default function page() {
                   alert("Email ou mot de passe invalide");
                 } else {
                   response.json().then((data) => {
-                    console.log(data);
                     localStorage.setItem("userInfoToken", data.token);
                     localStorage.setItem("userInfoUserId", data.userId);
                     localStorage.setItem("userInfoRole", data.userRole);

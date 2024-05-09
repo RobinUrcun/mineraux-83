@@ -995,7 +995,7 @@ img {
 .commandeSection {
   padding: 50px;
 }
-.commandeSection .commandeSummaryAdressWrapper {
+.commandeSection .commandeSummaryAddressWrapper {
   margin-top: 60px;
   display: flex;
   flex-direction: row;
@@ -1027,7 +1027,8 @@ img {
   display: block;
 }
 
-.commandeAddress {
+.commandeMondialRelay {
+  margin-top: 60px;
   height: fit-content;
   background-color: rgba(46, 46, 46, 0.545);
   border-radius: 15px;
@@ -1035,45 +1036,91 @@ img {
   display: flex;
   flex-direction: column;
 }
-.commandeAddress h2 {
+.commandeMondialRelay h2 {
   font-size: 30px;
   text-align: center;
   margin: 30px;
 }
-.commandeAddress .commandeAddressWrapper {
+.commandeMondialRelay .commandeMondialRelayWrapper {
   margin: 20px 0;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
 }
-.commandeAddress .commandeAddressWrapper label {
-  text-wrap: nowrap;
+.commandeMondialRelay .commandeMondialRelayWrapper .commandeMondialrelayInfo {
+  padding-left: 40px;
+  padding-right: 80px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.commandeMondialRelay .commandeMondialRelayWrapper .commandeMondialrelayInfo label {
   padding-right: 20px;
   padding-left: 20px;
   font-size: 20px;
 }
-.commandeAddress .commandeAddressWrapper input {
-  width: 100%;
+.commandeMondialRelay .commandeMondialRelayWrapper .commandeMondialrelayInfo input {
+  margin: 10px 0;
   border-radius: 5px;
   border: none;
   font-size: 20px;
   color: rgb(76, 75, 75);
 }
-.commandeAddress .button {
+.commandeMondialRelay .button {
   margin: 30px auto 30px;
 }
-.commandeAddress .widgetWrapper {
-  margin-top: 30px;
+.commandeMondialRelay .widgetWrapper {
   color: rgb(76, 75, 75);
 }
-.commandeAddress .widgetWrapper #Zone_Widget {
+.commandeMondialRelay .widgetWrapper #Zone_Widget {
   color: rgb(76, 75, 75);
 }
-.commandeAddress .widgetWrapper #Zone_Widget input {
+.commandeMondialRelay .widgetWrapper #Zone_Widget input {
   color: rgb(76, 75, 75);
 }
-.commandeAddress .widgetWrapper #Zone_Widget .PR-AutoCplCity div,
-.commandeAddress .widgetWrapper #Zone_Widget .PR-List-Item div {
+.commandeMondialRelay .widgetWrapper #Zone_Widget .PR-AutoCplCity div,
+.commandeMondialRelay .widgetWrapper #Zone_Widget .PR-List-Item div {
   color: rgb(3, 3, 3) !important;
+}
+
+.commandeChronopost {
+  margin-top: 60px;
+  height: fit-content;
+  background-color: rgba(46, 46, 46, 0.545);
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.commandeChronopost h2 {
+  font-size: 30px;
+  text-align: center;
+  margin: 30px;
+}
+.commandeChronopost .commandeChronopostInfo {
+  padding-left: 40px;
+  padding-right: 80px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.commandeChronopost .commandeChronopostInfo label {
+  padding-right: 20px;
+  padding-left: 20px;
+  font-size: 20px;
+}
+.commandeChronopost .commandeChronopostInfo input {
+  margin: 10px 0;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  color: rgb(76, 75, 75);
+}
+.commandeChronopost .commandeChronopostInfo select {
+  font-size: 15px;
+  color: black;
 }
 
 .commandeResume {
@@ -1096,16 +1143,16 @@ img {
   font-size: 30px;
   margin: 30px;
 }
-.commandeResume .addressResume .adressResumeNames {
+.commandeResume .addressResume .addressResumeNames {
   display: flex;
   flex-direction: row;
   column-gap: 10px;
 }
-.commandeResume .addressResume .adressResumeCity {
+.commandeResume .addressResume .addressResumeCity {
   display: flex;
   flex-direction: row;
 }
-.commandeResume .addressResume .adressResumeCity p {
+.commandeResume .addressResume .addressResumeCity p {
   margin-right: 15px;
 }
 .commandeResume .addressResume p {
@@ -1301,4 +1348,32 @@ img {
   justify-content: center;
   align-items: center;
   border-radius: 5px;
+}
+
+.deliveryArticle {
+  background-color: rgba(46, 46, 46, 0.545);
+  border-radius: 15px;
+  padding: 20px 20px 40px 20px;
+  height: fit-content;
+}
+.deliveryArticle h2 {
+  font-size: 30px;
+  text-align: center;
+  margin: 30px;
+}
+.deliveryArticle .deliveryChoiceWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 60px;
+}
+.deliveryArticle .deliveryChoiceWrapper a {
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid white;
+  border-radius: 10px;
+  font-size: 20px;
+}
+.deliveryArticle .deliveryChoiceWrapper a:last-child {
+  margin-top: 20px;
 }/*# sourceMappingURL=index.css.map */

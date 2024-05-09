@@ -30,9 +30,11 @@
 @import "./sass/Pages/MonCompte/Informations/informations";
 @import "./sass/Pages/Commande/commande";
 @import "./sass/Pages/Commande/CommandeSummary/CommandeSummary";
-@import "./sass/Pages/Commande/CommandeAddress/commandeAddress";
+@import "./sass/Pages/Commande/CommandeAddress/commandeMondialRelay";
+@import "./sass/Pages/Commande/CommandeAddress/commandeChronopost";
 @import "./sass/Pages/Commande/CommandeResume/commandeResume";
 @import "./sass/Components/Loader/loader";
 @import "./sass/Utils/keyframes";
 @import "./sass/Pages/Erreur/erreur";
 @import "./sass//Components/Card/cardPicture";
+@import "./sass/Pages/Commande/CommandeDeliveryChoice/commandeDeliveryChoice";

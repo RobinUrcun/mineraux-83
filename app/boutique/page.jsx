@@ -14,9 +14,7 @@ export default function page() {
     const fetchData = async function () {
       fetch("http://localhost:3001/api/product")
         .then((response) => {
-          console.log(response);
           response.json().then((data) => {
-            console.log(data);
             setProducts(data);
           });
         })

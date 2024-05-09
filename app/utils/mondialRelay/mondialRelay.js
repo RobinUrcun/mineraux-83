@@ -26,7 +26,7 @@ export const MondialWidget = (StateToSet, State) => {
           ...State,
           delivery: {
             name: data.Nom,
-            adress: data.Adresse1,
+            road: data.Adresse1,
             CP: data.CP,
             city: data.Ville,
             country: data.Pays,
@@ -34,7 +34,7 @@ export const MondialWidget = (StateToSet, State) => {
           },
         });
       },
-      //
+
       // Display settings
       //
       // Enable Responsive (nb: non responsive corresponds to the Widget used in older versions=

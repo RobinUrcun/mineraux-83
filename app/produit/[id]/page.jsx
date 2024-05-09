@@ -9,24 +9,20 @@ import { addToCart } from "@/app/utils/cart/addToCart";
 
 export default function page() {
   const { userInfo, setUserInfo } = useContext(UserContext);
-  console.log(userInfo);
   const [imgUrlList, setImgUrlList] = useState([]);
   const [product, setProduct] = useState({});
   const url = useParams().id;
-  console.log(url);
   useEffect(() => {
     const fetchData = async function () {
       fetch(`http://localhost:3001/api/product/${url}`)
         .then((response) => {
           response.json().then((data) => {
             const imgUrl = [];
-            console.log(data[0].file.length);
             imgUrl.push(data[0].mainFile[0]);
             for (let i = 0; i < data[0].file.length; i++) {
               imgUrl.push(data[0].file[i]);
             }
             setProduct(data[0]);
-            console.log(imgUrl);
             setImgUrlList(imgUrl);
           });
         })
@@ -34,7 +30,6 @@ export default function page() {
     };
     fetchData();
   }, []);
-  console.log(product);
   return (
     <section className="sectionProduct">
       <article className="productArticle">

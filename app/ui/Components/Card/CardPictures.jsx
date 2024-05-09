@@ -2,10 +2,8 @@ import React from "react";
 import Image from "next/image";
 
 export default function CardPictures({ picture, typeOfFile, data, setData }) {
-  console.log("picture :", picture);
   const deletePicture = () => {
     if (typeOfFile === "file") {
-      console.log("requete envoyé");
       fetch("http://localhost:3001/api/product/singlePicture", {
         method: "DELETE",
         headers: {
@@ -26,7 +24,6 @@ export default function CardPictures({ picture, typeOfFile, data, setData }) {
         })
         .catch((error) => {
           console.log(error);
-          // setIsLoading(false);
         });
 
       const newFiles = data.file.filter((url) => {
@@ -48,12 +45,10 @@ export default function CardPictures({ picture, typeOfFile, data, setData }) {
         }),
       })
         .then(() => {
-          console.log("fonctionne");
           setData({ ...data, mainFile: [] });
         })
         .catch((error) => {
           console.log(error);
-          // setIsLoading(false);
         });
     }
   };
@@ -67,7 +62,6 @@ export default function CardPictures({ picture, typeOfFile, data, setData }) {
       <div
         className="pictureDelete"
         onClick={() => {
-          console.log(typeOfFile);
           deletePicture();
         }}
       >
