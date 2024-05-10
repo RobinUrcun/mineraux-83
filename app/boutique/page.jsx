@@ -24,6 +24,7 @@ export default function page() {
     };
     fetchData();
   }, []);
+
   if (products === null) {
     return <Loader />;
   } else if (products === "error") {
@@ -33,7 +34,7 @@ export default function page() {
       <React.Fragment>
         <Head1>Notre boutique</Head1>
         <section className="boutiqueSection">
-          <FilterSection />
+          <FilterSection products={products} setProducts={setProducts} />
           <div className="boutiqueProducts">
             {products.map((product) => (
               <ProductCard key={product._id} product={product} />

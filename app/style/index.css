@@ -440,6 +440,52 @@ img {
   filter: invert(0.8);
 }
 
+.contactSection {
+  display: flex;
+  margin: 70px 0;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 60px;
+}
+.contactSection .contactArticle {
+  padding: 50px;
+  border-radius: 20px;
+  width: 400px;
+  background-color: rgba(46, 46, 46, 0.545);
+}
+.contactSection .contactArticle .contactImgWrapper {
+  margin: auto;
+  width: fit-content;
+  background-color: rgb(89, 87, 87);
+  border-radius: 50%;
+  padding: 20px;
+}
+.contactSection .contactArticle p {
+  margin: 90px 0;
+  font-size: 20px;
+}
+.contactSection .contactArticle p::after {
+  position: relative;
+  content: "";
+  top: -90px;
+  display: block;
+  background-color: white;
+  height: 1px;
+}
+.contactSection .contactArticle .contactArticleWrapper {
+  font-size: 20px;
+  font-weight: 500;
+  background-color: rgb(89, 87, 87);
+  padding: 20px;
+  text-align: center;
+  width: fit-content;
+  border-radius: 15px;
+  margin: auto;
+}
+.contactSection .contactArticle a {
+  text-decoration: none;
+}
+
 .aboutSection {
   padding-bottom: 50px;
 }
@@ -1092,6 +1138,7 @@ img {
   padding: 20px;
   display: flex;
   flex-direction: column;
+  min-width: fit-content;
 }
 .commandeChronopost h2 {
   font-size: 30px;
@@ -1099,27 +1146,46 @@ img {
   margin: 30px;
 }
 .commandeChronopost .commandeChronopostInfo {
-  padding-left: 40px;
-  padding-right: 80px;
-  max-width: 500px;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
+  column-gap: 30px;
 }
-.commandeChronopost .commandeChronopostInfo label {
+.commandeChronopost .commandeChronopostInfo .commandeChronoposInfoWrapper {
+  max-width: 430px;
+}
+.commandeChronopost .commandeChronopostInfo .commandeChronopostAddressWrapper {
+  width: 60%;
+  max-width: 600px;
+}
+.commandeChronopost .commandeChronopostInfo .commandeChronopostAddressWrapper .commandeCityCPWrapper {
+  display: flex;
+  flex-direction: row;
+}
+.commandeChronopost .commandeChronopostInfo .commandeInputLabelWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.commandeChronopost .commandeChronopostInfo .commandeInputLabelWrapper label {
+  margin: 10px 0;
+  text-wrap: nowrap;
   padding-right: 20px;
   padding-left: 20px;
   font-size: 20px;
 }
-.commandeChronopost .commandeChronopostInfo input {
+.commandeChronopost .commandeChronopostInfo .commandeInputLabelWrapper input {
   margin: 10px 0;
   border-radius: 5px;
   border: none;
   font-size: 20px;
   color: rgb(76, 75, 75);
+  width: 100%;
+  min-width: 80px;
 }
-.commandeChronopost .commandeChronopostInfo select {
-  font-size: 15px;
+.commandeChronopost .commandeChronopostInfo .commandeInputLabelWrapper select {
+  font-size: 20px;
   color: black;
 }
 
