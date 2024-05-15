@@ -17,6 +17,20 @@
   border-color: red;
 }
 
+.errorMessage {
+  font-size: 15px;
+  display: none;
+  max-width: 350px;
+  opacity: 0;
+  text-wrap: wrap;
+  transition: opacity 0.5s;
+}
+
+.errorMessageDisplay {
+  display: inline-block;
+  opacity: 1;
+}
+
 body {
   background-color: black;
   background-repeat: repeat;
@@ -205,6 +219,10 @@ html {
   color: #485a6f;
   margin-bottom: 50px;
 }
+.homePresentationSection .homePresentationArticle a {
+  width: 200px;
+  margin-top: 20px;
+}
 
 img {
   max-width: 100%;
@@ -325,11 +343,37 @@ img {
 }
 .boutiqueFilter label {
   margin-right: 20px;
-  font-size: 20px;
+  font-size: 30px;
 }
 .boutiqueFilter select {
-  font-size: 15px;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 20px;
   color: #485a6f;
+}
+.boutiqueFilter form {
+  margin: 0 30px;
+  display: flex;
+  align-items: center;
+}
+.boutiqueFilter form input {
+  border: 2px solid white;
+  font-size: 20px;
+  height: 40px;
+  min-width: 200px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.boutiqueFilter form button {
+  background: linear-gradient(190deg, #485a6f, 60%, #994d61);
+  height: 40px;
+  width: 40px;
+  border: 2px solid white;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.boutiqueFilter form button img {
+  filter: invert(100%);
 }
 
 .button {
@@ -685,6 +729,10 @@ img {
   top: 0;
   left: 0;
 }
+.cartSectionWrapper .cartSectionTotal .shippingPrice {
+  font-weight: 300;
+  font-size: 18px;
+}
 .cartSectionWrapper .button {
   margin: 50px auto;
 }
@@ -712,9 +760,13 @@ img {
   height: 100%;
   object-fit: cover;
 }
+.cartWrapper .cartProductWrapper a {
+  text-decoration: none;
+}
 .cartWrapper .cartProductWrapper h3 {
   min-width: 150px;
   text-align: center;
+  margin: auto 15px;
 }
 .cartWrapper::before {
   content: "";
@@ -768,10 +820,14 @@ img {
 .loginSectionWrapper form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
 }
 .loginSectionWrapper form input {
   padding-left: 15px;
   height: 30px;
+  width: 100%;
   border-radius: 10px;
   font-size: 20px;
   margin-top: 30px;
@@ -805,10 +861,14 @@ img {
 .signupSectionWrapper form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
 }
 .signupSectionWrapper form input {
   padding-left: 15px;
   height: 30px;
+  width: 100%;
   border-radius: 10px;
   font-size: 20px;
   margin-top: 30px;
@@ -1366,6 +1426,25 @@ img {
     transform: translateX(0%);
   }
 }
+@keyframes fadeIn {
+  0% {
+    bottom: -50px;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    bottom: 50px;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    bottom: -50px;
+  }
+}
 .errorSection {
   display: flex;
   flex-direction: column;
@@ -1414,6 +1493,35 @@ img {
   justify-content: center;
   align-items: center;
   border-radius: 5px;
+}
+
+.toast {
+  position: fixed;
+  bottom: 50px;
+  padding: 20px 50px;
+  border-radius: 10px;
+  background-color: white;
+  right: 50px;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 500;
+  z-index: 99;
+  display: none;
+}
+
+.succes {
+  display: flex;
+  color: rgb(82, 133, 93);
+  background-color: rgb(199, 245, 211);
+  animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
+}
+
+.failed {
+  display: flex;
+  background-color: rgb(247, 204, 203);
+  color: rgb(202, 58, 49);
+  animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
 }
 
 .deliveryArticle {

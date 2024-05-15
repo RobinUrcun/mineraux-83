@@ -5,6 +5,7 @@ import Link from "next/link";
 import { addToCart } from "@/app/utils/cart/addToCart";
 import { useContext } from "react";
 import { UserContext } from "@/app/utils/context/userContext";
+import showToast from "@/app/utils/toast/showToast";
 
 export default function ProductCard({ product }) {
   const { userInfo, setUserInfo } = useContext(UserContext);
@@ -32,6 +33,7 @@ export default function ProductCard({ product }) {
           onClick={(e) => {
             e.preventDefault();
             addToCart(product._id, userInfo);
+            showToast();
           }}
           className="productCardAdd"
         >

@@ -5,20 +5,14 @@ import Link from "next/link";
 import { useState, useContext } from "react";
 import { useRouter } from "next/navigation";
 import { UserContext } from "@/app/utils/context/userContext";
+import { validEmail, validPassword } from "../utils/regex/regex";
 import Head1 from "../ui/Components/head1/Head1";
+import InputMessage from "@/app/ui/Components/InputMessage/InputMessage";
 
 export default function page() {
   const router = useRouter();
   const { userInfo, setUserInfo } = useContext(UserContext);
-  const [emailValue, setEmailValue] = useState("");
-  const [passwordValue, setPasswordValue] = useState("");
-
-  function getEmailValue(e) {
-    setEmailValue(e.target.value);
-  }
-  function getPasswordValue(e) {
-    setPasswordValue(e.target.value);
-  }
+  const [userData, setUserData] = useState({ email: "", password: "" });
   return (
     <section className="loginSection">
       <Head1>Se connecter</Head1>
@@ -33,8 +27,8 @@ export default function page() {
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({
-                email: emailValue,
-                password: passwordValue,
+                email: userData.email,
+                password: userData.password,
                 cart: !localStorage.getItem("panier")
                   ? null
                   : localStorage.getItem("panier"),
@@ -63,20 +57,72 @@ export default function page() {
           }}
         >
           <input
+            autoComplete="email"
             type="email"
             id="loginMail"
             placeholder="Adresse e-mail"
-            onChange={getEmailValue}
+            onChange={(e) => {
+              setUserData({ ...userData, email: e.target.value });
+            }}
+            className={
+              userData.email === ""
+                ? null
+                : validEmail.test(userData.email)
+                ? null
+                : "errorInput"
+            }
           />
+          <InputMessage
+            classNames={
+              userData.email === ""
+                ? false
+                : validEmail.test(userData.email)
+                ? false
+                : true
+            }
+          >
+            Format de l'email non reconnu !
+          </InputMessage>
 
           <input
+            autoComplete="current-password"
             type="password"
             id="loginPassword"
             placeholder="Mot de passe"
-            onChange={getPasswordValue}
+            onChange={(e) => {
+              setUserData({ ...userData, password: e.target.value });
+            }}
+            className={
+              userData.password === ""
+                ? null
+                : validPassword.test(userData.password)
+                ? null
+                : "errorInput"
+            }
           />
-
-          <Button type="submit">Se connecter</Button>
+          <InputMessage
+            classNames={
+              userData.password === ""
+                ? false
+                : validPassword.test(userData.password)
+                ? false
+                : true
+            }
+          >
+            Votre mot de passe doit contenir 6 caractères minimum dont au moins
+            1 chiffre et 1 lettre !
+          </InputMessage>
+          <Button
+            type="submit"
+            disabled={
+              validEmail.test(userData.email) &&
+              validPassword.test(userData.password)
+                ? null
+                : "true"
+            }
+          >
+            Se connecter
+          </Button>
         </form>
         <div className="helpLogin">
           <Link href="">Impossible de se connecter</Link>

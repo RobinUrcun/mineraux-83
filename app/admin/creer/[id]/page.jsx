@@ -6,6 +6,10 @@ import Button from "@/app/ui/Components/Button/Button";
 import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import Loader from "@/app/ui/Components/Loader/Loader";
+import Toast from "@/app/ui/Components/Toast/Toast";
+import showToast from "@/app/utils/toast/showToast";
+import ToastFailed from "@/app/ui/Components/Toast/ToastFailed";
+import showToastFailed from "@/app/utils/toast/showToastFailed";
 
 export default function page() {
   const router = useRouter();
@@ -64,12 +68,19 @@ export default function page() {
       },
       body: formData,
     })
-      .then(() => {
-        setIsLoading(false);
+      .then((response) => {
+        if (response.status === 201) {
+          setIsLoading(false);
+          showToast();
+        } else {
+          setIsLoading(false);
+          showToastFailed();
+        }
       })
       .catch((error) => {
         console.log(error);
         setIsLoading(false);
+        showToastFailed();
       });
   };
 
@@ -169,6 +180,8 @@ export default function page() {
           />
           {isLoading ? <Loader /> : <Button>Créer une pierre</Button>}
         </form>
+        <Toast>Produit crée</Toast>
+        <ToastFailed>Impossible de créer</ToastFailed>
       </article>
     );
   }

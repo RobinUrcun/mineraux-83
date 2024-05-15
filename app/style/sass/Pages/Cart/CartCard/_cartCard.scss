@@ -19,9 +19,13 @@
         object-fit: cover;
       }
     }
+    a {
+      text-decoration: none;
+    }
     h3 {
       min-width: 150px;
       text-align: center;
+      margin: auto 15px;
     }
   }
   &::before {

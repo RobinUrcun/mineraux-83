@@ -1,5 +1,6 @@
 import React from "react";
 import { removeFromCart } from "@/app/utils/cart/removeFromCart";
+import Link from "next/link";
 
 export default function Cart({ product, userInfo, onRemove }) {
   return (
@@ -11,7 +12,9 @@ export default function Cart({ product, userInfo, onRemove }) {
             alt="Votre produit"
           />
         </div>
-        <h3>{product.title}</h3>
+        <Link href={`/produit/${product._id}`}>
+          <h3>{product.title}</h3>
+        </Link>
       </div>
       <div className="QtyAndPrice">
         <div className="cartQty">

@@ -26,6 +26,7 @@ export default function page() {
           key={product._id}
         />
       ))}
+
     </article>
   );
 }

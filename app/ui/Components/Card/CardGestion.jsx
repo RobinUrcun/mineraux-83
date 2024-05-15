@@ -1,5 +1,9 @@
 import React from "react";
 import Link from "next/link";
+import Toast from "../Toast/Toast";
+import ToastFailed from "../Toast/ToastFailed";
+import showToast from "@/app/utils/toast/showToast";
+import showToastFailed from "@/app/utils/toast/showToastFailed";
 
 export default function CardGestion({ product, products, setProducts }) {
   const deleteProduct = function (e) {
@@ -10,13 +14,21 @@ export default function CardGestion({ product, products, setProducts }) {
         authorization: `Bearer ${localStorage.getItem("userInfoToken")}`,
       },
     })
-      .then(() => {
-        const filterProducts = products.filter((singleProduct) => {
-          return singleProduct._id !== product._id;
-        });
-        setProducts(filterProducts);
+      .then((response) => {
+        console.log(response.status);
+        if (response.status === 200) {
+          const filterProducts = products.filter((singleProduct) => {
+            return singleProduct._id !== product._id;
+          });
+          setProducts(filterProducts);
+          showToast();
+        } else {
+          showToastFailed();
+        }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        showToastFailed();
+      });
   };
   return (
     <div className="productCard">
@@ -40,6 +52,8 @@ export default function CardGestion({ product, products, setProducts }) {
           <Link href={`/admin/creer/${product._id}`}>Produit similaire</Link>
         </div>
       </div>
+      <Toast>Produit supprimé</Toast>
+      <ToastFailed>Impossible de supprimer</ToastFailed>
     </div>
   );
 }

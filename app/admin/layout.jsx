@@ -2,12 +2,14 @@
 import React from "react";
 import Head1 from "../ui/Components/head1/Head1";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { UserContext } from "../utils/context/userContext";
 import { useRouter } from "next/navigation";
 import Loader from "../ui/Components/Loader/Loader";
 
 export default function layout({ children }) {
   const router = useRouter();
+  const { userInfo, setUserInfo } = useContext(UserContext);
   const [userDonee, setUserDonnee] = useState(null);
 
   useEffect(() => {
@@ -19,11 +21,22 @@ export default function layout({ children }) {
           authorization: `Bearer ${localStorage.getItem("userInfoToken")}`,
         },
       })
-        .then((response) =>
-          response.json().then((data) => {
-            setUserDonnee(data.role);
-          })
-        )
+        .then((response) => {
+          if (response.status === 200) {
+            response.json().then((data) => {
+              setUserDonnee(data.role);
+            });
+          } else if (response.status === 401) {
+            setUserInfo({
+              isUserConnected: null,
+              userRole: null,
+            });
+            localStorage.removeItem("userInfoToken");
+            localStorage.removeItem("userInfoUserId");
+            localStorage.removeItem("userInfoRole");
+            router.push("/login");
+          }
+        })
         .catch((error) => {
           console.log(error);
           setUserDonnee("error");
@@ -31,7 +44,7 @@ export default function layout({ children }) {
     };
     fetchDonnee();
   }, []);
-
+  console.log(userDonee);
   if (userDonee === null) {
     return <Loader />;
   } else if (userDonee == "ADMIN") {

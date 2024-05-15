@@ -2,14 +2,28 @@
 
 import React from "react";
 import Button from "@/app/ui/Components/Button/Button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { UserContext } from "@/app/utils/context/userContext";
 import Loader from "@/app/ui/Components/Loader/Loader";
 import { useRouter } from "next/navigation";
-import { validEmail, validPassword, validName } from "@/app/utils/regex/regex";
+import { validPassword, validName } from "@/app/utils/regex/regex";
+import InputMessage from "@/app/ui/Components/InputMessage/InputMessage";
+import Toast from "@/app/ui/Components/Toast/Toast";
+import ToastFailed from "@/app/ui/Components/Toast/ToastFailed";
+import showToast from "@/app/utils/toast/showToast";
+import showToastFailed from "@/app/utils/toast/showToastFailed";
 
 export default function page() {
+  const { userInfo, setUserInfo } = useContext(UserContext);
   const router = useRouter();
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState({
+    email: "",
+    name: "",
+    surname: "",
+    actualPassword: "",
+    newPassword: "",
+    verifNewPassword: "",
+  });
   useEffect(() => {
     const fetchData = async function () {
       await fetch(`http://localhost:3001/api/user/userInfo/`, {
@@ -20,17 +34,24 @@ export default function page() {
         },
       })
         .then((response) => {
-          if (response.status === 401) {
-            router.push("/erreur");
-          } else {
+          if (response.status === 200) {
             response.json().then((data) => {
               setUserData({
                 ...data,
-                actualPassword: null,
-                newPassword: null,
-                verifNewPassword: null,
+                actualPassword: "",
+                newPassword: "",
+                verifNewPassword: "",
               });
             });
+          } else if (response.status === 401) {
+            setUserInfo({
+              isUserConnected: null,
+              userRole: null,
+            });
+            localStorage.removeItem("userInfoToken");
+            localStorage.removeItem("userInfoUserId");
+            localStorage.removeItem("userInfoRole");
+            router.push("/login");
           }
         })
         .catch((error) => {
@@ -39,6 +60,31 @@ export default function page() {
     };
     fetchData();
   }, []);
+
+  console.log(userData);
+
+  const submitForm = function (e) {
+    e.preventDefault();
+    fetch("http://localhost:3001/api/user/userInfo", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("userInfoToken")}`,
+      },
+      body: JSON.stringify(userData),
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          showToast();
+        } else if (response.status === 403) {
+          showToastFailed();
+        }
+      })
+      .catch((err) => {
+        showToastFailed();
+      });
+  };
+
   if (userData === null) {
     return <Loader />;
   } else if (userData === "error") {
@@ -48,34 +94,71 @@ export default function page() {
       <article className="monCompteInformations">
         <h2>Mes informations</h2>
         <form
-          onSubmit={() => {
-            const fetchData = async function () {};
+          onSubmit={(e) => {
+            submitForm(e);
           }}
         >
           <div className="monCompteInformationsEmail">{userData.email}</div>
           <input
+            autoComplete="family-name"
             type="text"
             placeholder="Nom"
             value={userData.name}
-            className={validName.test(userData.name) ? null : "errorInput"}
+            className={
+              userData.name === ""
+                ? null
+                : validName.test(userData.name)
+                ? null
+                : "errorInput"
+            }
             onChange={(e) => {
               setUserData({ ...userData, name: e.target.value });
             }}
           />
+          <InputMessage
+            classNames={
+              userData.name === ""
+                ? false
+                : validName.test(userData.name)
+                ? false
+                : true
+            }
+          >
+            Votre nom ne peut contenir que des lettres !
+          </InputMessage>
           <input
+            autoComplete="given-name"
             type="text"
             placeholder="Prenom"
             value={userData.surname}
-            className={validName.test(userData.surname) ? null : "errorInput"}
+            className={
+              userData.surname === ""
+                ? null
+                : validName.test(userData.surname)
+                ? null
+                : "errorInput"
+            }
             onChange={(e) => {
               setUserData({ ...userData, surname: e.target.value });
             }}
           />
+          <InputMessage
+            classNames={
+              userData.surname === ""
+                ? false
+                : validName.test(userData.surname)
+                ? false
+                : true
+            }
+          >
+            Votre prénom ne peut contenir que des lettres !
+          </InputMessage>
           <input
             type="password"
             placeholder="Mot de passe actuel"
+            autoComplete="current-password"
             className={
-              !userData.actualPassword
+              userData.actualPassword === ""
                 ? null
                 : validPassword.test(userData.actualPassword)
                 ? null
@@ -85,11 +168,24 @@ export default function page() {
               setUserData({ ...userData, actualPassword: e.target.value });
             }}
           />
+          <InputMessage
+            classNames={
+              userData.actualPassword === ""
+                ? false
+                : validPassword.test(userData.actualPassword)
+                ? false
+                : true
+            }
+          >
+            Votre mot de passe doit contenir 6 caractères minimum dont au moins
+            1 chiffre et 1 lettre !
+          </InputMessage>
           <input
+            autoComplete="new-password"
             type="password"
             placeholder="Nouveau mot de passe"
             className={
-              !userData.newPassword
+              userData.newPassword === ""
                 ? null
                 : validPassword.test(userData.newPassword)
                 ? null
@@ -99,7 +195,20 @@ export default function page() {
               setUserData({ ...userData, newPassword: e.target.value });
             }}
           />
+          <InputMessage
+            classNames={
+              userData.newPassword === ""
+                ? false
+                : validPassword.test(userData.newPassword)
+                ? false
+                : true
+            }
+          >
+            Votre mot de passe doit contenir 6 caractères minimum dont au moins
+            1 chiffre et 1 lettre !
+          </InputMessage>
           <input
+            autoComplete="new-password"
             type="password"
             placeholder="Nouveau mot de passe"
             className={
@@ -113,14 +222,26 @@ export default function page() {
               setUserData({ ...userData, verifNewPassword: e.target.value });
             }}
           />
+          <InputMessage
+            classNames={
+              userData.verifNewPassword === ""
+                ? false
+                : userData.verifNewPassword === userData.newPassword
+                ? false
+                : true
+            }
+          >
+            Vos mots de passe ne correspondent pas !
+          </InputMessage>
           <Button
             type="submit"
             disabled={
               validName.test(userData.name) &&
               validName.test(userData.surname) &&
-              validPassword.test(userData.actualPassword) &&
-              validPassword.test(userData.newPassword) &&
-              userData.newPassword === userData.verifNewPassword
+              ((validPassword.test(userData.newPassword) &&
+                userData.newPassword === userData.verifNewPassword) ||
+                (userData.newPassword === "" &&
+                  userData.verifNewPassword === ""))
                 ? null
                 : "true"
             }
@@ -128,6 +249,8 @@ export default function page() {
             Modifier
           </Button>
         </form>
+        <Toast>Informations enregistrées</Toast>
+        <ToastFailed>Le mot de passe actuel est éroné</ToastFailed>
       </article>
     );
   }

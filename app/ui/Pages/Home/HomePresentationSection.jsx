@@ -15,6 +15,9 @@ export default function HomePresentationSection() {
           collectionneurs et amateurs, une plateforme où l'authenticité, la
           qualité et la diversité sont nos maîtres-mots.
         </p>
+        <Link href="/boutique" className="button">
+          Notre boutique
+        </Link>
         <Link href="/about" className="button">
           Découvrez nous
         </Link>

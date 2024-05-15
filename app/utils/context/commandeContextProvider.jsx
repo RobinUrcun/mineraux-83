@@ -7,16 +7,16 @@ export const CommandeContext = createContext();
 
 export default function CommandeContextProvider({ children }) {
   const [commandeInfo, setCommandeInfo] = useState({
-    userSurname: undefined,
-    userName: undefined,
-    phone: undefined,
+    userSurname: "",
+    userName: "",
+    phone: "",
     delivery: {
-      name: undefined,
-      road: undefined,
-      CP: undefined,
-      city: undefined,
-      country: undefined,
-      id: undefined,
+      name: "",
+      road: "",
+      CP: "",
+      city: "",
+      country: "",
+      id: "",
     },
   });
   return (

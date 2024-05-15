@@ -3,9 +3,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import SummaryCard from "@/app/ui/Pages/Commande/Summary/SummaryCard/SummaryCard";
+import shippingFunction from "@/app/utils/shippingFunction/shippingFunction";
 
 export default function Summary() {
   const [productCart, setProductCart] = useState([]);
+  const [shippingPrice, setShippingPrice] = useState(0);
   useEffect(() => {
     const fetchData = async function () {
       await fetch("http://localhost:3001/api/user/cart", {
@@ -16,12 +18,16 @@ export default function Summary() {
         },
       })
         .then((response) => {
-          response.json().then((data) => setProductCart(data));
+          response.json().then((data) => {
+            setProductCart(data);
+            setShippingPrice(shippingFunction(data));
+          });
         })
         .catch((err) => console.log(err));
     };
     fetchData();
   }, []);
+  console.log(shippingPrice)
   return (
     <article className="commandeSummary">
       <h2>Récapitulatif du panier</h2>

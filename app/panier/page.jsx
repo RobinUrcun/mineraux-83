@@ -25,13 +25,20 @@ export default function page() {
           },
         })
           .then((response) => {
-            if (response.status === 401) {
-              router.push("/erreur");
-            } else {
+            if (response.status === 200) {
               response
                 .json()
                 .then((data) => setProductCart(data))
                 .catch((error) => console.log(error));
+            } else if (response.status === 401) {
+              setUserInfo({
+                isUserConnected: null,
+                userRole: null,
+              });
+              localStorage.removeItem("userInfoToken");
+              localStorage.removeItem("userInfoUserId");
+              localStorage.removeItem("userInfoRole");
+              router.push("/login");
             }
           })
           .catch((err) => {
@@ -96,12 +103,15 @@ export default function page() {
           ))
         )}
         <div className="cartSectionTotal">
-          Total :{" "}
-          {(totalCart / 100).toLocaleString("fr-FR", {
-            style: "currency",
-            currency: "EUR",
-            minimumFractionDigits: 2,
-          })}
+          <p>
+            Total <span className="shippingPrice">( avant frais de port )</span>{" "}
+            :{" "}
+            {(totalCart / 100).toLocaleString("fr-FR", {
+              style: "currency",
+              currency: "EUR",
+              minimumFractionDigits: 2,
+            })}
+          </p>
         </div>
         {!userInfo.isUserConnected ? (
           <Link href="/login" className="button">

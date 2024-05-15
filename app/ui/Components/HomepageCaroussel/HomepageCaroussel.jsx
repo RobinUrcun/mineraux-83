@@ -5,6 +5,7 @@ export default function HomepageCaroussel() {
     <article className="gallery">
       <div className="gallery__item">
         <input
+          checked
           type="radio"
           id="img-1"
           name="gallery"

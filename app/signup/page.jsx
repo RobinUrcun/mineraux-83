@@ -5,60 +5,18 @@ import Button from "../ui/Components/Button/Button";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { validEmail, validName, validPassword } from "../utils/regex/regex";
+import InputMessage from "../ui/Components/InputMessage/InputMessage";
 
 export default function page() {
   const router = useRouter();
   // ETAT PERMETTANT LA VERIFICATION DES REGEX //
-  const [regexVerif, setRegexVerif] = useState({
+  const [inputData, setInputData] = useState({
     surname: "",
     name: "",
     email: "",
     password: "",
     secPassword: "",
   });
-
-  // VERFICATION DU  NOM //
-  function getSurnameValue(e) {
-    setRegexVerif({
-      ...regexVerif,
-      surname: e.target.value,
-    });
-  }
-
-  // VERFICATION DU  PRENOM //
-  function getNameValue(e) {
-    setRegexVerif({
-      ...regexVerif,
-      name: e.target.value,
-    });
-  }
-
-  // VERFICATION DE L'EMAIL //
-
-  function getEmailValue(e) {
-    setRegexVerif({
-      ...regexVerif,
-      email: e.target.value,
-    });
-  }
-
-  // VERFICATION DU MOT DE PASSE (REGEX) //
-
-  function getPasswordValue(e) {
-    setRegexVerif({
-      ...regexVerif,
-      password: e.target.value,
-    });
-  }
-
-  // VERIFICATION DE DEUXIEME MOT DE PASSE //
-
-  function getSecondPasswordValue(e) {
-    setRegexVerif({
-      ...regexVerif,
-      secPassword: e.target.value,
-    });
-  }
 
   return (
     <section className="signupSection">
@@ -67,12 +25,12 @@ export default function page() {
         <form
           onSubmit={(e) => {
             if (
-              validName.test(regexVerif.name) &&
-              validName.test(regexVerif.surname) &&
-              validEmail.test(regexVerif.email) &&
-              validPassword.test(regexVerif.password) &&
-              validPassword.test(regexVerif.secPassword) &&
-              regexVerif.password === regexVerif.secPassword
+              validName.test(inputData.name) &&
+              validName.test(inputData.surname) &&
+              validEmail.test(inputData.email) &&
+              validPassword.test(inputData.password) &&
+              validPassword.test(inputData.secPassword) &&
+              inputData.password === inputData.secPassword
             ) {
               e.preventDefault();
               e.stopPropagation();
@@ -82,10 +40,10 @@ export default function page() {
                   "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                  email: regexVerif.email,
-                  password: regexVerif.password,
-                  name: regexVerif.name,
-                  surname: regexVerif.surname,
+                  email: inputData.email,
+                  password: inputData.password,
+                  name: inputData.name,
+                  surname: inputData.surname,
                 }),
               })
                 .then((response) => {
@@ -100,76 +58,157 @@ export default function page() {
           }}
         >
           <input
+            autoComplete="family-name"
             type="text"
             placeholder="Nom"
             className={
-              regexVerif.surname == ""
+              inputData.surname == ""
                 ? null
-                : validName.test(regexVerif.surname)
+                : validName.test(inputData.surname)
                 ? null
                 : "errorInput"
             }
-            onChange={getSurnameValue}
+            onChange={(e) => {
+              setInputData({
+                ...inputData,
+                surname: e.target.value,
+              });
+            }}
           />
-
+          <InputMessage
+            classNames={
+              inputData.surname === ""
+                ? false
+                : validName.test(inputData.surname)
+                ? false
+                : true
+            }
+          >
+            Votre nom ne peut contenir que des lettres !
+          </InputMessage>
           <input
+            autoComplete="given-name"
             type="text"
             className={
-              regexVerif.name == ""
+              inputData.name == ""
                 ? null
-                : validName.test(regexVerif.name)
+                : validName.test(inputData.name)
                 ? null
                 : "errorInput"
             }
             placeholder="Prénom"
-            onChange={getNameValue}
+            onChange={(e) => {
+              setInputData({
+                ...inputData,
+                name: e.target.value,
+              });
+            }}
           />
-
+          <InputMessage
+            classNames={
+              inputData.name === ""
+                ? false
+                : validName.test(inputData.name)
+                ? false
+                : true
+            }
+          >
+            Votre prénom ne peut contenir que des lettres !
+          </InputMessage>
           <input
+            autoComplete="email"
             type="email"
             className={
-              regexVerif.email == ""
+              inputData.email == ""
                 ? null
-                : validEmail.test(regexVerif.email)
+                : validEmail.test(inputData.email)
                 ? null
                 : "errorInput"
             }
             placeholder="Adresse e-mail"
-            onChange={getEmailValue}
+            onChange={(e) => {
+              setInputData({
+                ...inputData,
+                email: e.target.value,
+              });
+            }}
           />
-
+          <InputMessage
+            classNames={
+              inputData.email === ""
+                ? false
+                : validEmail.test(inputData.email)
+                ? false
+                : true
+            }
+          >
+            Format de l'email non reconnu !
+          </InputMessage>
           <input
+            autoComplete="new-password"
             type="password"
             className={
-              regexVerif.password == ""
+              inputData.password == ""
                 ? null
-                : validPassword.test(regexVerif.password)
+                : validPassword.test(inputData.password)
                 ? null
                 : "errorInput"
             }
             placeholder="Mot de passe"
-            onChange={getPasswordValue}
+            onChange={(e) => {
+              setInputData({
+                ...inputData,
+                password: e.target.value,
+              });
+            }}
           />
-
+          <InputMessage
+            classNames={
+              inputData.password === ""
+                ? false
+                : validPassword.test(inputData.password)
+                ? false
+                : true
+            }
+          >
+            Votre mot de passe doit contenir 6 caractères minimum dont au moins
+            1 chiffre et 1 lettre !
+          </InputMessage>
           <input
+            autoComplete="new-password"
             type="password"
             className={
-              regexVerif.secPassword == ""
+              inputData.secPassword == ""
                 ? null
-                : regexVerif.password == regexVerif.secPassword
+                : inputData.password === inputData.secPassword
                 ? null
                 : "errorInput"
             }
             placeholder="Confirmer le mot de passe"
-            onChange={getSecondPasswordValue}
+            onChange={(e) => {
+              setInputData({
+                ...inputData,
+                secPassword: e.target.value,
+              });
+            }}
           />
-
-          {validName.test(regexVerif.name) &&
-          validName.test(regexVerif.surname) &&
-          validEmail.test(regexVerif.email) &&
-          validPassword.test(regexVerif.password) &&
-          validPassword.test(regexVerif.secPassword) &&
-          regexVerif.password === regexVerif.secPassword ? (
+          <InputMessage
+            classNames={
+              inputData.secPassword === ""
+                ? false
+                : inputData.password === inputData.secPassword
+                ? false
+                : true
+            }
+          >
+            Vos mots de passe ne correspondent pas !
+          </InputMessage>
+          {validName.test(inputData.name) &&
+          validName.test(inputData.surname) &&
+          validEmail.test(inputData.email) &&
+          validPassword.test(inputData.password) &&
+          validPassword.test(inputData.secPassword) &&
+          inputData.password === inputData.secPassword ? (
             <Button type="submit">Créer son compte</Button>
           ) : (
             <Button type="submit" disabled="true">

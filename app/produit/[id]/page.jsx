@@ -6,6 +6,8 @@ import { useState, useEffect, useContext } from "react";
 import { UserContext } from "@/app/utils/context/userContext";
 import { useParams } from "next/navigation";
 import { addToCart } from "@/app/utils/cart/addToCart";
+import Toast from "@/app/ui/Components/Toast/Toast";
+import showToast from "@/app/utils/toast/showToast";
 
 export default function page() {
   const { userInfo, setUserInfo } = useContext(UserContext);
@@ -62,12 +64,14 @@ export default function page() {
             onClick={(e) => {
               e.preventDefault();
               addToCart(product._id, userInfo);
+              showToast();
             }}
           >
             Ajouter au panier
           </div>
         </div>
       </article>
+      <Toast>Produit ajouté !</Toast>
     </section>
   );
 }

@@ -4,6 +4,10 @@ import React from "react";
 import { useState } from "react";
 import Button from "@/app/ui/Components/Button/Button";
 import Loader from "@/app/ui/Components/Loader/Loader";
+import Toast from "@/app/ui/Components/Toast/Toast";
+import ToastFailed from "@/app/ui/Components/Toast/ToastFailed";
+import showToast from "@/app/utils/toast/showToast";
+import showToastFailed from "@/app/utils/toast/showToastFailed";
 
 export default function page() {
   const [isLoading, setIsLoading] = useState(false);
@@ -33,12 +37,18 @@ export default function page() {
       },
       body: formData,
     })
-      .then(() => {
-        setIsLoading(false);
+      .then((response) => {
+        if (response.status === 201) {
+          setIsLoading(false);
+          showToast();
+        } else {
+          setIsLoading(false);
+          showToastFailed();
+        }
       })
       .catch((error) => {
-        console.log(error);
         setIsLoading(false);
+        showToastFailed();
       });
   };
 
@@ -96,6 +106,8 @@ export default function page() {
         />
         {!isLoading ? <Button>Créer une pierre</Button> : <Loader />}
       </form>
+      <Toast>Produit crée</Toast>
+      <ToastFailed>Impossible de créer</ToastFailed>
     </article>
   );
 }
