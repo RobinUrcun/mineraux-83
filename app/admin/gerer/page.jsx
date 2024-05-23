@@ -3,30 +3,58 @@
 import React from "react";
 import CardGestion from "@/app/ui/Components/Card/CardGestion";
 import { useState, useEffect } from "react";
+import { fetchAllData } from "@/app/utils/fetchs/fetchAllProduct";
 
 export default function page() {
+  const [page, setPage] = useState(1);
+
+  const loadMoreProduct = function () {
+    const url = `http://localhost:3001/api/product?page=${page + 1}`;
+
+    fetchAllData(url, null)
+      .then((data) => {
+        const productList = products;
+
+        for (let index = 0; index < data.stones.length; index++) {
+          productList.push(data.stones[index]);
+        }
+        console.log(productList);
+        setProducts(productList);
+        setPage(page + 1);
+      })
+      .catch(() => {
+        setProducts("error");
+      });
+  };
+
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    const fetchData = async function () {
-      await fetch("http://localhost:3001/api/product").then((response) => {
-        response.json().then((data) => {
-          setProducts(data);
-        });
-      });
-    };
-    fetchData();
+    const url = `http://localhost:3001/api/product?page=${page}`;
+    fetchAllData(url, null).then((data) => {
+      setProducts(data.stones);
+    });
   }, []);
   return (
     <article className="manageProduct">
-      {products.map((product) => (
-        <CardGestion
-          product={product}
-          products={products}
-          setProducts={setProducts}
-          key={product._id}
-        />
-      ))}
-
+      <div className="manageProductWrapper">
+        {products.map((product) => (
+          <CardGestion
+            product={product}
+            products={products}
+            setProducts={setProducts}
+            key={product._id}
+          />
+        ))}
+      </div>
+      <form
+        className="loadMore"
+        onSubmit={(e) => {
+          e.preventDefault();
+          loadMoreProduct();
+        }}
+      >
+        <button>afficher plus</button>
+      </form>
     </article>
   );
 }

@@ -25,3 +25,23 @@
 .disabled {
   opacity: 0.5 !important;
 }
+
+.loadMore {
+  display: flex;
+  justify-content: center;
+  button {
+    cursor: pointer;
+    font-size: 25px;
+    border: white 1px solid;
+    border-radius: 20px;
+
+    margin: 50px auto;
+    width: fit-content;
+    padding: 20px 40px;
+    background-color: $background-menu-clr;
+    transition: transform 0.5s ease-in-out;
+    &:hover {
+      transform: scale(110%);
+    }
+  }
+}
