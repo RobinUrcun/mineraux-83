@@ -1,6 +1,9 @@
 import React from "react";
+import { useContext } from "react";
+import { CommandeContext } from "@/app/utils/context/commandeContextProvider";
 
-export default function AddressResume({ commandeInfo }) {
+export default function AddressResume() {
+  const { commandeInfo, deliveryInfo } = useContext(CommandeContext);
   return (
     <div className="adressResumeWrapper">
       <div className="addressResumeNames">
@@ -8,12 +11,12 @@ export default function AddressResume({ commandeInfo }) {
         <p>{commandeInfo.userName}</p>
       </div>
 
-      <p>{commandeInfo.delivery.name}</p>
-      <p>{commandeInfo.delivery.road}</p>
+      <p>{deliveryInfo.name}</p>
+      <p>{deliveryInfo.road}</p>
       <div className="addressResumeCity">
-        <p>{commandeInfo.delivery.CP}</p>
-        <p>{commandeInfo.delivery.city}</p>
-        <p>{commandeInfo.delivery.country}</p>
+        <p>{deliveryInfo.CP}</p>
+        <p>{deliveryInfo.city}</p>
+        <p>{deliveryInfo.country}</p>
       </div>
     </div>
   );

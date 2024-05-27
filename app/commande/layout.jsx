@@ -11,9 +11,8 @@ import DeliveryChoice from "../ui/Pages/Commande/DeliveryChoice/DeliveryChoice";
 export default function layout({ children }) {
   return (
     <React.Fragment>
+      <Head1>Ma commande</Head1>
       <CommandeContextProvider>
-        <Head1>Ma commande</Head1>
-
         <section className="commandeSection">
           <div className="commandeSummaryAddressWrapper">
             <Summary />

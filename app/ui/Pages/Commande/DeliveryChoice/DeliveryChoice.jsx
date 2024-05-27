@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { CommandeContext } from "@/app/utils/context/commandeContextProvider";
 
 export default function DeliveryChoice() {
-  const { commandeInfo, setCommandeInfo } = useContext(CommandeContext);
+  const { deliveryInfo, setDeliveryInfo } = useContext(CommandeContext);
   return (
     <article className="deliveryArticle">
       <h2>Choisissez votre mode de livraison :</h2>
@@ -14,16 +14,9 @@ export default function DeliveryChoice() {
         <Link
           href={"/commande/deliveryChronopost"}
           onClick={() => {
-            setCommandeInfo({
-              ...commandeInfo,
-              delivery: {
-                name: undefined,
-                road: undefined,
-                CP: undefined,
-                city: undefined,
-                country: undefined,
-                id: undefined,
-              },
+            setDeliveryInfo({
+              ...deliveryInfo,
+              deliveryCompany: "CP",
             });
           }}
         >
@@ -32,16 +25,9 @@ export default function DeliveryChoice() {
         <Link
           href={"/commande/deliveryMondialRelay"}
           onClick={() => {
-            setCommandeInfo({
-              ...commandeInfo,
-              delivery: {
-                name: undefined,
-                road: undefined,
-                CP: undefined,
-                city: undefined,
-                country: undefined,
-                id: undefined,
-              },
+            setDeliveryInfo({
+              ...deliveryInfo,
+              deliveryCompany: "MR",
             });
           }}
         >

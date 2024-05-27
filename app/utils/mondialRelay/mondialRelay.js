@@ -12,7 +12,7 @@ export const MondialWidget = (StateToSet, State) => {
       //
       // Code given by Mondial Relay, 8 characters (padding right with spaces)
       // BDTEST is used for development only => a warning appears
-      Brand: "BDTEST  ",
+      Brand: "CC2357KU",
       // Default Country (2 letters) used for search at loading
       Country: "FR",
       // Default postal Code used for search at loading
@@ -23,15 +23,12 @@ export const MondialWidget = (StateToSet, State) => {
       NbResults: "7",
       OnParcelShopSelected: (data) => {
         StateToSet({
-          ...State,
-          delivery: {
-            name: data.Nom,
-            road: data.Adresse1,
-            CP: data.CP,
-            city: data.Ville,
-            country: data.Pays,
-            id: data.ID,
-          },
+          name: data.Nom,
+          road: data.Adresse1,
+          CP: data.CP,
+          city: data.Ville,
+          country: data.Pays,
+          id: data.ID,
         });
       },
       AllowedCountries: "FR,BE,LU,ES",

@@ -4,7 +4,8 @@ import { useContext } from "react";
 import { CommandeContext } from "@/app/utils/context/commandeContextProvider";
 
 export default function Chronopost() {
-  const { commandeInfo, setCommandeInfo } = useContext(CommandeContext);
+  const { commandeInfo, setCommandeInfo, deliveryInfo, setDeliveryInfo } =
+    useContext(CommandeContext);
   return (
     <article className="commandeChronopost">
       <h2>Livraison à domicile</h2>
@@ -51,16 +52,15 @@ commandeChronopostInfo"
           </div>
         </div>
         <div className="commandeChronopostAddressWrapper">
-          {" "}
           <div className="commandeInputLabelWrapper">
             <label htmlFor="road">Adresse : </label>
             <input
               id="road"
               type="text"
               onChange={(e) => {
-                setCommandeInfo({
-                  ...commandeInfo,
-                  delivery: { ...commandeInfo.delivery, road: e.target.value },
+                setDeliveryInfo({
+                  ...deliveryInfo,
+                  road: e.target.value,
                 });
               }}
             />
@@ -72,9 +72,9 @@ commandeChronopostInfo"
                 id="CP"
                 type="number"
                 onChange={(e) => {
-                  setCommandeInfo({
-                    ...commandeInfo,
-                    delivery: { ...commandeInfo.delivery, CP: e.target.value },
+                  setDeliveryInfo({
+                    ...deliveryInfo,
+                    CP: e.target.value,
                   });
                 }}
               />
@@ -85,12 +85,9 @@ commandeChronopostInfo"
                 id="city"
                 type="text"
                 onChange={(e) => {
-                  setCommandeInfo({
-                    ...commandeInfo,
-                    delivery: {
-                      ...commandeInfo.delivery,
-                      city: e.target.value,
-                    },
+                  setDeliveryInfo({
+                    ...deliveryInfo,
+                    city: e.target.value,
                   });
                 }}
               />
@@ -102,12 +99,9 @@ commandeChronopostInfo"
               name="country"
               id="country"
               onChange={(e) => {
-                setCommandeInfo({
-                  ...commandeInfo,
-                  delivery: {
-                    ...commandeInfo.delivery,
-                    country: e.target.value,
-                  },
+                setDeliveryInfo({
+                  ...deliveryInfo,
+                  country: e.target.value,
                 });
               }}
             >
