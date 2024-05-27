@@ -10,6 +10,14 @@
   input {
     color: rgb(63, 62, 62);
   }
+  .MRW-fl-Item {
+    span {
+      color: black;
+    }
+  }
+  .MR-Widget .MRW-fl-Select {
+    min-width: 50px !important;
+  }
 }
 .errorInput {
   border-color: red;

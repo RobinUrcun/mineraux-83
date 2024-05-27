@@ -31,7 +31,7 @@ export const MondialWidget = (StateToSet, State) => {
           id: data.ID,
         });
       },
-      AllowedCountries: "FR,BE,LU,ES",
+      AllowedCountries: "FR,BE,LU,ES,NL,PT",
       // Display settings
       //
       // Enable Responsive (nb: non responsive corresponds to the Widget used in older versions=

@@ -99,16 +99,20 @@ commandeChronopostInfo"
               name="country"
               id="country"
               onChange={(e) => {
+                const selectedValue = e.target.value || undefined;
                 setDeliveryInfo({
                   ...deliveryInfo,
-                  country: e.target.value,
+                  country: selectedValue,
                 });
               }}
             >
-              <option value={undefined}>Choisissez un pays</option>
-              <option value="France">France</option>
-              <option value="Belgique">Belgique</option>
-              <option value="Allemagne">Allemagne</option>
+              <option value={""}>Choisissez un pays</option>
+              <option value="FR">France</option>
+              <option value="BE">Belgique</option>
+              <option value="LU">Luxembourg</option>
+              <option value="NL">Pays-Bas</option>
+              <option value="ES">Espagne</option>
+              <option value="PT">Portugal</option>
             </select>
           </div>
         </div>

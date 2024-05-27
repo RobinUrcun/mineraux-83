@@ -12,7 +12,7 @@ export default function CommandeContextProvider({ children }) {
     road: "",
     CP: "",
     city: "",
-    country: "",
+    country: null,
     id: "",
   });
   const [commandeInfo, setCommandeInfo] = useState({

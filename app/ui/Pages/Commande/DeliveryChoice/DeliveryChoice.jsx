@@ -15,7 +15,11 @@ export default function DeliveryChoice() {
           href={"/commande/deliveryChronopost"}
           onClick={() => {
             setDeliveryInfo({
-              ...deliveryInfo,
+              name: "",
+              road: "",
+              CP: "",
+              city: "",
+              country: "",
               deliveryCompany: "CP",
             });
           }}
@@ -26,7 +30,11 @@ export default function DeliveryChoice() {
           href={"/commande/deliveryMondialRelay"}
           onClick={() => {
             setDeliveryInfo({
-              ...deliveryInfo,
+              name: "",
+              road: "",
+              CP: "",
+              city: "",
+              country: "",
               deliveryCompany: "MR",
             });
           }}
