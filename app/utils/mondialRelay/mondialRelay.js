@@ -29,6 +29,7 @@ export const MondialWidget = (StateToSet, State) => {
           city: data.Ville,
           country: data.Pays,
           id: data.ID,
+          deliveryCompany: "MR",
         });
       },
       AllowedCountries: "FR,BE,LU,ES,NL,PT",

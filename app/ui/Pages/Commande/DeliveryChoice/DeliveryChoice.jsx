@@ -7,11 +7,15 @@ import { CommandeContext } from "@/app/utils/context/commandeContextProvider";
 
 export default function DeliveryChoice() {
   const { deliveryInfo, setDeliveryInfo } = useContext(CommandeContext);
+  console.log(deliveryInfo);
   return (
     <article className="deliveryArticle">
       <h2>Choisissez votre mode de livraison :</h2>
       <div className="deliveryChoiceWrapper">
         <Link
+          className={
+            deliveryInfo.deliveryCompany === "CM" ? "selectDelivery" : null
+          }
           href={"/commande/deliveryChronopost"}
           onClick={() => {
             setDeliveryInfo({
@@ -20,7 +24,7 @@ export default function DeliveryChoice() {
               CP: "",
               city: "",
               country: "",
-              deliveryCompany: "CP",
+              deliveryCompany: "CM",
             });
           }}
         >
@@ -28,6 +32,9 @@ export default function DeliveryChoice() {
         </Link>
         <Link
           href={"/commande/deliveryMondialRelay"}
+          className={
+            deliveryInfo.deliveryCompany === "MR" ? "selectDelivery" : null
+          }
           onClick={() => {
             setDeliveryInfo({
               name: "",

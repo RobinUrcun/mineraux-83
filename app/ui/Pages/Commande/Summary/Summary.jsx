@@ -3,14 +3,15 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
 import SummaryCard from "@/app/ui/Pages/Commande/Summary/SummaryCard/SummaryCard";
-import shippingFunction from "@/app/utils/shippingFunction/shippingFunction";
+import shippingFunctionMR from "@/app/utils/shippingFunction/shippingFunctionMR";
+import shippingFunctionCM from "@/app/utils/shippingFunction/shippingFunctionCM";
 import { CommandeContext } from "@/app/utils/context/commandeContextProvider";
 
 export default function Summary() {
   const { deliveryInfo } = useContext(CommandeContext);
 
   const [productCart, setProductCart] = useState([]);
-  const [shippingPrice, setShippingPrice] = useState(0);
+  const [shippingPrice, setShippingPrice] = useState("? €");
 
   useEffect(() => {
     const fetchData = async function () {
@@ -34,15 +35,27 @@ export default function Summary() {
     const cartPrice =
       productCart.reduce((total, produit) => total + produit.price, 0) / 100;
     if (cartPrice < 80) {
-      if (productCart.length > 0 && deliveryInfo.country) {
-        console.log(deliveryInfo.country);
-        const price = shippingFunction(productCart, deliveryInfo.country);
-        setShippingPrice(price);
+      if (deliveryInfo.deliveryCompany === "MR") {
+        if (deliveryInfo.country) {
+          const price = shippingFunctionMR(productCart, deliveryInfo.country);
+          setShippingPrice(price);
+        } else {
+          setShippingPrice("? €");
+        }
+      } else if (deliveryInfo.deliveryCompany === "CM") {
+        if (deliveryInfo.country) {
+          const price = shippingFunctionCM(productCart, deliveryInfo.country);
+          setShippingPrice(price);
+        } else {
+          setShippingPrice("? €");
+        }
+      } else {
+        setShippingPrice("? €");
       }
     } else {
       setShippingPrice("offerts");
     }
-  }, [productCart, deliveryInfo.country]);
+  }, [productCart, deliveryInfo]);
   console.log(shippingPrice);
   return (
     <article className="commandeSummary">
