@@ -3,4 +3,7 @@
   font-size: 60px;
   text-align: center;
   color: white;
+  @media screen and (max-width: 500px) {
+    font-size: 40px;
+  }
 }

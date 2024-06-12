@@ -1,11 +1,11 @@
 .loginSectionWrapper {
   font-family: "Roboto", sans-serif;
   font-size: 25px;
-  width: 400px;
+  max-width: 400px;
   margin: auto;
   border-radius: 20px;
-  padding: 50px;
   margin: 30px auto;
+
   form {
     display: flex;
     flex-direction: column;
@@ -19,15 +19,25 @@
       border-radius: 10px;
       font-size: 20px;
       margin-top: 30px;
+      @media screen and (max-width: 500px) {
+        max-width: 300px;
+      }
+      @media screen and (max-width: 400px) {
+        max-width: 250px;
+      }
     }
     .button {
-      margin: 50px auto;
+      margin: 20px auto;
     }
   }
   .helpLogin {
     font-size: 17px;
     display: flex;
     flex-direction: column;
+    @media screen and (max-width: 500px) {
+      padding-left: 20px;
+    }
+
     a {
       text-decoration: none;
       margin-top: 10px;
