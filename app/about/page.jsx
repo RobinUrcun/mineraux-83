@@ -16,7 +16,9 @@ export default function page() {
             <div
               key={`${category.title} ${category.index}`}
               className={
-                category.index === index ? "aboutNav target" : "aboutNav"
+                category.index === index
+                  ? "aboutNavTitle target"
+                  : "aboutNavTitle"
               }
               onClick={() => {
                 setIndex(category.index);

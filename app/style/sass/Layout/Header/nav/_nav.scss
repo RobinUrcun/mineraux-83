@@ -6,6 +6,11 @@
     display: flex;
     align-items: center;
     height: 100%;
+    @media screen and (max-width: 1150px) {
+      flex-direction: column;
+      row-gap: 20px;
+      color: black;
+    }
 
     li {
       padding-left: 20px;
@@ -16,6 +21,9 @@
       a:visited {
         color: $main-color;
         text-decoration: none;
+        @media screen and (max-width: 1150px) {
+          color: black;
+        }
       }
       a::after {
         content: "";
@@ -26,6 +34,9 @@
         background-color: $main-color;
         opacity: 0;
         transition: opacity 1s, width 1s;
+        @media screen and (max-width: 1150px) {
+          background-color: black;
+        }
       }
       &:hover a::after {
         opacity: 1;

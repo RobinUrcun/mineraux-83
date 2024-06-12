@@ -62,10 +62,64 @@ html {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
-.header .headerWrapper {
+@media screen and (max-width: 1150px) {
+  .header {
+    padding: 20px;
+    margin-bottom: 50px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .header .logo {
+    height: 90px;
+    width: auto;
+  }
+}
+@media screen and (max-width: 1150px) {
+  .header .headerUserInfo {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    z-index: 99;
+  }
+}
+.header .headerUserInfo .scrollingMenu {
+  filter: invert(100%);
+  display: none;
+  cursor: pointer;
+}
+@media screen and (max-width: 1150px) {
+  .header .headerUserInfo .scrollingMenu {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 45px;
+  }
+}
+@media screen and (max-width: 1150px) {
+  .header .headerUserInfo .scrollingMenuInvert {
+    filter: none;
+  }
+}
+.header .headerUserInfo .headerWrapper {
   display: flex;
   flex-direction: row;
+}
+@media screen and (max-width: 1150px) {
+  .header .headerUserInfo .headerWrapper {
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    display: none;
+    flex-direction: column-reverse;
+    justify-content: center;
+    row-gap: 20px;
+    height: 100%;
+  }
+}
+.header .headerUserInfo .open {
+  display: flex !important;
 }
 
 .headerNav ul {
@@ -75,6 +129,13 @@ html {
   display: flex;
   align-items: center;
   height: 100%;
+}
+@media screen and (max-width: 1150px) {
+  .headerNav ul {
+    flex-direction: column;
+    row-gap: 20px;
+    color: black;
+  }
 }
 .headerNav ul li {
   padding-left: 20px;
@@ -86,6 +147,12 @@ html {
   color: rgb(255, 255, 255);
   text-decoration: none;
 }
+@media screen and (max-width: 1150px) {
+  .headerNav ul li a,
+  .headerNav ul li a:visited {
+    color: black;
+  }
+}
 .headerNav ul li a::after {
   content: "";
   height: 1px;
@@ -96,6 +163,11 @@ html {
   opacity: 0;
   transition: opacity 1s, width 1s;
 }
+@media screen and (max-width: 1150px) {
+  .headerNav ul li a::after {
+    background-color: black;
+  }
+}
 .headerNav ul li:hover a::after {
   opacity: 1;
   width: 100%;
@@ -104,6 +176,12 @@ html {
 .userInfo {
   display: flex;
   flex-direction: row;
+  row-gap: 15px;
+}
+@media screen and (max-width: 1150px) {
+  .userInfo {
+    flex-direction: column;
+  }
 }
 .userInfo .userInfoAuthDisconect {
   display: flex;
@@ -119,7 +197,7 @@ html {
   border-radius: 5px;
   height: fit-content;
   background: linear-gradient(190deg, #485a6f, 60%, #994d61);
-  color: white;
+  color: black;
   margin: auto 10px;
   transition: opacity 0.5s;
   text-decoration: none;
@@ -133,15 +211,31 @@ html {
   align-items: center;
   font-size: 20px;
 }
+@media screen and (max-width: 1150px) {
+  .userInfo .userInfoAuthConect a {
+    color: black;
+  }
+}
 .userInfo .userInfoAuthConect img {
   margin-left: 20px;
   cursor: pointer;
+}
+@media screen and (max-width: 1150px) {
+  .userInfo .userInfoAuthConect img {
+    filter: invert(100%);
+  }
 }
 .userInfo .userInfoShoppingCart {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: 20px;
+}
+@media screen and (max-width: 1150px) {
+  .userInfo .userInfoShoppingCart {
+    filter: invert(100%);
+    margin-left: 0;
+  }
 }
 
 .homeFirstSection {
@@ -152,15 +246,33 @@ html {
   padding-bottom: 50px;
   height: calc(100vh - 260px);
 }
+@media screen and (max-width: 700px) {
+  .homeFirstSection {
+    height: auto;
+  }
+}
 .homeFirstSection .homeFirstSectionArticle {
   display: flex;
   flex-direction: row;
   text-align: center;
   justify-content: center;
+  align-items: center;
   column-gap: 30px;
+}
+@media screen and (max-width: 700px) {
+  .homeFirstSection .homeFirstSectionArticle {
+    flex-direction: column;
+  }
 }
 .homeFirstSection .homeFirstSectionArticle .homepageMainImage {
   animation: enterMainImg 2s;
+}
+@media screen and (max-width: 700px) {
+  .homeFirstSection .homeFirstSectionArticle .homepageMainImage {
+    width: 300px;
+    height: auto;
+    margin-top: 30px;
+  }
 }
 .homeFirstSection .homeFirstSectionArticle .homeFirstSectionH1 {
   display: flex;
@@ -200,8 +312,14 @@ html {
 .homeFirstSection .homeFirstSectionArticle .homeFirstSectionH1 .doubleArrowWrapper img:nth-child(2) {
   animation: doubleArrow 1s infinite;
 }
+@media screen and (max-width: 700px) {
+  .homeFirstSection .homeFirstSectionArticle .homeFirstSectionH1 .doubleArrowWrapper {
+    display: none;
+  }
+}
 
 .homePresentationSection {
+  padding: 10px;
   min-width: 600px;
   margin: auto;
   text-align: center;
@@ -212,12 +330,25 @@ html {
   display: flex;
   flex-direction: row;
 }
+@media screen and (max-width: 700px) {
+  .homePresentationSection {
+    flex-direction: column;
+    min-width: auto;
+    min-height: auto;
+    padding: 0;
+  }
+}
 .homePresentationSection .homePresentationArticle {
   max-width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 30px;
+}
+@media screen and (max-width: 700px) {
+  .homePresentationSection .homePresentationArticle {
+    max-width: none;
+  }
 }
 .homePresentationSection .homePresentationArticle h2 {
   font-size: 37px;
@@ -236,22 +367,31 @@ html {
 }
 
 img {
-  max-width: 100%;
   vertical-align: top;
 }
 
 .gallery {
   display: flex;
+  justify-content: center;
   margin: 10px auto;
   max-width: 500px;
   position: relative;
+  padding-top: 400px;
+  flex-wrap: wrap;
 }
-@media screen and (min-width: 500px) {
+@media screen and (max-width: 700px) {
   .gallery {
-    padding-top: 400px;
+    margin: 0;
+    padding-top: 350px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .gallery {
+    padding-top: 250px;
   }
 }
 .gallery__img {
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -341,6 +481,11 @@ img {
 .boutiqueSection {
   padding: 50px;
 }
+@media screen and (max-width: 500px) {
+  .boutiqueSection {
+    padding: 40px 0 0 0;
+  }
+}
 .boutiqueSection .boutiqueProducts {
   display: flex;
   flex-direction: row;
@@ -351,6 +496,13 @@ img {
 .boutiqueFilter {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 20px;
+}
+@media screen and (max-width: 1150px) {
+  .boutiqueFilter {
+    justify-content: center;
+  }
 }
 .boutiqueFilter label {
   margin-right: 20px;
@@ -576,15 +728,27 @@ img {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
   column-gap: 30px;
   font-size: 25px;
   text-wrap: nowrap;
+}
+.aboutSection .aboutArticle .aboutNav .aboutNavTitle {
   cursor: pointer;
   position: relative;
   transition: transform 0.5s ease-in-out, color 0.5s ease-in-out;
+  padding: 0 10px;
+  margin-bottom: 30px;
 }
-.aboutSection .aboutArticle .aboutNav::after {
+@media screen and (max-width: 500px) {
+  .aboutSection .aboutArticle .aboutNav .aboutNavTitle {
+    font-size: 20px;
+    padding: 0 5px;
+    margin-bottom: 30px;
+  }
+}
+.aboutSection .aboutArticle .aboutNav .aboutNavTitle::after {
   content: "";
   height: 2px;
   width: 0;
@@ -600,13 +764,23 @@ img {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding-top: 70px;
+  padding-top: 30px;
+}
+@media screen and (max-width: 500px) {
+  .aboutSection .aboutArticle .aboutContentWrapper {
+    padding-top: 0px;
+  }
 }
 .aboutSection .aboutArticle .aboutContentWrapper .aboutContent {
   max-width: 700px;
   font-size: 20px;
   font-weight: 200;
   line-height: 40px;
+}
+@media screen and (max-width: 500px) {
+  .aboutSection .aboutArticle .aboutContentWrapper .aboutContent {
+    padding: 10px;
+  }
 }
 .aboutSection .aboutArticle .aboutContentWrapper .imgRingArrow {
   cursor: pointer;
@@ -619,6 +793,11 @@ img {
   align-items: center;
   animation: ringArrow 2s infinite;
 }
+@media screen and (max-width: 500px) {
+  .aboutSection .aboutArticle .aboutContentWrapper .imgRingArrow {
+    display: none;
+  }
+}
 .aboutSection .aboutArticle .aboutContentWrapper .arrowAfter {
   transform: rotate(180deg);
 }
@@ -628,13 +807,13 @@ img {
 }
 .aboutSection .aboutArticle .target::after {
   content: "";
-  height: 2px;
-  width: 100%;
-  display: inline-block;
+  height: 2px !important;
+  width: 100% !important;
+  display: inline-block !important;
   position: absolute;
   background-color: #485a6f;
-  bottom: -10px;
-  left: 0;
+  bottom: -10px !important;
+  left: 0 !important;
 }
 
 .sectionProduct {
@@ -1208,8 +1387,7 @@ img {
   flex-wrap: wrap;
 }
 .commandeMondialRelay .commandeMondialRelayWrapper .commandeMondialrelayInfo {
-  padding-left: 40px;
-  padding-right: 80px;
+  padding: 40px;
   max-width: 500px;
   display: flex;
   flex-direction: column;

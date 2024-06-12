@@ -11,23 +11,34 @@
       display: flex;
       flex-direction: row;
       justify-content: center;
+      flex-wrap: wrap;
       align-items: center;
       column-gap: 30px;
       font-size: 25px;
       text-wrap: nowrap;
-      cursor: pointer;
-      position: relative;
-      transition: transform 0.5s ease-in-out, color 0.5s ease-in-out;
-      &::after {
-        content: "";
-        height: 2px;
-        width: 0;
-        display: inline-block;
-        position: absolute;
-        background-color: $deg-color-begin;
-        bottom: -10px;
-        left: 0;
-        transition: width 1s;
+
+      .aboutNavTitle {
+        cursor: pointer;
+        position: relative;
+        transition: transform 0.5s ease-in-out, color 0.5s ease-in-out;
+        padding: 0 10px;
+        margin-bottom: 30px;
+        @media screen and (max-width: 500px) {
+          font-size: 20px;
+          padding: 0 5px;
+          margin-bottom: 30px;
+        }
+        &::after {
+          content: "";
+          height: 2px;
+          width: 0;
+          display: inline-block;
+          position: absolute;
+          background-color: $deg-color-begin;
+          bottom: -10px;
+          left: 0;
+          transition: width 1s;
+        }
       }
     }
     .aboutContentWrapper {
@@ -35,12 +46,18 @@
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      padding-top: 70px;
+      padding-top: 30px;
+      @media screen and (max-width: 500px) {
+        padding-top: 0px;
+      }
       .aboutContent {
         max-width: 700px;
         font-size: 20px;
         font-weight: 200;
         line-height: 40px;
+        @media screen and (max-width: 500px) {
+          padding: 10px;
+        }
       }
       .imgRingArrow {
         cursor: pointer;
@@ -52,6 +69,9 @@
         justify-content: center;
         align-items: center;
         animation: ringArrow 2s infinite;
+        @media screen and (max-width: 500px) {
+          display: none;
+        }
       }
 
       .arrowAfter {
@@ -65,13 +85,13 @@
 
       &::after {
         content: "";
-        height: 2px;
-        width: 100%;
-        display: inline-block;
+        height: 2px !important;
+        width: 100% !important;
+        display: inline-block !important;
         position: absolute;
         background-color: $deg-color-begin;
-        bottom: -10px;
-        left: 0;
+        bottom: -10px !important;
+        left: 0 !important;
       }
     }
   }

@@ -7,8 +7,57 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  .headerWrapper {
-    display: flex;
-    flex-direction: row;
+  align-items: center;
+  @media screen and (max-width: 1150px) {
+    padding: 20px;
+    margin-bottom: 50px;
+  }
+  .logo {
+    @media screen and (max-width: 700px) {
+      height: 90px;
+      width: auto;
+    }
+  }
+  .headerUserInfo {
+    @media screen and (max-width: 1150px) {
+      position: fixed;
+      right: 0px;
+      top: 0px;
+      height: 100%;
+      z-index: 99;
+    }
+    .scrollingMenu {
+      filter: invert(100%);
+      display: none;
+      cursor: pointer;
+      @media screen and (max-width: 1150px) {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 45px;
+      }
+    }
+    .scrollingMenuInvert {
+      @media screen and (max-width: 1150px) {
+        filter: none;
+      }
+    }
+    .headerWrapper {
+      display: flex;
+      flex-direction: row;
+      @media screen and (max-width: 1150px) {
+        padding: 20px;
+
+        background-color: rgb(255, 255, 255);
+        display: none;
+        flex-direction: column-reverse;
+        justify-content: center;
+        row-gap: 20px;
+        height: 100%;
+      }
+    }
+    .open {
+      display: flex !important;
+    }
   }
 }
