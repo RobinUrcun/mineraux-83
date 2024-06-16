@@ -18,7 +18,7 @@ export default function Cart({ product, userInfo, onRemove }) {
       </div>
       <div className="QtyAndPrice">
         <div className="cartQty">
-          <div>
+          <div className="cartQtyWrapper">
             <label htmlFor="quantity">Quantité :</label>
             <select>
               <option value="1">1</option>

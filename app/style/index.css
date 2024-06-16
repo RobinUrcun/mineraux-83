@@ -197,7 +197,6 @@ html {
   border-radius: 5px;
   height: fit-content;
   background: linear-gradient(190deg, #485a6f, 60%, #994d61);
-  color: black;
   margin: auto 10px;
   transition: opacity 0.5s;
   text-decoration: none;
@@ -1005,11 +1004,21 @@ img {
   padding-left: 15%;
   padding-right: 15%;
 }
+@media screen and (max-width: 900px) {
+  .cartSectionWrapper {
+    padding: 10px;
+  }
+}
 .cartSectionWrapper .cartSectionTotal {
   padding-top: 30px;
   position: relative;
   font-size: 25px;
   text-align: end;
+}
+@media screen and (max-width: 900px) {
+  .cartSectionWrapper .cartSectionTotal {
+    font-size: 20px;
+  }
 }
 .cartSectionWrapper .cartSectionTotal::after {
   content: "";
@@ -1076,16 +1085,34 @@ img {
   align-items: center;
   font-size: 25px;
 }
+@media screen and (max-width: 900px) {
+  .cartWrapper .QtyAndPrice {
+    font-size: 20px;
+  }
+}
 .cartWrapper .QtyAndPrice select {
   margin-left: 10px;
   font-size: 20px;
   color: #485a6f;
+}
+@media screen and (max-width: 900px) {
+  .cartWrapper .QtyAndPrice select {
+    font-size: 15px;
+  }
 }
 .cartWrapper .QtyAndPrice .cartQty {
   height: 40%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+}
+.cartWrapper .QtyAndPrice .cartQty .cartQtyWrapper {
+  display: flex;
+  align-items: center;
+}
+.cartWrapper .QtyAndPrice .cartQty .cartQtyWrapper label {
+  text-wrap: nowrap;
 }
 .cartWrapper .QtyAndPrice .cartQty .removeItem {
   font-size: 25px;
@@ -1158,11 +1185,16 @@ img {
 .signupSectionWrapper {
   font-family: "Roboto", sans-serif;
   font-size: 25px;
-  width: 400px;
+  max-width: 400px;
   margin: 30px auto;
   border: 1px solid black;
   border-radius: 20px;
   padding: 30px 50px 0;
+}
+@media screen and (max-width: 500px) {
+  .signupSectionWrapper {
+    padding: 0;
+  }
 }
 .signupSectionWrapper form {
   display: flex;
@@ -1178,6 +1210,16 @@ img {
   border-radius: 10px;
   font-size: 20px;
   margin-top: 30px;
+}
+@media screen and (max-width: 500px) {
+  .signupSectionWrapper form input {
+    max-width: 300px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .signupSectionWrapper form input {
+    max-width: 250px;
+  }
 }
 .signupSectionWrapper form .button {
   margin: 50px auto;
