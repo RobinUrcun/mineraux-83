@@ -11,6 +11,9 @@
     max-width: 250px;
     border-radius: 10px;
     overflow: hidden;
+    .picture {
+      max-height: 150px;
+    }
     .pictureDelete {
       cursor: pointer;
       position: absolute;

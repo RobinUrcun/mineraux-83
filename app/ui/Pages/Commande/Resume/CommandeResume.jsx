@@ -3,6 +3,7 @@ import Button from "@/app/ui/Components/Button/Button";
 import AddressResume from "./AddressResume/AddressResume";
 import { useContext } from "react";
 import { CommandeContext } from "@/app/utils/context/commandeContextProvider";
+import Paypal from "@/app/ui/Components/Paypal/Paypal";
 
 export default function CommandeResume() {
   const { deliveryInfo } = useContext(CommandeContext);
@@ -17,7 +18,7 @@ export default function CommandeResume() {
             <AddressResume />
           </div>
           <div className="paiement">
-            <Button>Payer</Button>
+            <Paypal />
           </div>
         </article>
       )}

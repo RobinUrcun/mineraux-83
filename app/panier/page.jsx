@@ -28,7 +28,10 @@ export default function page() {
             if (response.status === 200) {
               response
                 .json()
-                .then((data) => setProductCart(data))
+                .then((data) => {
+                  console.log(data);
+                  setProductCart(data);
+                })
                 .catch((error) => console.log(error));
             } else if (response.status === 401) {
               setUserInfo({

@@ -12,6 +12,9 @@
     font-size: 30px;
     text-align: center;
     margin: 30px;
+    @media screen and (max-width: 500px) {
+      font-size: 25px;
+    }
   }
   .commandeChronopostInfo {
     display: flex;
@@ -19,12 +22,20 @@
     justify-content: center;
     align-items: center;
     column-gap: 30px;
+    @media screen and (max-width: 500px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
     .commandeChronoposInfoWrapper {
       max-width: 430px;
     }
     .commandeChronopostAddressWrapper {
       width: 60%;
       max-width: 600px;
+      @media screen and (max-width: 500px) {
+        width: 100%;
+      }
+
       .commandeCityCPWrapper {
         display: flex;
         flex-direction: row;
