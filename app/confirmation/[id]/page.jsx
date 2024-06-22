@@ -6,7 +6,7 @@ import ConfirmationResume from "@/app/ui/Pages/Confirmation/ConfirmationResume/C
 export default function page() {
   return (
     <section>
-      <Head1>Felicitation</Head1>
+      <Head1>Félicitation !</Head1>
       <div className="orderInfo">
         <OrderNumber />
         <ConfirmationResume />

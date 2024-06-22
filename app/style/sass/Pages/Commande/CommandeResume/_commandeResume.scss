@@ -1,6 +1,5 @@
 .commandeResume {
   padding: 20px;
-  width: 100%;
   background-color: $background-menu-clr;
   border-radius: 15px;
   display: flex;
@@ -8,6 +7,14 @@
   flex-direction: row;
   margin-top: 30px;
   justify-content: space-around;
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
+    row-gap: 40px;
+  }
+  @media screen and (max-width: 500px) {
+    border: none;
+  }
+
   .addressResume {
     display: flex;
     flex-direction: column;
@@ -17,6 +24,7 @@
     h2 {
       font-size: 30px;
       margin: 30px;
+      text-align: center;
     }
     .addressResumeNames {
       display: flex;

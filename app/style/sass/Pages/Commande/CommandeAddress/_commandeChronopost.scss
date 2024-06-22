@@ -8,6 +8,11 @@
   display: flex;
   flex-direction: column;
   min-width: fit-content;
+  @media screen and (max-width: 500px) {
+    padding: 10px;
+    border: none;
+  }
+
   h2 {
     font-size: 30px;
     text-align: center;
@@ -22,35 +27,37 @@
     justify-content: center;
     align-items: center;
     column-gap: 30px;
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 900px) {
       flex-direction: column;
       align-items: flex-start;
     }
     .commandeChronoposInfoWrapper {
-      max-width: 430px;
+      width: 100%;
     }
     .commandeChronopostAddressWrapper {
-      width: 60%;
-      max-width: 600px;
-      @media screen and (max-width: 500px) {
-        width: 100%;
-      }
+      width: 100%;
 
       .commandeCityCPWrapper {
         display: flex;
         flex-direction: row;
+        column-gap: 20px;
       }
     }
     .commandeInputLabelWrapper {
       display: flex;
       flex-direction: row;
       align-items: center;
+      @media screen and (max-width: 500px) {
+        flex-wrap: wrap;
+      }
       label {
         margin: 10px 0;
         text-wrap: nowrap;
         padding-right: 20px;
-        padding-left: 20px;
         font-size: 20px;
+        @media screen and (max-width: 500px) {
+          font-size: 17px;
+        }
       }
       input {
         margin: 10px 0;

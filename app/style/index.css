@@ -1534,6 +1534,11 @@ img {
   display: flex;
   flex-direction: column;
 }
+@media screen and (max-width: 500px) {
+  .commandeMondialRelay {
+    border: none;
+  }
+}
 .commandeMondialRelay h2 {
   font-size: 30px;
   text-align: center;
@@ -1594,6 +1599,12 @@ img {
   flex-direction: column;
   min-width: fit-content;
 }
+@media screen and (max-width: 500px) {
+  .commandeChronopost {
+    padding: 10px;
+    border: none;
+  }
+}
 .commandeChronopost h2 {
   font-size: 30px;
   text-align: center;
@@ -1611,39 +1622,43 @@ img {
   align-items: center;
   column-gap: 30px;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 900px) {
   .commandeChronopost .commandeChronopostInfo {
     flex-direction: column;
     align-items: flex-start;
   }
 }
 .commandeChronopost .commandeChronopostInfo .commandeChronoposInfoWrapper {
-  max-width: 430px;
+  width: 100%;
 }
 .commandeChronopost .commandeChronopostInfo .commandeChronopostAddressWrapper {
-  width: 60%;
-  max-width: 600px;
-}
-@media screen and (max-width: 500px) {
-  .commandeChronopost .commandeChronopostInfo .commandeChronopostAddressWrapper {
-    width: 100%;
-  }
+  width: 100%;
 }
 .commandeChronopost .commandeChronopostInfo .commandeChronopostAddressWrapper .commandeCityCPWrapper {
   display: flex;
   flex-direction: row;
+  column-gap: 20px;
 }
 .commandeChronopost .commandeChronopostInfo .commandeInputLabelWrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
+@media screen and (max-width: 500px) {
+  .commandeChronopost .commandeChronopostInfo .commandeInputLabelWrapper {
+    flex-wrap: wrap;
+  }
+}
 .commandeChronopost .commandeChronopostInfo .commandeInputLabelWrapper label {
   margin: 10px 0;
   text-wrap: nowrap;
   padding-right: 20px;
-  padding-left: 20px;
   font-size: 20px;
+}
+@media screen and (max-width: 500px) {
+  .commandeChronopost .commandeChronopostInfo .commandeInputLabelWrapper label {
+    font-size: 17px;
+  }
 }
 .commandeChronopost .commandeChronopostInfo .commandeInputLabelWrapper input {
   margin: 10px 0;
@@ -1661,7 +1676,6 @@ img {
 
 .commandeResume {
   padding: 20px;
-  width: 100%;
   background-color: rgba(72, 87, 104, 0.2509803922);
   border-radius: 15px;
   display: flex;
@@ -1669,6 +1683,17 @@ img {
   flex-direction: row;
   margin-top: 30px;
   justify-content: space-around;
+}
+@media screen and (max-width: 700px) {
+  .commandeResume {
+    flex-direction: column;
+    row-gap: 40px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .commandeResume {
+    border: none;
+  }
 }
 .commandeResume .addressResume {
   display: flex;
@@ -1679,6 +1704,7 @@ img {
 .commandeResume .addressResume h2 {
   font-size: 30px;
   margin: 30px;
+  text-align: center;
 }
 .commandeResume .addressResume .addressResumeNames {
   display: flex;
@@ -1716,6 +1742,7 @@ img {
 }
 .orderInfo p {
   margin: 30px auto;
+  line-height: 1.5;
 }
 .orderInfo p .orderId {
   font-weight: 800;

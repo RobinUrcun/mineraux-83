@@ -7,6 +7,10 @@
   border: white 1px solid;
   display: flex;
   flex-direction: column;
+  @media screen and (max-width: 500px) {
+    border: none;
+  }
+
   h2 {
     font-size: 30px;
     text-align: center;
