@@ -26,6 +26,7 @@ commandeChronopostInfo"
                   userSurname: e.target.value,
                 });
               }}
+              autoComplete="family-name"
             />
           </div>
           <div className="commandeInputLabelWrapper">
@@ -37,10 +38,11 @@ commandeChronopostInfo"
               onChange={(e) => {
                 setCommandeInfo({ ...commandeInfo, userName: e.target.value });
               }}
+              autoComplete="given-name"
             />
           </div>
           <div className="commandeInputLabelWrapper">
-            <label htmlFor="surname">Téléphone (pour la livraison) : </label>
+            <label htmlFor="phone">Téléphone (pour la livraison) : </label>
             <input
               value={commandeInfo.phone}
               id="phone"
@@ -48,6 +50,7 @@ commandeChronopostInfo"
               onChange={(e) => {
                 setCommandeInfo({ ...commandeInfo, phone: e.target.value });
               }}
+              autoComplete="tel"
             />
           </div>
         </div>
@@ -63,6 +66,7 @@ commandeChronopostInfo"
                   road: e.target.value,
                 });
               }}
+              autoComplete="address-line1"
             />
           </div>
           <div className="commandeCityCPWrapper">
@@ -77,6 +81,7 @@ commandeChronopostInfo"
                     CP: e.target.value,
                   });
                 }}
+                autoComplete="postal-code"
               />
             </div>
             <div className="commandeInputLabelWrapper">
@@ -90,6 +95,7 @@ commandeChronopostInfo"
                     city: e.target.value,
                   });
                 }}
+                autoComplete="address-level2"
               />
             </div>
           </div>
@@ -105,6 +111,7 @@ commandeChronopostInfo"
                   country: selectedValue,
                 });
               }}
+              autoComplete="country"
             >
               <option value={""}>Choisissez un pays</option>
               <option value="FR">France</option>

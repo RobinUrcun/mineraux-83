@@ -6,10 +6,18 @@
   border-radius: 10px;
   border: white 1px solid;
   padding: 40px;
+  @media screen and (max-width: 700px) {
+    margin: 0;
+    padding: 15px 0;
+    border: none;
+  }
 
   form {
     display: flex;
     flex-direction: column;
+    @media screen and (max-width: 700px) {
+      padding: 10px;
+    }
     input,
     textarea {
       margin-top: 30px;
@@ -19,6 +27,10 @@
       padding: 3px;
       padding-left: 10px;
       color: rgb(122, 122, 122);
+      @media screen and (max-width: 700px) {
+        width: 80%;
+        margin: 15px auto;
+      }
     }
     label {
       margin-top: 30px;

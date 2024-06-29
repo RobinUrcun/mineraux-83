@@ -125,7 +125,7 @@ export default function page() {
           </Button>
         </form>
         <div className="helpLogin">
-          <Link href="">Impossible de se connecter</Link>
+          <Link href="/mot-de-passe-oublie">Impossible de se connecter</Link>
           <Link href="/signup">Je n&apos;ai pas de compte</Link>
         </div>
       </div>

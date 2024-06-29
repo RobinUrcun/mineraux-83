@@ -3,7 +3,6 @@
   height: fit-content;
   background-color: $background-menu-clr;
   border-radius: 15px;
-  padding: 20px;
   border: white 1px solid;
   display: flex;
   flex-direction: column;
@@ -52,6 +51,24 @@
 
     #Zone_Widget {
       color: rgb(76, 75, 75);
+      display: flex;
+      justify-content: center;
+      td,
+      th,
+      .leaflet-bar span {
+        color: black;
+      }
+      input {
+        color: rgb(63, 62, 62);
+      }
+      .MRW-fl-Item {
+        span {
+          color: black;
+        }
+      }
+      .MR-Widget .MRW-fl-Select {
+        min-width: 50px !important;
+      }
 
       input {
         color: rgb(76, 75, 75);

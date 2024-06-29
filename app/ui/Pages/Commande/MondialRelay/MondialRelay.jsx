@@ -24,6 +24,7 @@ commandeMondialrelayInfo"
             onChange={(e) => {
               setCommandeInfo({ ...commandeInfo, userSurname: e.target.value });
             }}
+            autoComplete="family-name"
           />
           <label htmlFor="name">Prénom : </label>
           <input
@@ -33,8 +34,9 @@ commandeMondialrelayInfo"
             onChange={(e) => {
               setCommandeInfo({ ...commandeInfo, userName: e.target.value });
             }}
+            autoComplete="given-name"
           />
-          <label htmlFor="surname">Téléphone (pour la livraison) : </label>
+          <label htmlFor="phone">Téléphone (pour la livraison) : </label>
           <input
             value={commandeInfo.phone}
             id="phone"
@@ -42,6 +44,7 @@ commandeMondialrelayInfo"
             onChange={(e) => {
               setCommandeInfo({ ...commandeInfo, phone: e.target.value });
             }}
+            autoComplete="tel"
           />
         </div>
         <MondialRelayWidget />

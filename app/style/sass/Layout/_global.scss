@@ -2,40 +2,10 @@
   font-family: "Roboto", sans-serif;
   font-style: normal;
   color: $main-color;
-  td,
-  th,
-  .leaflet-bar span {
-    color: black;
-  }
-  input {
-    color: rgb(63, 62, 62);
-  }
-  .MRW-fl-Item {
-    span {
-      color: black;
-    }
-  }
-  .MR-Widget .MRW-fl-Select {
-    min-width: 50px !important;
-  }
 }
-.errorInput {
-  border-color: red;
+input {
+  color: rgb(63, 62, 62);
 }
-.errorMessage {
-  font-size: 15px;
-  display: none;
-  max-width: 350px;
-  opacity: 0;
-  text-wrap: wrap;
-  transition: opacity 0.5s;
-}
-.errorMessageDisplay {
-  display: inline-block;
-
-  opacity: 1;
-}
-
 body {
   background-color: black;
   background-repeat: repeat;
@@ -44,8 +14,4 @@ body {
 }
 html {
   scroll-behavior: smooth;
-}
-.selectDelivery {
-  background-color: white !important;
-  color: black;
 }

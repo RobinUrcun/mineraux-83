@@ -1,8 +1,12 @@
 .monCompteCommandes {
   background-color: $background-menu-clr;
-  margin-left: 30px;
-  margin-right: 30px;
+
   border-radius: 10px;
   padding: 40px;
   border: white 1px solid;
+  @media screen and (max-width: 700px) {
+    padding: 20px 10px;
+    width: 100%;
+    border: none;
+  }
 }

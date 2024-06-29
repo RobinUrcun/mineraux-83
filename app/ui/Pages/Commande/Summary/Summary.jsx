@@ -6,8 +6,11 @@ import SummaryCard from "@/app/ui/Pages/Commande/Summary/SummaryCard/SummaryCard
 import shippingFunctionMR from "@/app/utils/shippingFunction/shippingFunctionMR";
 import shippingFunctionCM from "@/app/utils/shippingFunction/shippingFunctionCM";
 import { CommandeContext } from "@/app/utils/context/commandeContextProvider";
+import { useRouter } from "next/navigation";
 
 export default function Summary() {
+  const router = useRouter();
+
   const { deliveryInfo } = useContext(CommandeContext);
 
   const [productCart, setProductCart] = useState([]);
@@ -23,9 +26,22 @@ export default function Summary() {
         },
       })
         .then((response) => {
-          response.json().then((data) => {
-            setProductCart(data);
-          });
+          if (response.status === 200) {
+            response.json().then((data) => {
+              setProductCart(data);
+            });
+          } else if (response.status === 401) {
+            setUserInfo({
+              isUserConnected: null,
+              userRole: null,
+            });
+            localStorage.removeItem("userInfoToken");
+            localStorage.removeItem("userInfoUserId");
+            localStorage.removeItem("userInfoRole");
+            router.push("/login");
+          } else {
+            router.push("/erreur");
+          }
         })
         .catch((err) => console.log(err));
     };

@@ -5,6 +5,11 @@
   border-radius: 10px;
   border: white 1px solid;
   padding: 40px;
+  @media screen and (max-width: 700px) {
+    border: none;
+    width: 100%;
+    margin: 0;
+  }
 
   form {
     margin-top: 20px;

@@ -1,0 +1,37 @@
+.ordersDisplay {
+  margin: 20px auto;
+  text-align: start;
+  td,
+  th {
+    color: white;
+    text-align: start;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    @media screen and (max-width: 700px) {
+      padding: 5px;
+    }
+    .orderProductList {
+      margin: 10px auto;
+    }
+  }
+  thead {
+    font-size: 20px;
+    @media screen and (max-width: 700px) {
+      font-size: 14px;
+    }
+  }
+  tbody {
+    font-size: 20px;
+    @media screen and (max-width: 700px) {
+      font-size: 12px;
+    }
+  }
+}
+.orderDisplayClient {
+  tbody {
+    th {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

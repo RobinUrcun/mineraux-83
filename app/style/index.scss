@@ -21,6 +21,8 @@
 @import "./sass/Pages/Cart/cart";
 @import "./sass/Pages/Cart/CartCard/cartCard";
 @import "./sass/Pages/Login/login";
+@import "./sass/Pages/ResetPassword/resetPassword";
+@import "./sass/Components/InputError/inputError";
 @import "./sass/Pages/Signup/signup";
 @import "./sass/Pages/Admin/admin";
 @import "./sass//Pages/Admin/creer/adminCreate";
@@ -34,6 +36,7 @@
 @import "./sass/Pages/Commande/CommandeAddress/commandeMondialRelay";
 @import "./sass/Pages/Commande/CommandeAddress/commandeChronopost";
 @import "./sass/Pages/Commande/CommandeResume/commandeResume";
+@import "./sass/Components/OrdersDisplay/ordersDisplay";
 @import "./sass/Pages/Confirmation/confirmation";
 @import "./sass/Components/Loader/loader";
 @import "./sass/Utils/keyframes";
