@@ -6,7 +6,6 @@
 @import "./sass/Layout/Header/UserInfo/userInfo";
 @import "./sass/Pages/Home/HomeFirstSection";
 @import "./sass/Pages/Home/homePresentationSection";
-@import "./sass/Components/HomepageCaroussel/homepageCaroussel";
 @import "./sass/Layout/Footer/footer";
 @import "./sass/Layout/Footer/nav/nav";
 @import "./sass/Layout/Head1/head1";
@@ -21,7 +20,10 @@
 @import "./sass/Pages/Cart/cart";
 @import "./sass/Pages/Cart/CartCard/cartCard";
 @import "./sass/Pages/Login/login";
-@import "./sass/Pages/ResetPassword/resetPassword";
+@import "./sass/Pages/ForgotPassword/forgotPassword";
+@import "./sass/Pages/EmailSent/emailSent";
+@import "./sass//Pages/ResetPassword/resetPassword";
+@import "./sass/Pages/ResetPasswordSuccess/resetPasswordSuccess";
 @import "./sass/Components/InputError/inputError";
 @import "./sass/Pages/Signup/signup";
 @import "./sass/Pages/Admin/admin";

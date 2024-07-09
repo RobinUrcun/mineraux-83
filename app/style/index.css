@@ -14,6 +14,10 @@ body {
   background-repeat: repeat;
   background-position: center;
   background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 html {
@@ -33,7 +37,6 @@ html {
 @media screen and (max-width: 1150px) {
   .header {
     padding: 10px 20px 20px 20px;
-    margin-bottom: 50px;
   }
 }
 @media screen and (max-width: 700px) {
@@ -208,8 +211,8 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: 50px;
-  height: calc(100vh - 240px);
+  height: calc(100vh - 190px);
+  overflow: hidden;
 }
 @media screen and (max-width: 700px) {
   .homeFirstSection {
@@ -222,7 +225,6 @@ html {
   text-align: center;
   justify-content: center;
   align-items: center;
-  column-gap: 30px;
 }
 @media screen and (max-width: 700px) {
   .homeFirstSection .homeFirstSectionArticle {
@@ -231,6 +233,19 @@ html {
 }
 .homeFirstSection .homeFirstSectionArticle .homepageMainImage {
   animation: enterMainImg 2s;
+  padding: 20px;
+}
+@media screen and (max-width: 900px) {
+  .homeFirstSection .homeFirstSectionArticle .homepageMainImage {
+    width: 350px;
+    height: auto;
+  }
+}
+@media screen and (max-width: 800px) {
+  .homeFirstSection .homeFirstSectionArticle .homepageMainImage {
+    width: 300px;
+    height: auto;
+  }
 }
 @media screen and (max-width: 700px) {
   .homeFirstSection .homeFirstSectionArticle .homepageMainImage {
@@ -240,6 +255,7 @@ html {
   }
 }
 .homeFirstSection .homeFirstSectionArticle .homeFirstSectionH1 {
+  padding: 0 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -277,6 +293,16 @@ html {
 .homeFirstSection .homeFirstSectionArticle .homeFirstSectionH1 .doubleArrowWrapper img:nth-child(2) {
   animation: doubleArrow 1s infinite;
 }
+@media screen and (max-width: 900px) {
+  .homeFirstSection .homeFirstSectionArticle .homeFirstSectionH1 .doubleArrowWrapper {
+    margin-top: 50px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .homeFirstSection .homeFirstSectionArticle .homeFirstSectionH1 .doubleArrowWrapper {
+    margin-top: 30px;
+  }
+}
 @media screen and (max-width: 700px) {
   .homeFirstSection .homeFirstSectionArticle .homeFirstSectionH1 .doubleArrowWrapper {
     display: none;
@@ -295,7 +321,7 @@ html {
   display: flex;
   flex-direction: row;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
   .homePresentationSection {
     flex-direction: column;
     min-width: auto;
@@ -330,54 +356,27 @@ html {
   width: 200px;
   margin-top: 20px;
 }
-
-img {
-  vertical-align: top;
+.homePresentationSection .homepagePresentationCaroussel {
+  padding: 0px 50px;
 }
-
-.gallery {
-  display: flex;
-  justify-content: center;
-  margin: 10px auto;
-  max-width: 500px;
-  position: relative;
-  padding-top: 400px;
-  flex-wrap: wrap;
-}
-@media screen and (max-width: 700px) {
-  .gallery {
-    margin: 0;
-    padding-top: 350px;
+@media screen and (max-width: 900px) {
+  .homePresentationSection .homepagePresentationCaroussel {
+    padding: 0px 20px;
   }
 }
-@media screen and (max-width: 400px) {
-  .gallery {
-    padding-top: 250px;
+@media screen and (max-width: 800px) {
+  .homePresentationSection .homepagePresentationCaroussel {
+    padding: 50px 0;
+    width: 100%;
   }
 }
-.gallery__img {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+.homePresentationSection .homepagePresentationCaroussel .caroussel {
+  width: 400px;
 }
-.gallery__thumb {
-  padding-top: 6px;
-  margin: 6px;
-  display: block;
-}
-.gallery__selector {
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-}
-.gallery__selector:checked + .gallery__img {
-  opacity: 1;
-}
-.gallery__selector:checked ~ .gallery__thumb > img {
-  box-shadow: 0 0 0 3px #0be2f6;
+@media screen and (max-width: 800px) {
+  .homePresentationSection .homepagePresentationCaroussel .caroussel {
+    width: 100%;
+  }
 }
 
 .footer {
@@ -446,6 +445,7 @@ img {
   font-size: 60px;
   text-align: center;
   color: white;
+  padding: 0 30px;
 }
 @media screen and (max-width: 500px) {
   .H1 {
@@ -1159,13 +1159,13 @@ img {
   text-decoration: underline;
 }
 
-.resetPassword {
+.forgotPasswordSection {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.resetPassword .resetPasswordForm {
+.forgotPasswordSection .forgotPasswordForm {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1173,7 +1173,7 @@ img {
   justify-content: center;
   align-items: center;
 }
-.resetPassword .resetPasswordForm .resetPasswordFormWrapper {
+.forgotPasswordSection .forgotPasswordForm .forgotPasswordFormWrapper {
   margin: 40px;
   display: flex;
   flex-direction: row;
@@ -1181,23 +1181,117 @@ img {
   justify-content: center;
   row-gap: 30px;
 }
-.resetPassword .resetPasswordForm .resetPasswordFormWrapper label,
-.resetPassword .resetPasswordForm .resetPasswordFormWrapper input {
+.forgotPasswordSection .forgotPasswordForm .forgotPasswordFormWrapper label,
+.forgotPasswordSection .forgotPasswordForm .forgotPasswordFormWrapper input {
   font-size: 25px;
 }
-.resetPassword .resetPasswordForm .resetPasswordFormWrapper label {
+.forgotPasswordSection .forgotPasswordForm .forgotPasswordFormWrapper label {
   display: flex;
   align-items: center;
   text-align: center;
   padding-left: 10px;
   padding-right: 10px;
 }
-.resetPassword .resetPasswordForm .resetPasswordFormWrapper input {
+.forgotPasswordSection .forgotPasswordForm .forgotPasswordFormWrapper input {
   font-size: 25px;
   border-radius: 10px;
 }
-.resetPassword .resetPasswordForm .button {
+.forgotPasswordSection .forgotPasswordForm .button {
   margin: 30px auto;
+}
+
+.emailSentSection {
+  font-family: "Roboto";
+}
+.emailSentSection .emailSentArticle {
+  margin: 60px auto;
+}
+.emailSentSection p {
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
+  line-height: 30px;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+.emailSentSection p a {
+  font-weight: 800;
+}
+
+.resetPasswordSection .resetPasswordArticle {
+  padding: 50px;
+  font-size: 20px;
+}
+.resetPasswordSection .resetPasswordArticle form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
+}
+.resetPasswordSection .resetPasswordArticle form .resetPasswordFormWrapper {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
+}
+.resetPasswordSection .resetPasswordArticle form .resetPasswordFormWrapper label {
+  display: none;
+}
+.resetPasswordSection .resetPasswordArticle form .resetPasswordFormWrapper input {
+  min-width: 400px;
+  padding-left: 15px;
+  height: 30px;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-top: 30px;
+}
+@media screen and (max-width: 500px) {
+  .resetPasswordSection .resetPasswordArticle form .resetPasswordFormWrapper input {
+    min-width: 280px;
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .resetPasswordSection .resetPasswordArticle form .resetPasswordFormWrapper input {
+    min-width: 250px;
+    font-size: 15px;
+  }
+}
+.resetPasswordSection .resetPasswordArticle form .button {
+  margin: 30px auto 70px;
+}
+
+.resetPasswordSuccessSection {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+@media screen and (max-width: 500px) {
+  .resetPasswordSuccessSection h1 {
+    margin-bottom: 30px;
+  }
+}
+.resetPasswordSuccessSection .resetPasswordSuccessArticle {
+  font-weight: 200;
+  padding: 100px;
+  text-align: center;
+}
+@media screen and (max-width: 700px) {
+  .resetPasswordSuccessSection .resetPasswordSuccessArticle {
+    padding: 50px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .resetPasswordSuccessSection .resetPasswordSuccessArticle {
+    padding: 20px;
+  }
+}
+.resetPasswordSuccessSection .resetPasswordSuccessArticle a {
+  display: block;
+  margin: 30px auto;
+  font-weight: 500;
 }
 
 .errorInput {
@@ -1215,6 +1309,7 @@ img {
 
 .errorMessageDisplay {
   display: inline-block;
+  text-align: center;
   opacity: 1;
 }
 
@@ -1238,6 +1333,9 @@ img {
   justify-content: center;
   align-items: center;
   row-gap: 10px;
+}
+.signupSectionWrapper form label {
+  display: none;
 }
 .signupSectionWrapper form input {
   padding-left: 15px;
@@ -2230,14 +2328,21 @@ img {
   justify-content: center;
   align-items: center;
   padding-bottom: 100px;
+  min-height: 50vh;
 }
 .errorSection h1 {
   font-size: 250px;
-  font-family: "roboto";
+  font-family: "Roboto";
   font-weight: 800;
   color: rgb(187, 182, 182);
   margin: 30px;
   letter-spacing: 10px;
+  padding-left: 10px;
+}
+@media screen and (max-width: 500px) {
+  .errorSection h1 {
+    font-size: 150px;
+  }
 }
 .errorSection a {
   font-size: 30px;
@@ -2245,6 +2350,11 @@ img {
 }
 .errorSection a:hover {
   text-decoration: underline;
+}
+@media screen and (max-width: 500px) {
+  .errorSection a {
+    font-size: 20px;
+  }
 }
 
 .picturesWrapper {

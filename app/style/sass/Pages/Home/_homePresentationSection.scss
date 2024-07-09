@@ -9,7 +9,7 @@
   background-color: white;
   display: flex;
   flex-direction: row;
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 800px) {
     flex-direction: column;
     min-width: auto;
     min-height: auto;
@@ -39,6 +39,22 @@
     a {
       width: 200px;
       margin-top: 20px;
+    }
+  }
+  .homepagePresentationCaroussel {
+    padding: 0px 50px;
+    @media screen and (max-width: 900px) {
+      padding: 0px 20px;
+    }
+    @media screen and (max-width: 800px) {
+      padding: 50px 0;
+      width: 100%;
+    }
+    .caroussel {
+      width: 400px;
+      @media screen and (max-width: 800px) {
+        width: 100%;
+      }
     }
   }
 }

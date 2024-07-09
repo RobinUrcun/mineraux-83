@@ -4,6 +4,8 @@ import React, { useContext, useRef, useEffect } from "react";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { CommandeContext } from "@/app/utils/context/commandeContextProvider";
 import { useRouter } from "next/navigation";
+import ToastFailed from "../Toast/ToastFailed";
+import showToastFailed from "@/app/utils/toast/showToastFailed";
 
 export default function Paypal() {
   const router = useRouter();
@@ -11,7 +13,6 @@ export default function Paypal() {
   const deliveryInfoRef = useRef(deliveryInfo);
   const commandeInfoRef = useRef(commandeInfo);
 
-  // Synchronize refs with context values
   useEffect(() => {
     deliveryInfoRef.current = deliveryInfo;
     commandeInfoRef.current = commandeInfo;
@@ -58,7 +59,7 @@ export default function Paypal() {
                 throw new Error(errorMessage);
               }
             } catch (error) {
-              console.error(error);
+              showToastFailed();
             }
           }}
           onApprove={async (data, actions) => {
@@ -82,23 +83,19 @@ export default function Paypal() {
               );
 
               const orderData = await response.json();
-              // Three cases to handle:
-              //   (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
-              //   (2) Other non-recoverable errors -> Show a failure message
-              //   (3) Successful transaction -> Show confirmation or thank you message
 
               const errorDetail = orderData?.details?.[0];
+              console.log(errorDetail);
 
               if (errorDetail?.issue === "INSTRUMENT_DECLINED") {
                 console.log("redirection NON payé???");
+                showToastFailed();
 
-                // (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
-                // recoverable state, per https://developer.paypal.com/docs/checkout/standard/customize/handle-funding-failures/
                 return actions.restart();
               } else if (errorDetail) {
                 console.log("redirection ERREUR ???");
+                showToastFailed();
 
-                // (2) Other non-recoverable errors -> Show a failure message
                 throw new Error(
                   `${errorDetail.description} (${orderData.debug_id})`
                 );
@@ -107,8 +104,6 @@ export default function Paypal() {
                 const transaction =
                   orderData.purchase_units[0].payments.captures[0];
                 router.push(`/confirmation/${transaction.id}`);
-                // (3) Successful transaction -> Show confirmation or thank you message
-                // Or go to another URL:  actions.redirect('thank_you.html');
 
                 console.log("transaction", transaction);
                 console.log("transaction ID", transaction.id);
@@ -121,6 +116,7 @@ export default function Paypal() {
               }
             } catch (error) {
               console.error(error);
+              showToastFailed();
             }
           }}
         />

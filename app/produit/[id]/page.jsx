@@ -19,6 +19,7 @@ export default function page() {
       fetch(`http://localhost:3001/api/product/${url}`)
         .then((response) => {
           response.json().then((data) => {
+            console.log(data);
             const imgUrl = [];
             imgUrl.push(data[0].mainFile[0]);
             for (let i = 0; i < data[0].file.length; i++) {
@@ -35,7 +36,7 @@ export default function page() {
   return (
     <section className="sectionProduct">
       <article className="productArticle">
-        <Caroussel imgUrl={imgUrlList} name={product} />
+        <Caroussel imgUrl={imgUrlList} name={product.title} />
         <div className="productInfo">
           <h1>{product.title}</h1>
           <p className="productInfoDescription">{product.description}</p>

@@ -57,7 +57,9 @@ export default function page() {
             }
           }}
         >
+          <label htmlFor="surname">Nom : </label>
           <input
+            id="surname"
             autoComplete="family-name"
             type="text"
             placeholder="Nom"
@@ -86,7 +88,9 @@ export default function page() {
           >
             Votre nom ne peut contenir que des lettres !
           </InputMessage>
+          <label htmlFor="name">Prénom :</label>
           <input
+            id="name"
             autoComplete="given-name"
             type="text"
             className={
@@ -115,7 +119,9 @@ export default function page() {
           >
             Votre prénom ne peut contenir que des lettres !
           </InputMessage>
+          <label htmlFor="email">Email : </label>
           <input
+            id="email"
             autoComplete="email"
             type="email"
             className={
@@ -144,7 +150,9 @@ export default function page() {
           >
             Format de l'email non reconnu !
           </InputMessage>
+          <label htmlFor="password">Mot de passe:</label>
           <input
+            id="password"
             autoComplete="new-password"
             type="password"
             className={
@@ -174,7 +182,9 @@ export default function page() {
             Votre mot de passe doit contenir 6 caractères minimum dont au moins
             1 chiffre et 1 lettre !
           </InputMessage>
+          <label htmlFor="secPassword">Confirmer votre mot de passe : </label>
           <input
+            id="secPassword"
             autoComplete="new-password"
             type="password"
             className={

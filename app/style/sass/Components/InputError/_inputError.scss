@@ -1,16 +1,16 @@
 .errorInput {
-    border-color: red;
-  }
-  .errorMessage {
-    font-size: 15px;
-    display: none;
-    max-width: 350px;
-    opacity: 0;
-    text-wrap: wrap;
-    transition: opacity 0.5s;
-  }
-  .errorMessageDisplay {
-    display: inline-block;
-  
-    opacity: 1;
-  }
+  border-color: red;
+}
+.errorMessage {
+  font-size: 15px;
+  display: none;
+  max-width: 350px;
+  opacity: 0;
+  text-wrap: wrap;
+  transition: opacity 0.5s;
+}
+.errorMessageDisplay {
+  display: inline-block;
+  text-align: center;
+  opacity: 1;
+}
