@@ -2,7 +2,13 @@
 import React from "react";
 import { useContext } from "react";
 import { CommandeContext } from "@/app/utils/context/commandeContextProvider";
-
+import {
+  validNumber,
+  validName,
+  validRoadName,
+  validPostalCode,
+} from "@/app/utils/regex/regex";
+import InputMessage from "@/app/ui/Components/InputMessage/InputMessage";
 export default function Chronopost() {
   const { commandeInfo, setCommandeInfo, deliveryInfo, setDeliveryInfo } =
     useContext(CommandeContext);
@@ -27,8 +33,26 @@ commandeChronopostInfo"
                 });
               }}
               autoComplete="family-name"
+              className={
+                commandeInfo.userSurname == ""
+                  ? null
+                  : validName.test(commandeInfo.userSurname)
+                  ? null
+                  : "errorInput"
+              }
             />
           </div>
+          <InputMessage
+            classNames={
+              commandeInfo.userSurname === ""
+                ? false
+                : validName.test(commandeInfo.userSurname)
+                ? false
+                : true
+            }
+          >
+            Votre nom ne peut contenir que des lettres !
+          </InputMessage>
           <div className="commandeInputLabelWrapper">
             <label htmlFor="name">Prénom : </label>
             <input
@@ -39,8 +63,26 @@ commandeChronopostInfo"
                 setCommandeInfo({ ...commandeInfo, userName: e.target.value });
               }}
               autoComplete="given-name"
+              className={
+                commandeInfo.userName == ""
+                  ? null
+                  : validName.test(commandeInfo.userName)
+                  ? null
+                  : "errorInput"
+              }
             />
           </div>
+          <InputMessage
+            classNames={
+              commandeInfo.userName === ""
+                ? false
+                : validName.test(commandeInfo.userName)
+                ? false
+                : true
+            }
+          >
+            Votre prénom ne peut contenir que des lettres !
+          </InputMessage>
           <div className="commandeInputLabelWrapper">
             <label htmlFor="phone">Téléphone (pour la livraison) : </label>
             <input
@@ -51,8 +93,26 @@ commandeChronopostInfo"
                 setCommandeInfo({ ...commandeInfo, phone: e.target.value });
               }}
               autoComplete="tel"
+              className={
+                commandeInfo.phone == ""
+                  ? null
+                  : validNumber.test(commandeInfo.phone)
+                  ? null
+                  : "errorInput"
+              }
             />
           </div>
+          <InputMessage
+            classNames={
+              commandeInfo.phone === ""
+                ? false
+                : validNumber.test(commandeInfo.phone)
+                ? false
+                : true
+            }
+          >
+            Votre numéro de téléphone ne peut contenir que des chiffres !
+          </InputMessage>
         </div>
         <div className="commandeChronopostAddressWrapper">
           <div className="commandeInputLabelWrapper">
@@ -67,8 +127,26 @@ commandeChronopostInfo"
                 });
               }}
               autoComplete="address-line1"
+              className={
+                deliveryInfo.road == ""
+                  ? null
+                  : validRoadName.test(deliveryInfo.road)
+                  ? null
+                  : "errorInput"
+              }
             />
           </div>
+          <InputMessage
+            classNames={
+              deliveryInfo.road === ""
+                ? false
+                : validRoadName.test(deliveryInfo.road)
+                ? false
+                : true
+            }
+          >
+            Format de l'addresse incorrect !
+          </InputMessage>
           <div className="commandeCityCPWrapper">
             <div className="commandeInputLabelWrapper">
               <label htmlFor="CP">Code Postal : </label>
@@ -82,8 +160,16 @@ commandeChronopostInfo"
                   });
                 }}
                 autoComplete="postal-code"
+                className={
+                  deliveryInfo.CP == ""
+                    ? null
+                    : validPostalCode.test(deliveryInfo.CP)
+                    ? null
+                    : "errorInput"
+                }
               />
             </div>
+
             <div className="commandeInputLabelWrapper">
               <label htmlFor="city">Ville : </label>
               <input

@@ -33,9 +33,15 @@
     }
     .commandeChronoposInfoWrapper {
       width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .commandeChronopostAddressWrapper {
       width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
       .commandeCityCPWrapper {
         display: flex;
@@ -47,6 +53,7 @@
       display: flex;
       flex-direction: row;
       align-items: center;
+      justify-content: center;
       @media screen and (max-width: 500px) {
         flex-wrap: wrap;
       }
@@ -62,7 +69,6 @@
       input {
         margin: 10px 0;
         border-radius: 5px;
-        border: none;
         font-size: 20px;
         color: rgb(76, 75, 75);
         width: 100%;

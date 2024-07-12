@@ -33,7 +33,7 @@ export default function page() {
           </div>
           <p>Écrivez nous directement par mail a l'adresse suivante : </p>
           <div className="contactArticleWrapper">
-            <a href="mailto:AdresseMail@gmail.com">AdresseMail@gmail.com</a>
+            <a href="mailto:AdresseMail@gmail.com">mineraux83api@gmail.com</a>
           </div>
         </article>
       </section>

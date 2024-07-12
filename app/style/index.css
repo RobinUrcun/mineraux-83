@@ -454,11 +454,11 @@ html {
 }
 
 .boutiqueSection {
-  padding: 50px;
+  padding: 0 50px;
 }
 @media screen and (max-width: 500px) {
   .boutiqueSection {
-    padding: 40px 0 0 0;
+    padding: 0;
   }
 }
 .boutiqueSection .boutiqueProducts {
@@ -472,6 +472,7 @@ html {
 }
 
 .boutiqueFilter {
+  margin-top: 30px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -1311,6 +1312,7 @@ html {
   display: inline-block;
   text-align: center;
   opacity: 1;
+  margin: auto;
 }
 
 .signupSectionWrapper {
@@ -1910,7 +1912,7 @@ html {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   flex-wrap: wrap;
 }
 .commandeMondialRelay .commandeMondialRelayWrapper .commandeMondialrelayInfo {
@@ -1919,6 +1921,7 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  row-gap: 10px;
 }
 .commandeMondialRelay .commandeMondialRelayWrapper .commandeMondialrelayInfo label {
   padding-right: 20px;
@@ -1928,7 +1931,6 @@ html {
 .commandeMondialRelay .commandeMondialRelayWrapper .commandeMondialrelayInfo input {
   margin: 10px 0;
   border-radius: 5px;
-  border: none;
   font-size: 20px;
   color: rgb(76, 75, 75);
 }
@@ -2007,9 +2009,15 @@ html {
 }
 .commandeChronopost .commandeChronopostInfo .commandeChronoposInfoWrapper {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .commandeChronopost .commandeChronopostInfo .commandeChronopostAddressWrapper {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .commandeChronopost .commandeChronopostInfo .commandeChronopostAddressWrapper .commandeCityCPWrapper {
   display: flex;
@@ -2020,6 +2028,7 @@ html {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
 }
 @media screen and (max-width: 500px) {
   .commandeChronopost .commandeChronopostInfo .commandeInputLabelWrapper {
@@ -2040,7 +2049,6 @@ html {
 .commandeChronopost .commandeChronopostInfo .commandeInputLabelWrapper input {
   margin: 10px 0;
   border-radius: 5px;
-  border: none;
   font-size: 20px;
   color: rgb(76, 75, 75);
   width: 100%;

@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-export default function FilterSection({ filter, setFilter }) {
+export default function FilterSection({ products, setProducts }) {
   return (
     <div className="boutiqueFilter">
       <label htmlFor="filterSelect">Trier par :</label>
@@ -9,7 +9,7 @@ export default function FilterSection({ filter, setFilter }) {
         name="filterSelect"
         id="filterSelect"
         onChange={(e) => {
-          setFilter(e.target.value);
+          setProducts({ ...products, sort: e.target.value });
         }}
       >
         <option value="new">Nouveauté</option>
@@ -18,21 +18,12 @@ export default function FilterSection({ filter, setFilter }) {
         <option value="decreasing">Prix Décroissant</option>
       </select>
       <form
-        onSubmit={(e) => {
+        onChange={(e) => {
           e.preventDefault();
+          setProducts({ ...products, filter: e.target.value });
         }}
       >
-        <input
-          type="search"
-          onChange={(e) => {
-            console.log(e.target.value);
-            if (!e.target.value) {
-              setFilter("new");
-            } else {
-              setFilter(e.target.value);
-            }
-          }}
-        />
+        <input type="search" />
         <button>
           <Image
             src={"/form/logoSearch.png"}
