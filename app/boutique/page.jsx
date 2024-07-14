@@ -2,8 +2,8 @@
 import React from "react";
 
 import ProductCard from "../ui/Pages/Boutique/Productcard/ProductCard";
-import FilterSection from "@/app/ui/Pages/Boutique/FilterSection/FilterSection.jsx";
-
+// import FilterSection from "@/app/ui/Pages/Boutique/FilterSection/FilterSection";
+import FilterSelection from "../ui/Pages/Boutique/FilterSelection/FilterSelection";
 import Head1 from "../ui/Components/head1/Head1";
 import { useState, useEffect } from "react";
 import Toast from "@/app/ui/Components/Toast/Toast";
@@ -55,7 +55,7 @@ export default function page() {
   return (
     <section className="boutiqueSection">
       <Head1>Notre boutique</Head1>
-      <FilterSection products={products} setProducts={setProducts} />
+      <FilterSelection products={products} setProducts={setProducts} />
       <div className="boutiqueProducts">
         {products.productList.map((product, index) => (
           <ProductCard key={product._id} product={product} />
