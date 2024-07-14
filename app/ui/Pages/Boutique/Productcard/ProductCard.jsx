@@ -8,7 +8,7 @@ import { UserContext } from "@/app/utils/context/userContext";
 import showToast from "@/app/utils/toast/showToast";
 
 export default function ProductCard({ product }) {
-  const { userInfo, setUserInfo } = useContext(UserContext);
+  const { userInfo } = useContext(UserContext);
   return (
     <Link href={`/produit/${product._id}`} className="productCard">
       <div className="productCardImgCont">
