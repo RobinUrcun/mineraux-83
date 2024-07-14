@@ -14,7 +14,7 @@ export default function layout({ children }) {
 
   useEffect(() => {
     const fetchDonnee = async function () {
-      await fetch(`http://localhost:3001/api/user/role/`, {
+      await fetch(`https://mineraux83-api.vercel.app/api/user/role/`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

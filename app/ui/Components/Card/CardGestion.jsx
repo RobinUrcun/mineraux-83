@@ -8,12 +8,15 @@ import showToastFailed from "@/app/utils/toast/showToastFailed";
 export default function CardGestion({ product, products, setProducts }) {
   const deleteProduct = function (e) {
     e.preventDefault();
-    fetch(`http://localhost:3001/api/product/singleProduct/${product._id}`, {
-      method: "DELETE",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("userInfoToken")}`,
-      },
-    })
+    fetch(
+      `https://mineraux83-api.vercel.app/api/product/singleProduct/${product._id}`,
+      {
+        method: "DELETE",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("userInfoToken")}`,
+        },
+      }
+    )
       .then((response) => {
         console.log(response.status);
         if (response.status === 200) {

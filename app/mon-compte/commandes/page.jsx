@@ -9,7 +9,7 @@ export default function page() {
   const [ordersList, setOrdersList] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/user/getClientOrders`, {
+    fetch(`https://mineraux83-api.vercel.app/api/user/getClientOrders`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

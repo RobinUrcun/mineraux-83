@@ -26,7 +26,7 @@ export default function page() {
   });
   useEffect(() => {
     const fetchData = async function () {
-      await fetch(`http://localhost:3001/api/user/userInfo/`, {
+      await fetch(`https://mineraux83-api.vercel.app/api/user/userInfo/`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -65,7 +65,7 @@ export default function page() {
 
   const submitForm = function (e) {
     e.preventDefault();
-    fetch("http://localhost:3001/api/user/userInfo", {
+    fetch("https://mineraux83-api.vercel.app/api/user/userInfo", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

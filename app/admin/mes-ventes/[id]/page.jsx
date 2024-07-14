@@ -20,7 +20,7 @@ export default function page() {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/user/order/${params.id}`, {
+    fetch(`https://mineraux83-api.vercel.app/api/user/order/${params.id}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("userInfoToken")}`,

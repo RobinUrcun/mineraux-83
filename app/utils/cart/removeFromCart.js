@@ -1,6 +1,6 @@
 export function removeFromCart(productId, userInfo) {
   if (userInfo.isUserConnected) {
-    fetch("http://localhost:3001/api/user/cart/", {
+    fetch("https://mineraux83-api.vercel.app/api/user/cart/", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

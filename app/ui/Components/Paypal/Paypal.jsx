@@ -43,7 +43,7 @@ export default function Paypal() {
             ) {
               try {
                 const response = await fetch(
-                  "http://localhost:3001/api/user/orders",
+                  "https://mineraux83-api.vercel.app/api/user/orders",
                   {
                     method: "POST",
                     headers: {
@@ -81,7 +81,7 @@ export default function Paypal() {
             console.log("data", data);
             try {
               const response = await fetch(
-                `http://localhost:3001/api/user/orders/${data.orderID}/capture`,
+                `https://mineraux83-api.vercel.app/api/user/orders/${data.orderID}/capture`,
                 {
                   method: "POST",
                   headers: {

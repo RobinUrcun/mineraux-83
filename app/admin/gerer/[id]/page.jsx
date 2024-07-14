@@ -21,7 +21,7 @@ export default function page() {
 
   useEffect(() => {
     const fetchData = async function () {
-      fetch(`http://localhost:3001/api/product/${url}`)
+      fetch(`https://mineraux83-api.vercel.app/api/product/${url}`)
         .then((response) => {
           if (response.status === 200) {
             response.json().then((data) => {
@@ -59,7 +59,7 @@ export default function page() {
       formData.append("files", elements.file.files[i]);
     }
 
-    fetch(`http://localhost:3001/api/product/${data._id}`, {
+    fetch(`https://mineraux83-api.vercel.app/api/product/${data._id}`, {
       method: "PUT",
       headers: {
         authorization: `Bearer ${localStorage.getItem("userInfoToken")}`,

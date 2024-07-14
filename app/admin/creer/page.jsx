@@ -30,7 +30,7 @@ export default function page() {
       formData.append("files", elements.file.files[i]);
     }
 
-    fetch("http://localhost:3001/api/product/", {
+    fetch("https://mineraux83-api.vercel.app/api/product/", {
       method: "POST",
       headers: {
         authorization: `Bearer ${localStorage.getItem("userInfoToken")}`,

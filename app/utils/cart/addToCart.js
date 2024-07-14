@@ -1,6 +1,6 @@
 export function addToCart(article, userInfo) {
   if (userInfo.isUserConnected == true) {
-    fetch("http://localhost:3001/api/user/cart/", {
+    fetch("https://mineraux83-api.vercel.app/api/user/cart/", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

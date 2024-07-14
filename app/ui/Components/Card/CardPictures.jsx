@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function CardPictures({ picture, typeOfFile, data, setData }) {
   const deletePicture = () => {
     if (typeOfFile === "file") {
-      fetch("http://localhost:3001/api/product/singlePicture", {
+      fetch("https://mineraux83-api.vercel.app/api/product/singlePicture", {
         method: "DELETE",
         headers: {
           authorization: `Bearer ${localStorage.getItem("userInfoToken")}`,
@@ -32,7 +32,7 @@ export default function CardPictures({ picture, typeOfFile, data, setData }) {
       setData({ ...data, file: newFiles });
     }
     if (typeOfFile === "mainFile") {
-      fetch("http://localhost:3001/api/product/singlePicture", {
+      fetch("https://mineraux83-api.vercel.app/api/product/singlePicture", {
         method: "DELETE",
         headers: {
           authorization: `Bearer ${localStorage.getItem("userInfoToken")}`,

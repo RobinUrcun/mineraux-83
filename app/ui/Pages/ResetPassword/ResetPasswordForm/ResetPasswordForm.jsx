@@ -15,7 +15,7 @@ export default function ResetPasswordForm() {
 
   const fetchData = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3001/api/user/reset-password/", {
+    fetch("https://mineraux83-api.vercel.app/api/user/reset-password/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

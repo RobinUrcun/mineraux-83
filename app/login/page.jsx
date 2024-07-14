@@ -21,7 +21,7 @@ export default function page() {
           onSubmit={(e) => {
             e.preventDefault();
             e.stopPropagation();
-            fetch("http://localhost:3001/api/user/login", {
+            fetch("https://mineraux83-api.vercel.app/api/user/login", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",

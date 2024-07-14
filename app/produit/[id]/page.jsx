@@ -16,7 +16,7 @@ export default function page() {
   const url = useParams().id;
   useEffect(() => {
     const fetchData = async function () {
-      fetch(`http://localhost:3001/api/product/${url}`)
+      fetch(`https://mineraux83-api.vercel.app/api/product/${url}`)
         .then((response) => {
           response.json().then((data) => {
             console.log(data);

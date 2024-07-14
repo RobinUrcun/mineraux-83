@@ -34,7 +34,7 @@ export default function page() {
             ) {
               e.preventDefault();
               e.stopPropagation();
-              fetch("http://localhost:3001/api/user/signup", {
+              fetch("https://mineraux83-api.vercel.app/api/user/signup", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",

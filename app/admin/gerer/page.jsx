@@ -9,7 +9,9 @@ export default function page() {
   const [page, setPage] = useState(1);
 
   const loadMoreProduct = function () {
-    const url = `http://localhost:3001/api/product?page=${page + 1}`;
+    const url = `https://mineraux83-api.vercel.app/api/product?page=${
+      page + 1
+    }`;
 
     fetchAllData(url, null)
       .then((data) => {
@@ -29,7 +31,7 @@ export default function page() {
 
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    const url = `http://localhost:3001/api/product?page=${page}`;
+    const url = `https://mineraux83-api.vercel.app/api/product?page=${page}`;
     fetchAllData(url, null).then((data) => {
       setProducts(data.stones);
     });

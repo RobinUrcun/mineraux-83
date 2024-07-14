@@ -17,7 +17,7 @@ export default function page() {
   useEffect(() => {
     if (userInfo.isUserConnected) {
       const fetchData = async function () {
-        await fetch("http://localhost:3001/api/user/cart", {
+        await fetch("https://mineraux83-api.vercel.app/api/user/cart", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -56,12 +56,15 @@ export default function page() {
       if (ParseLsPanier.length >= 1) {
         const productsIds = ParseLsPanier.join(",");
         const fetchData = async function () {
-          await fetch(`http://localhost:3001/api/product/${productsIds}`, {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          })
+          await fetch(
+            `https://mineraux83-api.vercel.app/api/product/${productsIds}`,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          )
             .then((response) => {
               response.json().then((data) => setProductCart(data));
             })

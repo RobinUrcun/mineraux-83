@@ -12,7 +12,7 @@ export default function page() {
   const submitForm = (e) => {
     e.preventDefault();
     console.log(e.target.elements.email.value);
-    fetch("http://localhost:3001/api/user/forgot-password", {
+    fetch("https://mineraux83-api.vercel.app/api/user/forgot-password", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
