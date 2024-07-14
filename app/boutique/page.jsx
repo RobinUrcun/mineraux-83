@@ -2,7 +2,7 @@
 import React from "react";
 
 import ProductCard from "../ui/Pages/Boutique/Productcard/ProductCard";
-import FilterSection from "@/app/ui/Pages/Boutique/FilterSection/FilterSection";
+import FilterSection from "@/app/ui/Pages/Boutique/FilterSection/FilterSection.jsx";
 
 import Head1 from "../ui/Components/head1/Head1";
 import { useState, useEffect } from "react";
