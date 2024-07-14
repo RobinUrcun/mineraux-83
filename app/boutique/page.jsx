@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import FilterSection from "../ui/Pages/Boutique/FilterSection/FilterSection";
+import FilterSection from "@/app/ui/Pages/Boutique/FilterSection/FilterSection";
 
 import ProductCard from "../ui/Pages/Boutique/Productcard/ProductCard";
 import Head1 from "../ui/Components/head1/Head1";
