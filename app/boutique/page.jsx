@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
-import FilterSection from "@/app/ui/Pages/Boutique/FilterSection/FilterSection";
 
 import ProductCard from "../ui/Pages/Boutique/Productcard/ProductCard";
+import FilterSection from "@/app/ui/Pages/Boutique/FilterSection/FilterSection";
+
 import Head1 from "../ui/Components/head1/Head1";
 import { useState, useEffect } from "react";
 import Toast from "@/app/ui/Components/Toast/Toast";
