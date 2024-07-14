@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import FilterSection from "../ui/Pages/Boutique/FilterSection/FilterSection";
 import ProductCard from "../ui/Pages/Boutique/Productcard/ProductCard";
 import Head1 from "../ui/Components/head1/Head1";
 import { useState, useEffect } from "react";
@@ -52,7 +53,7 @@ export default function page() {
   return (
     <section className="boutiqueSection">
       <Head1>Notre boutique</Head1>
-
+      <FilterSection products={products} setProducts={setProducts} />
       <div className="boutiqueProducts">
         {products.productList.map((product, index) => (
           <ProductCard key={product._id} product={product} />
