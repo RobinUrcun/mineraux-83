@@ -42,11 +42,11 @@ export default function page() {
             }}
           >
             <Image
-              src="/form/arrow.webp"
+              src="assets/form/arrow.webp"
               width={47}
               height={80}
               alt="Rubrique precédente"
-            ></Image>
+            />
           </div>
           <p className="aboutContent">{categories[index].content}</p>
           <div
@@ -67,7 +67,7 @@ export default function page() {
               height={80}
               alt="Rubrique suivante"
               className="arrowAfter"
-            ></Image>
+            />
           </div>
         </div>
       </article>
