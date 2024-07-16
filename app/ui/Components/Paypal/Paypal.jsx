@@ -18,7 +18,6 @@ export default function Paypal() {
     deliveryInfoRef.current = deliveryInfo;
     commandeInfoRef.current = commandeInfo;
   }, [deliveryInfo, commandeInfo]);
-  console.log(deliveryInfoRef.current);
 
   const initialOptions = {
     "client-id":
@@ -78,7 +77,6 @@ export default function Paypal() {
             }
           }}
           onApprove={async (data, actions) => {
-            console.log("data", data);
             try {
               const response = await fetch(
                 `https://mineraux83-api.vercel.app/api/user/orders/${data.orderID}/capture`,
@@ -100,37 +98,23 @@ export default function Paypal() {
               const orderData = await response.json();
 
               const errorDetail = orderData?.details?.[0];
-              console.log(errorDetail);
 
               if (errorDetail?.issue === "INSTRUMENT_DECLINED") {
-                console.log("redirection NON payé???");
                 showToastFailed();
 
                 return actions.restart();
               } else if (errorDetail) {
-                console.log("redirection ERREUR ???");
                 showToastFailed();
 
                 throw new Error(
                   `${errorDetail.description} (${orderData.debug_id})`
                 );
               } else {
-                console.log("redirection OK ???");
                 const transaction =
                   orderData.purchase_units[0].payments.captures[0];
                 router.push(`/confirmation/${transaction.id}`);
-
-                console.log("transaction", transaction);
-                console.log("transaction ID", transaction.id);
-
-                console.log(
-                  "Capture result",
-                  orderData,
-                  JSON.stringify(orderData, null, 2)
-                );
               }
             } catch (error) {
-              console.error(error);
               showToastFailed();
             }
           }}

@@ -7,7 +7,6 @@ import { validName, validNumber } from "@/app/utils/regex/regex";
 
 export default function CommandeResume() {
   const { deliveryInfo, commandeInfo } = useContext(CommandeContext);
-  console.log(deliveryInfo.deliveryCompany);
   return (
     <React.Fragment>
       {deliveryInfo.deliveryCompany === "" ? null : (

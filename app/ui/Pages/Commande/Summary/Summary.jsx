@@ -72,7 +72,6 @@ export default function Summary() {
       setShippingPrice("offerts");
     }
   }, [productCart, deliveryInfo]);
-  console.log(shippingPrice);
   return (
     <article className="commandeSummary">
       <h2>Récapitulatif du panier</h2>

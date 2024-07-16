@@ -44,7 +44,6 @@ export default function layout({ children }) {
     };
     fetchDonnee();
   }, []);
-  console.log(userDonee);
   if (userDonee === null) {
     return <Loader />;
   } else if (userDonee == "ADMIN") {

@@ -29,7 +29,6 @@ export default function page() {
               response
                 .json()
                 .then((data) => {
-                  console.log(data);
                   setProductCart(data);
                 })
                 .catch((error) => console.log(error));

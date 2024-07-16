@@ -11,7 +11,6 @@ export default function page() {
   const router = useRouter();
   const submitForm = (e) => {
     e.preventDefault();
-    console.log(e.target.elements.email.value);
     fetch("https://mineraux83-api.vercel.app/api/user/forgot-password", {
       method: "POST",
       headers: {

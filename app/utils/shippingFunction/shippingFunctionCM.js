@@ -1,7 +1,6 @@
 import cm_france_pricelist from "@/app/utils/priceList/colissimo/france/cm_france_priceList";
 import cm_europe_priceList from "@/app/utils/priceList/colissimo/europe/cm_europe_priceList";
 export default function shippingFunctionCM(cartList, countryToSend) {
-  console.log(countryToSend);
   const priceLists = {
     FR: cm_france_pricelist,
     DE: cm_europe_priceList,

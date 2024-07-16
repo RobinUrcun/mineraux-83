@@ -61,8 +61,6 @@ export default function page() {
     fetchData();
   }, []);
 
-  console.log(userData);
-
   const submitForm = function (e) {
     e.preventDefault();
     fetch("https://mineraux83-api.vercel.app/api/user/userInfo", {

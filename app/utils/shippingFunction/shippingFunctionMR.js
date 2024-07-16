@@ -5,7 +5,6 @@ import mr_paysBas_priceList from "@/app/utils/priceList/mondialRelay/pays-bas/mr
 import mr_espagne_priceList from "@/app/utils/priceList/mondialRelay/espagne/mr_espagne_priceList";
 import mr_portugal_priceList from "@/app/utils/priceList/mondialRelay/portugal/mr_portugal_priceList";
 export default function shippingFunctionMR(cartList, countryToSend) {
-  console.log(countryToSend);
   const priceLists = {
     FR: mr_france_pricelist,
     BE: mr_belgique_priceList,

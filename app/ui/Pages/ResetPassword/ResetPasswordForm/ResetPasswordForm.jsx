@@ -24,7 +24,6 @@ export default function ResetPasswordForm() {
       body: JSON.stringify({ password: e.target.elements.newPassword.value }),
     });
   };
-  console.log(newPassword);
   return (
     <form
       onSubmit={(e) => {

@@ -20,7 +20,6 @@ export default function page() {
         for (let index = 0; index < data.stones.length; index++) {
           productList.push(data.stones[index]);
         }
-        console.log(productList);
         setProducts(productList);
         setPage(page + 1);
       })

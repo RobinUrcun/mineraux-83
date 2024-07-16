@@ -7,7 +7,6 @@ import { CommandeContext } from "@/app/utils/context/commandeContextProvider";
 
 export default function DeliveryChoice() {
   const { deliveryInfo, setDeliveryInfo } = useContext(CommandeContext);
-  console.log(deliveryInfo);
   return (
     <article className="deliveryArticle">
       <h2>Choisissez votre mode de livraison :</h2>

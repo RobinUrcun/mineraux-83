@@ -8,7 +8,6 @@ export default function MondialRelayWidget() {
   const { deliveryInfo, setDeliveryInfo } = useContext(CommandeContext);
 
   useEffect(() => {
-    console.log("widget rerender");
     MondialWidget(setDeliveryInfo, deliveryInfo);
   }, []);
   return (

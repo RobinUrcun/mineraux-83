@@ -20,7 +20,6 @@ export default function page() {
         response
           .json()
           .then((data) => {
-            console.log(data.orderList);
             setOrdersList(data.orderList);
           })
           .catch((err) => router.push("/erreur"));
@@ -39,7 +38,6 @@ export default function page() {
     });
   }, []);
 
-  console.log(ordersList);
   return (
     <article className="monCompteCommandes">
       <h2>Mes Commandes</h2>

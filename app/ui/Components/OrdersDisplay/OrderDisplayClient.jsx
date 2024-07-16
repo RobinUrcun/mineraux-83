@@ -17,7 +17,6 @@ export default function OrderDisplayClient({
     return `${hours}:${minutes} ${day}/${month}/${year}`;
   };
 
-  console.log(orderDate);
   return (
     <tr>
       <td scope="row">

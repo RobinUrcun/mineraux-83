@@ -18,7 +18,6 @@ export default function CardGestion({ product, products, setProducts }) {
       }
     )
       .then((response) => {
-        console.log(response.status);
         if (response.status === 200) {
           const filterProducts = products.filter((singleProduct) => {
             return singleProduct._id !== product._id;

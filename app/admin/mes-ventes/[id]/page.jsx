@@ -6,7 +6,6 @@ import React, { useEffect, useState } from "react";
 export default function page() {
   const [order, setOrder] = useState();
   const params = useParams();
-  console.log(params.id);
 
   const formatDate = (timestamp) => {
     const date = new Date(timestamp);
@@ -33,7 +32,6 @@ export default function page() {
       })
       .catch((err) => console.log(err));
   }, []);
-  console.log(order);
   if (order) {
     return (
       <article className="orderInfoArticle">

@@ -21,7 +21,6 @@ export default function page() {
         response
           .json()
           .then((data) => {
-            console.log(data.orderList);
             setOrdersList(data.orderList);
           })
           .catch((err) => router.push("/erreur"));

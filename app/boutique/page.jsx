@@ -2,7 +2,7 @@
 import React from "react";
 
 import ProductCard from "../ui/Pages/Boutique/Productcard/ProductCard";
-// import FilterSection from "@/app/ui/Pages/Boutique/FilterSection/FilterSection";
+
 import FilterSelection from "../ui/Pages/Boutique/FilterSelection/FilterSelection";
 import Head1 from "../ui/Components/head1/Head1";
 import { useState, useEffect } from "react";
@@ -31,7 +31,6 @@ export default function page() {
         setProducts({ ...products, productList: [] });
       });
   }, [products.filter, products.sort]);
-  console.log(products);
   const loadMoreProduct = function () {
     const url = `https://mineraux83-api.vercel.app/api/product?page=${
       products.page + 1
@@ -40,7 +39,6 @@ export default function page() {
     fetchAllData(url, null)
       .then((data) => {
         const newlist = [...products.productList, data.stones];
-        console.log(newlist);
         setProducts({
           ...products,
           productList: [...products.productList, ...data.stones],
@@ -51,7 +49,6 @@ export default function page() {
         setProducts({ ...products, productList: [] });
       });
   };
-  console.log(products);
   return (
     <section className="boutiqueSection">
       <Head1>Notre boutique</Head1>
