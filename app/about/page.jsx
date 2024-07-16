@@ -42,7 +42,7 @@ export default function page() {
             }}
           >
             <Image
-              src="assets/form/arrow.webp"
+              src="/form/arrow.webp"
               width={47}
               height={80}
               alt="Rubrique precédente"
