@@ -50,6 +50,9 @@
         rgba(0, 0, 0, 0.646)
       );
       right: 0px;
+      img {
+        transform: rotate(180deg);
+      }
     }
     .arrow_before {
       background: linear-gradient(

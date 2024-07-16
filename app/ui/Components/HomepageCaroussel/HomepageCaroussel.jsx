@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Caroussel from "../Caroussel/Caroussel";
 import Image from "next/image";
 
 export default function HomepageCaroussel() {
@@ -55,7 +54,7 @@ export default function HomepageCaroussel() {
             className=" caroussel_arrow arrow_before"
           >
             <Image
-              src="/form/arrow_before.webp"
+              src="/form/arrow.webp"
               width={24}
               height={40}
               alt="précedent"
@@ -63,7 +62,7 @@ export default function HomepageCaroussel() {
           </div>
           <div onClick={nextPicture} className="caroussel_arrow arrow_after">
             <Image
-              src="/form/arrow_after.webp"
+              src="/form/arrow.webp"
               width={24}
               height={40}
               alt="suivant"

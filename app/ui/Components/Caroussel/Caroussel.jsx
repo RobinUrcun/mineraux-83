@@ -39,19 +39,14 @@ export default function Caroussel({ imgUrl, name }) {
           className=" caroussel_arrow arrow_before"
         >
           <Image
-            src="/form/arrow_before.webp"
+            src="/form/arrow.webp"
             width={24}
             height={40}
             alt="précedent"
           />
         </div>
         <div onClick={nextPicture} className="caroussel_arrow arrow_after">
-          <Image
-            src="/form/arrow_after.webp"
-            width={24}
-            height={40}
-            alt="suivant"
-          />
+          <Image src="/form/arrow.webp" width={24} height={40} alt="suivant" />
         </div>
       </div>
     </div>
