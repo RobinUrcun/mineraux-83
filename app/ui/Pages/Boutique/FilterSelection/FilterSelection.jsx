@@ -18,7 +18,7 @@ export default function FilterSelection({ products, setProducts }) {
         <option value="decreasing">Prix Décroissant</option>
       </select>
       <form
-        onChange={(e) => {
+        onSubmit={(e) => {
           e.preventDefault();
           setProducts({ ...products, filter: e.target.value });
         }}
