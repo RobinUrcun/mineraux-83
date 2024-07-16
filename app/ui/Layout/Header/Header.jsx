@@ -4,9 +4,11 @@ import Nav from "../../Components/Nav/Nav";
 import UserInfo from "./UserInfo/UserInfo";
 import Image from "next/image";
 import { useState } from "react";
+import { set } from "mongoose";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <header className="header">
       <Image
@@ -28,8 +30,8 @@ export default function Header() {
           }}
         />
         <div className={`headerWrapper ${isOpen ? "open" : ""}`}>
-          <Nav section="header" />
-          <UserInfo />
+          <Nav section="header" setIsOpen={setIsOpen} />
+          <UserInfo setIsOpen={setIsOpen} />
         </div>
       </div>
     </header>

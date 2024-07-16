@@ -2,13 +2,11 @@
 
 import React from "react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { UserContext } from "@/app/utils/context/userContext";
-import { disconnect } from "process";
 import Image from "next/image";
 
-export default function userInfoAuth() {
+export default function userInfoAuth({ setIsOpen }) {
   const { userInfo, setUserInfo } = useContext(UserContext);
   function deconnection() {
     localStorage.clear();
@@ -20,18 +18,40 @@ export default function userInfoAuth() {
   if (!userInfo.isUserConnected) {
     return (
       <div className="userInfoAuthDisconect">
-        <Link href="/login">Connexion</Link>
-        <Link href="/signup">Inscription</Link>
+        <Link
+          href="/login"
+          onClick={() => {
+            setIsOpen(false);
+          }}
+        >
+          Connexion
+        </Link>
+        <Link
+          href="/signup"
+          onClick={() => {
+            setIsOpen(false);
+          }}
+        >
+          Inscription
+        </Link>
       </div>
     );
   } else {
     return (
       <div className="userInfoAuthConect">
-        <Link href={userInfo.userRole == "ADMIN" ? "/admin" : "/mon-compte"}>
+        <Link
+          onClick={() => {
+            setIsOpen(false);
+          }}
+          href={userInfo.userRole == "ADMIN" ? "/admin" : "/mon-compte"}
+        >
           Mon compte
         </Link>
         <Image
-          onClick={deconnection}
+          onClick={() => {
+            deconnection();
+            setIsOpen(false);
+          }}
           src="/form/logo_disconect.png"
           width={30}
           height={30}
