@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Lithosphere83
 
-## Getting Started
+Bienvenue sur le dépôt de la première version de mon site e-commerce de minéraux ! Ce projet utilise une stack moderne pour fournir une expérience utilisateur fluide et des fonctionnalités complètes de gestion de commerce en ligne.
 
-First, run the development server:
+## Aperçu
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Ce projet est une application de commerce en ligne permettant aux utilisateurs de naviguer, sélectionner et acheter des minéraux. L'interface utilisateur est construite avec Next.js, et l'API backend est gérée avec Express. Les images des produits sont stockées sur AWS S3 et les paiements sont traités via l'API de PayPal. Le site dispose également d'un système de connexion pour les utilisateurs.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Fonctionnalités
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Gestion des Produits: Ajout, modification et suppression des minéraux.
+Panier d'Achat: Ajouter des produits au panier et passer à la caisse.
+Paiement en Ligne: Paiement sécurisé via PayPal.
+Stockage des Images: Stockage des images des produits sur AWS S3.
+Point Relais: Sélection du point relais pour la livraison via Leaflet et jQuery.
+Notifications par Email: Envoi automatique de mails de confirmation grâce à NodeMailer.
+Système de Connexion: Inscription, connexion et gestion de compte utilisateur.
+Technologies Utilisées
+Frontend: Next.js
+Backend: Express
+Base de Données: MongoDB
+ORM: Mongoose
+Stockage des Images: AWS S3
+Map/Point Relais: Leaflet, jQuery
+Paiement: API PayPal
+Emails: NodeMailer
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Lien vers le Site
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Visitez lithosphere83.fr pour découvrir notre boutique de minéraux en ligne !
