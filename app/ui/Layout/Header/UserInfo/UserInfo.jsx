@@ -14,7 +14,7 @@ export default function UserInfo({ setIsOpen }) {
           setIsOpen(false);
         }}
       >
-        <Image src="/assets/panier.png" width={40} height={40} alt="panier" />
+        <Image src="/assets/panier.webp" width={40} height={40} alt="panier" />
       </Link>
     </div>
   );

@@ -7,20 +7,20 @@ export default function HomepageCaroussel() {
   const imgList = [
     {
       imgName: "Une de mes réalisations",
-      imgUrl: "/assets/homepagePicture/20240612_154702.jpg",
+      imgUrl: "/assets/homepagePicture/20240612_154702.webp",
     },
     {
       imgName: "L'atelier",
-      imgUrl: "/assets/homepagePicture/20240208_105421.jpg",
+      imgUrl: "/assets/homepagePicture/20240208_105421.webp",
     },
     {
       imgName: "Mes réalisations",
-      imgUrl: "/assets/homepagePicture/20240526_162216.jpg",
+      imgUrl: "/assets/homepagePicture/20240526_162216.webp",
     },
 
     {
       imgName: "L'atelier",
-      imgUrl: "/assets/homepagePicture/20240203_103057.jpg",
+      imgUrl: "/assets/homepagePicture/20240203_103057.webp",
     },
   ];
   const [counter, setCounter] = useState(0);

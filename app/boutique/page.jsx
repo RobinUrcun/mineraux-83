@@ -16,6 +16,8 @@ export default function page() {
     filter: null,
     sort: "new",
   });
+  console.log(products);
+
   useEffect(() => {
     const url = `https://mineraux83-api.vercel.app/api/product?page=${
       products.page

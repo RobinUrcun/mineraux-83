@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function SocialCard({ href, alt, imgUrl }) {
   return (
     <div className="footerSocialLogo">
-      <Link href={href}>
+      <Link href={href} target="_blank">
         <Image src={imgUrl} width={30} height={30} alt={alt} />
       </Link>
     </div>

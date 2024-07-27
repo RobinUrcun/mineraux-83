@@ -4,7 +4,6 @@ import Nav from "../../Components/Nav/Nav";
 import UserInfo from "./UserInfo/UserInfo";
 import Image from "next/image";
 import { useState } from "react";
-import { set } from "mongoose";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +11,7 @@ export default function Header() {
   return (
     <header className="header">
       <Image
-        src="/Logo.png"
+        src="/Logowebp.webp"
         width={460}
         height={160}
         alt="Mineraux 83"

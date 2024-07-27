@@ -20,10 +20,11 @@ export default function FilterSelection({ products, setProducts }) {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          setProducts({ ...products, filter: e.target.value });
+
+          setProducts({ ...products, filter: e.target.search.value });
         }}
       >
-        <input type="search" />
+        <input id="search" type="search" />
         <button>
           <Image
             src={"/form/logoSearch.png"}

@@ -1911,6 +1911,7 @@ html {
   margin: 30px;
 }
 .commandeMondialRelay .commandeMondialRelayWrapper {
+  z-index: 1;
   margin: 20px 0;
   display: flex;
   flex-direction: row;
@@ -2111,6 +2112,7 @@ html {
   margin-bottom: 10px;
 }
 .commandeResume .paiement {
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;

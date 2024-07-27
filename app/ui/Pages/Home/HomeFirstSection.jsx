@@ -28,7 +28,7 @@ export default function HomeFirstSection() {
           </Link>
         </div>
         <Image
-          src="/assets/geode2.png"
+          src="/assets/geode2.webp"
           width={400}
           height={400}
           alt="Geode"

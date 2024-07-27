@@ -6,19 +6,19 @@ export default function Footer() {
     <footer className="footer">
       <div className="footerSocial">
         <SocialCard
-          href="facebook.com"
+          href="www.facebook.com"
           alt="visitez nous sur Facebook"
-          imgUrl="/assets/icone/social/facebook.png"
+          imgUrl="/assets/icone/social/facebook.webp"
         />
         <SocialCard
           href="www.twitter.com"
           alt="visitez nous sur Twitter"
-          imgUrl="/assets/icone/social/twitter.png"
+          imgUrl="/assets/icone/social/twitter.webp"
         />
         <SocialCard
           href="www.instagram.com"
           alt="visitez nous sur Instagram"
-          imgUrl="/assets/icone/social/instagram.png"
+          imgUrl="/assets/icone/social/instagram.webp"
         />
       </div>
       <Nav section="footer" />
