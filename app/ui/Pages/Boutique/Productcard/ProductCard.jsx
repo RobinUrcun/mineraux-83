@@ -38,7 +38,7 @@ export default function ProductCard({ product }) {
           className="productCardAdd"
         >
           <Image
-            src="/assets/panier.png"
+            src="/assets/panier.webp"
             width={40}
             height={40}
             alt="Ajouter au panier"
