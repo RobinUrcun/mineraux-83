@@ -47,15 +47,15 @@
           overflow: hidden;
           text-overflow: ellipsis;
           display: -webkit-box;
+          line-clamp: 1;
           -webkit-line-clamp: 1;
           -webkit-box-orient: vertical;
           font-size: 20px;
           margin-bottom: 5px;
-          color: grey;
+          color: rgb(54, 53, 53);
         }
         .productCardPrice {
-          opacity: 0.7;
-          color: rgb(77, 74, 74);
+          color: rgb(54, 53, 53);
           font-size: 23px;
         }
       }

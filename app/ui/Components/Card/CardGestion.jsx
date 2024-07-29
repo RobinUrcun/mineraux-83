@@ -42,13 +42,13 @@ export default function CardGestion({ product, products, setProducts }) {
         />
       </div>
       <div className="productCardInfo">
-        <h3 className="productCardName">{product.title}</h3>
+        <h2 className="productCardName">{product.title}</h2>
 
         <div className="productManage">
-          <form>
+          <div className="productManageDiv">
             <Link href={`/admin/gerer/${product._id}`}>Modifer</Link>
-          </form>
-          <form onSubmit={deleteProduct}>
+          </div>
+          <form onSubmit={deleteProduct} className="productManageDiv">
             <button>Supprimer</button>
           </form>
           <Link href={`/admin/creer/${product._id}`}>Produit similaire</Link>

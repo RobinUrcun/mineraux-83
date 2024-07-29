@@ -16,6 +16,7 @@ export default function Header() {
         height={160}
         alt="Mineraux 83"
         className="logo"
+        priority={true}
       />
       <div className="headerUserInfo">
         <Image

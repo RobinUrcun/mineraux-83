@@ -4,7 +4,9 @@ import Image from "next/image";
 export default function FilterSelection({ products, setProducts }) {
   return (
     <div className="boutiqueFilter">
-      <label htmlFor="filterSelect">Trier par :</label>
+      <label className="filerSelect" htmlFor="filterSelect">
+        Trier par :
+      </label>
       <select
         name="filterSelect"
         id="filterSelect"
@@ -24,7 +26,15 @@ export default function FilterSelection({ products, setProducts }) {
           setProducts({ ...products, filter: e.target.search.value });
         }}
       >
-        <input id="search" type="search" />
+        <label className="searchSelect" htmlFor="search">
+          Rechercher
+        </label>
+        <input
+          id="search"
+          name="search"
+          type="search"
+          placeholder="Rechercher"
+        />
         <button>
           <Image
             src={"/form/logoSearch.png"}

@@ -23,10 +23,13 @@
       margin-top: 30px;
       font-size: 20px;
       border-radius: 5px;
-      border: 1px rgb(211, 208, 208) solid;
+      border: 1px rgb(181, 180, 180) solid;
       padding: 3px;
       padding-left: 10px;
-      color: rgb(122, 122, 122);
+      color: rgb(177, 177, 177);
+      &::placeholder {
+        color: rgb(59, 58, 58);
+      }
       @media screen and (max-width: 700px) {
         width: 80%;
         margin: 15px auto;

@@ -13,7 +13,7 @@ export default function Cart({ product, userInfo, onRemove }) {
       </div>
       <div className="cartResponsiveWrapper">
         <Link href={`/produit/${product._id}`}>
-          <h3>{product.title}</h3>
+          <h2>{product.title}</h2>
         </Link>
 
         <div className="cartQty">

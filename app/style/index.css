@@ -483,16 +483,19 @@ html {
     justify-content: center;
   }
 }
-.boutiqueFilter label {
+.boutiqueFilter .filerSelect {
   margin-right: 20px;
   display: flex;
   font-size: 30px;
   align-items: center;
 }
 @media screen and (max-width: 500px) {
-  .boutiqueFilter label {
+  .boutiqueFilter .filerSelect {
     font-size: 20px;
   }
+}
+.boutiqueFilter .searchSelect {
+  display: none;
 }
 .boutiqueFilter select {
   height: 40px;
@@ -511,6 +514,7 @@ html {
   align-items: center;
 }
 .boutiqueFilter form input {
+  padding-left: 10px;
   border: 2px solid white;
   font-size: 20px;
   height: 40px;
@@ -625,15 +629,15 @@ html {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
+  line-clamp: 1;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   font-size: 20px;
   margin-bottom: 5px;
-  color: grey;
+  color: rgb(54, 53, 53);
 }
 .boutiqueSection .productCard .productCardInfo .productCardInfoCont .productCardPrice {
-  opacity: 0.7;
-  color: rgb(77, 74, 74);
+  color: rgb(54, 53, 53);
   font-size: 23px;
 }
 .boutiqueSection .productCard .productCardInfo .productCardAdd {
@@ -1066,11 +1070,11 @@ html {
 .cartWrapper .cartResponsiveWrapper a {
   text-decoration: none;
 }
-.cartWrapper .cartResponsiveWrapper a h3 {
+.cartWrapper .cartResponsiveWrapper a h2 {
   font-size: 20px;
 }
 @media screen and (max-width: 700px) {
-  .cartWrapper .cartResponsiveWrapper a h3 {
+  .cartWrapper .cartResponsiveWrapper a h2 {
     font-size: 15px;
   }
 }
@@ -1477,10 +1481,16 @@ html {
   margin-top: 30px;
   font-size: 20px;
   border-radius: 5px;
-  border: 1px rgb(211, 208, 208) solid;
+  border: 1px rgb(181, 180, 180) solid;
   padding: 3px;
   padding-left: 10px;
-  color: rgb(122, 122, 122);
+  color: rgb(177, 177, 177);
+}
+.addProduct form input::placeholder,
+.addProduct form textarea::placeholder,
+.modifyProduct form input::placeholder,
+.modifyProduct form textarea::placeholder {
+  color: rgb(59, 58, 58);
 }
 @media screen and (max-width: 700px) {
   .addProduct form input,
@@ -1575,10 +1585,11 @@ html {
   font-size: 20px;
   font-weight: 400;
   margin-bottom: 5px;
-  color: rgb(122, 122, 122);
+  color: rgb(54, 53, 53);
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
+  line-clamp: 1;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
@@ -1586,8 +1597,12 @@ html {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   text-wrap: nowrap;
+}
+.manageProduct .manageProductWrapper .productCard .productCardInfo .productManage .productManageDiv {
+  padding: 5px 6px;
 }
 .manageProduct .manageProductWrapper .productCard .productCardInfo .productManage button,
 .manageProduct .manageProductWrapper .productCard .productCardInfo .productManage a {
@@ -1597,11 +1612,9 @@ html {
   border: none;
   display: block;
   height: 100%;
-  padding: 0 6px;
-  display: flex;
   align-items: center;
   text-decoration: none;
-  color: rgb(122, 122, 122);
+  color: rgb(54, 53, 53);
   background-color: transparent;
 }
 .manageProduct .manageProductWrapper .productCard .productCardInfo .productManage button:hover,
@@ -1724,7 +1737,7 @@ html {
   width: fit-content;
   margin-top: 40px;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
   .sectionMonCompte .sectionCompteWrapper {
     row-gap: 30px;
     flex-wrap: wrap;
@@ -1742,7 +1755,7 @@ html {
   flex-direction: column;
   height: 100%;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
   .sectionMonCompte .sectionCompteWrapper nav {
     flex-direction: row;
     width: auto;
@@ -1770,7 +1783,7 @@ html {
   padding-left: 20px;
   padding-right: 20px;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
   .sectionMonCompte .sectionCompteWrapper nav a {
     font-size: 20px;
     height: 50px;
@@ -1782,7 +1795,7 @@ html {
   font-size: 40px;
   text-align: center;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
   .sectionMonCompte h2 {
     font-size: 25px;
   }
@@ -1794,7 +1807,7 @@ html {
   padding: 40px;
   border: white 1px solid;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
   .monCompteCommandes {
     padding: 20px 10px;
     width: 100%;
