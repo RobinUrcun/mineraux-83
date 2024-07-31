@@ -11,14 +11,7 @@ export default function RootLayout({ children }) {
         <title>Lithosphere83: minéraux du monde.</title>
         <meta
           name="description"
-          content="Expertise unique en minéraux du Var et de la Corse. Sélection exclusive de spécimens rares et authentiques. Achat personnalisé et enrichissant garanti.
-
-
-
-
-
-
-"
+          content="Expertise unique en minéraux du Var et de la Corse. Sélection exclusive de spécimens rares et authentiques. Achat personnalisé et enrichissant garanti."
         />
       </head>
       <body>
