@@ -2,7 +2,7 @@
 import React from "react";
 
 import ProductCard from "../ui/Pages/Boutique/Productcard/ProductCard";
-
+import Loader from "../ui/Components/Loader/Loader";
 import FilterSelection from "../ui/Pages/Boutique/FilterSelection/FilterSelection";
 import Head1 from "../ui/Components/head1/Head1";
 import { useState, useEffect } from "react";
@@ -56,9 +56,13 @@ export default function page() {
       <Head1>Notre boutique</Head1>
       <FilterSelection products={products} setProducts={setProducts} />
       <div className="boutiqueProducts">
-        {products.productList.map((product, index) => (
-          <ProductCard key={product._id} product={product} />
-        ))}
+        {!products.productList.length ? (
+          <Loader />
+        ) : (
+          products.productList.map((product, index) => (
+            <ProductCard key={product._id} product={product} />
+          ))
+        )}
       </div>
       <form
         className="loadMore"
