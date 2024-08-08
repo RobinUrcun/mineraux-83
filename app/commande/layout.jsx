@@ -9,7 +9,7 @@ import CommandeContextProvider from "../utils/context/commandeContextProvider";
 import CommandeResume from "../ui/Pages/Commande/Resume/CommandeResume";
 import DeliveryChoice from "../ui/Pages/Commande/DeliveryChoice/DeliveryChoice";
 
-export default function layout({ children }) {
+export default async function layout({ children }) {
   return (
     <React.Fragment>
       <script
@@ -23,6 +23,7 @@ export default function layout({ children }) {
         async
       ></script>
       <link
+        async
         rel="stylesheet"
         type="text/css"
         href="//unpkg.com/leaflet/dist/leaflet.css"
