@@ -8,7 +8,9 @@ export default function MondialRelayWidget() {
   const { deliveryInfo, setDeliveryInfo } = useContext(CommandeContext);
 
   useEffect(() => {
-    MondialWidget(setDeliveryInfo, deliveryInfo);
+    if (typeof window.$ !== "undefined") {
+      MondialWidget(setDeliveryInfo, deliveryInfo);
+    }
   }, []);
   return (
     <div className="widgetWrapper">
