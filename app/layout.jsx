@@ -13,6 +13,11 @@ export default function RootLayout({ children }) {
           name="description"
           content="Expertise unique en minéraux du Var et de la Corse. Sélection exclusive de spécimens rares et authentiques. Achat personnalisé et enrichissant garanti."
         />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="//unpkg.com/leaflet/dist/leaflet.css"
+        />
       </head>
       <body>
         <UserInfo>

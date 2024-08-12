@@ -1,44 +1,46 @@
 export const MondialWidget = (StateToSet, State) => {
-  $(document).ready(function () {
-    // Loading the Parcelshop picker widget into the <div> with id "Zone_Widget" with such settings:
-    $("#Zone_Widget").MR_ParcelShopPicker({
-      //
-      // Settings relating to the HTML.
-      //
-      // JQuery selector of the HTML element receiving the Parcelshop Number (ex: here, input type text, but should be input hidden)
-
-      TargetDisplayInfoPR: "#Retour_Widget",
-      // Settings for Parcelshop data access
-      //
-      // Code given by Mondial Relay, 8 characters (padding right with spaces)
-      // BDTEST is used for development only => a warning appears
-      Brand: "CC2357KU",
-      // Default Country (2 letters) used for search at loading
-      Country: "FR",
-      // Default postal Code used for search at loading
-      PostCode: "59000",
-      // Delivery mode (Standard [24R], XL [24L], XXL [24X], Drive [DRI])
-      ColLivMod: "24R",
-      // Number of parcelshops requested (must be less than 20)
-      NbResults: "7",
-      OnParcelShopSelected: (data) => {
-        StateToSet({
-          name: data.Nom,
-          road: data.Adresse1,
-          CP: data.CP,
-          city: data.Ville,
-          country: data.Pays,
-          id: data.ID,
-          deliveryCompany: "MR",
+  function loadScript(src, callback) {
+    const script = document.createElement("script");
+    script.src = src;
+    script.onload = callback;
+    script.async = true;
+    document.head.appendChild(script);
+  }
+  // Charger jQuery en premier
+  loadScript("https://code.jquery.com/jquery-3.7.1.min.js", () => {
+    // Charger le plugin Mondial Relay après que jQuery est chargé
+    loadScript(
+      "https://widget.mondialrelay.com/parcelshop-picker/jquery.plugin.mondialrelay.parcelshoppicker.min.js",
+      () => {
+        // Charger Leaflet.js
+        loadScript("https://unpkg.com/leaflet/dist/leaflet.js", () => {
+          // Initialiser le widget après le chargement de tous les scripts
+          $(document).ready(function () {
+            $("#Zone_Widget").MR_ParcelShopPicker({
+              TargetDisplayInfoPR: "#Retour_Widget",
+              Brand: "CC2357KU",
+              Country: "FR",
+              PostCode: "59000",
+              ColLivMod: "24R",
+              NbResults: "7",
+              OnParcelShopSelected: (data) => {
+                StateToSet({
+                  name: data.Nom,
+                  road: data.Adresse1,
+                  CP: data.CP,
+                  city: data.Ville,
+                  country: data.Pays,
+                  id: data.ID,
+                  deliveryCompany: "MR",
+                });
+              },
+              AllowedCountries: "FR,BE,LU,ES,NL,PT",
+              Responsive: true,
+              ShowResultsOnMap: true,
+            });
+          });
         });
-      },
-      AllowedCountries: "FR,BE,LU,ES,NL,PT",
-      // Display settings
-      //
-      // Enable Responsive (nb: non responsive corresponds to the Widget used in older versions=
-      Responsive: true,
-      // Show the results on Leaflet map usng OpenStreetMap.
-      ShowResultsOnMap: true,
-    });
+      }
+    );
   });
 };
