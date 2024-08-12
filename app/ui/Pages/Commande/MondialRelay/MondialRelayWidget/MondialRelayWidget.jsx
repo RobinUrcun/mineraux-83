@@ -11,7 +11,7 @@ export default function MondialRelayWidget() {
     if (typeof window.$ !== "undefined") {
       MondialWidget(setDeliveryInfo, deliveryInfo);
     }
-  }, []);
+  }, [window.$]);
   return (
     <div className="widgetWrapper">
       <div id="Zone_Widget"></div>
