@@ -11,7 +11,7 @@ export default function MondialRelay() {
   const { commandeInfo, setCommandeInfo } = useContext(CommandeContext);
   return (
     <article className="commandeMondialRelay">
-      <h2>Livraison à en point relay</h2>
+      <h2>Livraison en point relay</h2>
 
       <div className="commandeMondialRelayWrapper">
         <div

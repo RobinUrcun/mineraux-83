@@ -12,18 +12,13 @@ import DeliveryChoice from "../ui/Pages/Commande/DeliveryChoice/DeliveryChoice";
 export default async function layout({ children }) {
   return (
     <React.Fragment>
-      <script
-        src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"
-        async
-      ></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
       <script
         type="text/javascript"
         src="//unpkg.com/leaflet/dist/leaflet.js"
-        async
       ></script>
       <link
-        async
         rel="stylesheet"
         type="text/css"
         href="//unpkg.com/leaflet/dist/leaflet.css"
@@ -32,7 +27,6 @@ export default async function layout({ children }) {
       <script
         type="text/javascript"
         src="https://widget.mondialrelay.com/parcelshop-picker/jquery.plugin.mondialrelay.parcelshoppicker.min.js"
-        async
       ></script>
       <Head1>Ma commande</Head1>
       <CommandeContextProvider>
