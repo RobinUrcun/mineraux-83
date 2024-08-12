@@ -14,7 +14,6 @@ export default function SummaryCard({ product }) {
       </div>
       <div className="QtyAndPrice">
         <div className="cartPrice">
-          Prix :
           {(product.price / 100).toLocaleString("fr-FR", {
             style: "currency",
             currency: "EUR",

@@ -1111,6 +1111,14 @@ html {
   font-size: 20px;
   text-wrap: nowrap;
 }
+.cartWrapper .cartProductWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.cartWrapper .cartProductWrapper h3 {
+  padding: 20px;
+}
 
 .loginSectionWrapper {
   font-family: "Roboto", sans-serif;
