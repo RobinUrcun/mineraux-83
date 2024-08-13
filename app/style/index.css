@@ -385,29 +385,6 @@ html {
   flex-direction: column;
   justify-content: center;
 }
-.footer .footerSocial {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.footer .footerSocial .footerSocialLogo {
-  margin: auto 10px;
-  border: 1px solid black;
-  background-color: white;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.footer .footerSocial .footerSocialLogo a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .footer::before {
   content: "";
   margin-left: auto;
@@ -429,15 +406,18 @@ html {
   justify-content: space-around;
   max-width: 720px;
 }
+@media screen and (max-width: 500px) {
+  .footerNav ul {
+    row-gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
 .footerNav ul li a {
   font-size: 20px;
   font-weight: 300;
   text-decoration: none;
-}
-@media screen and (max-width: 500px) {
-  .footerNav ul li a {
-    font-size: 15px;
-  }
 }
 
 .H1 {

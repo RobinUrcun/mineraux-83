@@ -4,29 +4,6 @@
   flex-direction: column;
   justify-content: center;
 
-  .footerSocial {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    .footerSocialLogo {
-      margin: auto 10px;
-      border: 1px solid black;
-      background-color: white;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    }
-  }
   &::before {
     content: "";
     margin-left: auto;
