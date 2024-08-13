@@ -4,7 +4,6 @@ import React from "react";
 import Button from "@/app/ui/Components/Button/Button";
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "@/app/utils/context/userContext";
-import Loader from "@/app/ui/Components/Loader/Loader";
 import { useRouter } from "next/navigation";
 import { validPassword, validName } from "@/app/utils/regex/regex";
 import InputMessage from "@/app/ui/Components/InputMessage/InputMessage";
