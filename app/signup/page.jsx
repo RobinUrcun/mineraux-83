@@ -7,8 +7,15 @@ import { useRouter } from "next/navigation";
 import { validEmail, validName, validPassword } from "../utils/regex/regex";
 import InputMessage from "../ui/Components/InputMessage/InputMessage";
 
+import ToastFailed from "@/app/ui/Components/Toast/ToastFailed";
+import showToastFailed from "@/app/utils/toast/showToastFailed";
+import Loader from "@/app/ui/Components/Loader/Loader";
+
 export default function page() {
   const router = useRouter();
+
+  const [isLoader, setIsLoader] = useState(false);
+
   // ETAT PERMETTANT LA VERIFICATION DES REGEX //
   const [inputData, setInputData] = useState({
     surname: "",
@@ -24,6 +31,7 @@ export default function page() {
       <div className="signupSectionWrapper">
         <form
           onSubmit={(e) => {
+            setIsLoader(true);
             if (
               validName.test(inputData.name) &&
               validName.test(inputData.surname) &&
@@ -47,10 +55,12 @@ export default function page() {
                 }),
               })
                 .then((response) => {
-                  if (response.status === 400) {
-                    alert("adresse mail deja utilisée");
-                  } else if (response.status === 201) {
-                    router.push("/boutique");
+                  setIsLoader(false);
+
+                  if (response.ok) {
+                    router.push("/login");
+                  } else   {
+                    showToastFailed();
                   }
                 })
                 .catch((error) => console.log(error));
@@ -213,12 +223,14 @@ export default function page() {
           >
             Vos mots de passe ne correspondent pas !
           </InputMessage>
-          {validName.test(inputData.name) &&
-          validName.test(inputData.surname) &&
-          validEmail.test(inputData.email) &&
-          validPassword.test(inputData.password) &&
-          validPassword.test(inputData.secPassword) &&
-          inputData.password === inputData.secPassword ? (
+          {isLoader ? (
+            <Loader />
+          ) : validName.test(inputData.name) &&
+            validName.test(inputData.surname) &&
+            validEmail.test(inputData.email) &&
+            validPassword.test(inputData.password) &&
+            validPassword.test(inputData.secPassword) &&
+            inputData.password === inputData.secPassword ? (
             <Button type="submit">Créer son compte</Button>
           ) : (
             <Button type="submit" disabled="true">
@@ -227,6 +239,7 @@ export default function page() {
           )}
         </form>
       </div>
+      <ToastFailed>Adresse mail déja utilisée !</ToastFailed>
     </section>
   );
 }

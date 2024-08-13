@@ -8,9 +8,14 @@ import { UserContext } from "@/app/utils/context/userContext";
 import { validEmail, validPassword } from "../utils/regex/regex";
 import Head1 from "../ui/Components/head1/Head1";
 import InputMessage from "@/app/ui/Components/InputMessage/InputMessage";
+import Loader from "@/app/ui/Components/Loader/Loader";
+import showToastFailed from "@/app/utils/toast/showToastFailed";
+import ToastFailed from "@/app/ui/Components/Toast/ToastFailed";
 
 export default function page() {
   const router = useRouter();
+  const [isLoader, setIsLoader] = useState(false);
+
   const { userInfo, setUserInfo } = useContext(UserContext);
   const [userData, setUserData] = useState({ email: "", password: "" });
   return (
@@ -19,6 +24,7 @@ export default function page() {
       <div className="loginSectionWrapper">
         <form
           onSubmit={(e) => {
+            setIsLoader(true);
             e.preventDefault();
             e.stopPropagation();
             fetch("https://mineraux83-api.vercel.app/api/user/login", {
@@ -35,9 +41,8 @@ export default function page() {
               }),
             })
               .then((response) => {
-                if (response.status === 403) {
-                  alert("Email ou mot de passe invalide");
-                } else {
+                setIsLoader(false);
+                if (response.ok) {
                   response.json().then((data) => {
                     localStorage.setItem("userInfoToken", data.token);
                     localStorage.setItem("userInfoUserId", data.userId);
@@ -49,6 +54,8 @@ export default function page() {
                     localStorage.removeItem("panier");
                     router.push("/boutique");
                   });
+                } else {
+                  showToastFailed();
                 }
               })
               .catch((error) => {
@@ -112,23 +119,28 @@ export default function page() {
             Votre mot de passe doit contenir 6 caractères minimum dont au moins
             1 chiffre et 1 lettre !
           </InputMessage>
-          <Button
-            type="submit"
-            disabled={
-              validEmail.test(userData.email) &&
-              validPassword.test(userData.password)
-                ? null
-                : "true"
-            }
-          >
-            Se connecter
-          </Button>
+          {isLoader ? (
+            <Loader />
+          ) : (
+            <Button
+              type="submit"
+              disabled={
+                validEmail.test(userData.email) &&
+                validPassword.test(userData.password)
+                  ? null
+                  : "true"
+              }
+            >
+              Se connecter
+            </Button>
+          )}
         </form>
         <div className="helpLogin">
           <Link href="/mot-de-passe-oublie">Impossible de se connecter</Link>
           <Link href="/signup">Je n&apos;ai pas de compte</Link>
         </div>
       </div>
+      <ToastFailed>Adresse mail ou mot de passe incorrect</ToastFailed>
     </section>
   );
 }
