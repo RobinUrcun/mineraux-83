@@ -1,15 +1,18 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
 import Head1 from "../ui/Components/head1/Head1";
 import Button from "../ui/Components/Button/Button";
 import ToastFailed from "../ui/Components/Toast/ToastFailed";
 import showToastFailed from "../utils/toast/showToastFailed";
+import Loader from "../ui/Components/Loader/Loader";
 
 export default function page() {
+  const [isLoader, setIsLoader] = useState(false);
   const router = useRouter();
   const submitForm = (e) => {
+    setIsLoader(true);
     e.preventDefault();
     fetch("https://mineraux83-api.vercel.app/api/user/forgot-password", {
       method: "POST",
@@ -18,6 +21,7 @@ export default function page() {
       },
       body: JSON.stringify({ email: e.target.elements.email.value }),
     }).then((response) => {
+      setIsLoader(false);
       if (response.ok) {
         router.push("/email-envoye");
       } else {
@@ -39,7 +43,7 @@ export default function page() {
           <input id="email" name="email" autoComplete="email" type="email" />
         </div>
 
-        <Button type={"submit"}>Envoyer</Button>
+        {isLoader ? <Loader /> : <Button type={"submit"}>Envoyer</Button>}
       </form>
       <ToastFailed>Utilisateur introuvable</ToastFailed>
     </section>
