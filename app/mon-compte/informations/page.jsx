@@ -12,8 +12,10 @@ import Toast from "@/app/ui/Components/Toast/Toast";
 import ToastFailed from "@/app/ui/Components/Toast/ToastFailed";
 import showToast from "@/app/utils/toast/showToast";
 import showToastFailed from "@/app/utils/toast/showToastFailed";
+import Loader from "@/app/ui/Components/Loader/Loader";
 
 export default function page() {
+  const [isLoader, setIsLoader] = useState(false);
   const { userInfo, setUserInfo } = useContext(UserContext);
   const router = useRouter();
   const [userData, setUserData] = useState({
@@ -63,6 +65,7 @@ export default function page() {
 
   const submitForm = function (e) {
     e.preventDefault();
+    setIsLoader(true);
     fetch("https://mineraux83-api.vercel.app/api/user/userInfo", {
       method: "PUT",
       headers: {
@@ -72,6 +75,8 @@ export default function page() {
       body: JSON.stringify(userData),
     })
       .then((response) => {
+        setIsLoader(false);
+
         if (response.status === 200) {
           showToast();
         } else if (response.status === 403) {
@@ -231,21 +236,25 @@ export default function page() {
           >
             Vos mots de passe ne correspondent pas !
           </InputMessage>
-          <Button
-            type="submit"
-            disabled={
-              validName.test(userData.name) &&
-              validName.test(userData.surname) &&
-              ((validPassword.test(userData.newPassword) &&
-                userData.newPassword === userData.verifNewPassword) ||
-                (userData.newPassword === "" &&
-                  userData.verifNewPassword === ""))
-                ? null
-                : "true"
-            }
-          >
-            Modifier
-          </Button>
+          {isLoader ? (
+            <Loader />
+          ) : (
+            <Button
+              type="submit"
+              disabled={
+                validName.test(userData.name) &&
+                validName.test(userData.surname) &&
+                ((validPassword.test(userData.newPassword) &&
+                  userData.newPassword === userData.verifNewPassword) ||
+                  (userData.newPassword === "" &&
+                    userData.verifNewPassword === ""))
+                  ? null
+                  : "true"
+              }
+            >
+              Modifier
+            </Button>
+          )}
         </form>
         <Toast>Informations enregistrées</Toast>
         <ToastFailed>Le mot de passe actuel est éroné</ToastFailed>
