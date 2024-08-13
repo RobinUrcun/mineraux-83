@@ -59,7 +59,7 @@ export default function page() {
 
                   if (response.ok) {
                     router.push("/login");
-                  } else   {
+                  } else {
                     showToastFailed();
                   }
                 })
@@ -145,7 +145,7 @@ export default function page() {
             onChange={(e) => {
               setInputData({
                 ...inputData,
-                email: e.target.value,
+                email: e.target.value.toLowerCase(),
               });
             }}
           />

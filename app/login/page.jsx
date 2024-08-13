@@ -33,7 +33,7 @@ export default function page() {
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({
-                email: userData.email,
+                email: userData.email.toLowerCase(),
                 password: userData.password,
                 cart: !localStorage.getItem("panier")
                   ? null
