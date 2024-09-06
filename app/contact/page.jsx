@@ -1,41 +1,54 @@
 import React from "react";
-import Head1 from "../ui/Components/head1/Head1";
 import Image from "next/image";
+import ContactForm from "../ui/Components/ContactForm/ContactForm";
+import Head1 from "../ui/Components/head1/Head1";
 
 export default function page() {
   return (
     <React.Fragment>
-      <Head1>Nous contacter</Head1>
-      <section className="contactSection">
-        <article className="contactArticle">
-          <div className="contactImgWrapper">
-            <Image
-              src="/form/logoPhone.png"
-              height={100}
-              width={100}
-              alt="Contactez nous par téléphone"
-            />
+      <Head1>Contactez moi</Head1>
+      <section id="contact" className="contactMeSection">
+        <div className="contactMeText">
+          <div className="contactMeInfo">
+            <a href="tel: +337 50 51 29 56" className="contactMeInfoWrapper">
+              <div className="contactMeImgBorder">
+                <Image
+                  src={"/assets/icone/contact/callLogo.svg"}
+                  height={40}
+                  width={40}
+                  alt="Lien pour téléphoner"
+                />
+              </div>
+              <p>+ 33X XX XX XX XX</p>
+            </a>
+            <a
+              href="mailto:robinurcun@gmail.com"
+              className="contactMeInfoWrapper"
+            >
+              <div className="contactMeImgBorder">
+                <Image
+                  src={"/assets/icone/contact/mailLogo.svg"}
+                  height={40}
+                  width={40}
+                  alt="Lien pour envoyer un mail"
+                />
+              </div>
+              <p>xxxxxxxxxxxxx@gmail.com</p>
+            </a>
+            <div className="contactMeInfoWrapper">
+              <div className="contactMeImgBorder">
+                <Image
+                  src={"/assets/icone/contact/positionLogo.svg"}
+                  height={40}
+                  width={40}
+                  alt="Ma localisation"
+                />
+              </div>
+              <p>Aups, VAR</p>
+            </div>
           </div>
-          <p>Contacter nous du Lundi au Samedi de 9h00 à 18h00 au :</p>
-          <div className="contactArticleWrapper">
-            <a href="tel:0612345678">0612345678</a>
-          </div>
-        </article>
-
-        <article className="contactArticle">
-          <div className="contactImgWrapper">
-            <Image
-              src="/form/logoMail.png"
-              height={100}
-              width={100}
-              alt="Contactez nous par e-mail"
-            />
-          </div>
-          <p>Écrivez nous directement par mail a l'adresse suivante : </p>
-          <div className="contactArticleWrapper">
-            <a href="mailto:AdresseMail@gmail.com">mineraux83api@gmail.com</a>
-          </div>
-        </article>
+        </div>
+        <ContactForm />
       </section>
     </React.Fragment>
   );

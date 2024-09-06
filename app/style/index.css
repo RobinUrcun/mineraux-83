@@ -712,6 +712,183 @@ html {
   text-decoration: none;
 }
 
+.contactMeSection {
+  padding: 80px 5%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width: 1000px) {
+  .contactMeSection {
+    flex-direction: column;
+    row-gap: 30px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .contactMeSection {
+    padding: 90px 5%;
+  }
+}
+.contactMeSection .contactMeText {
+  font-family: Manrope;
+  font-size: 33px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-align: left;
+  color: #1c64f2;
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  width: 50%;
+}
+@media screen and (max-width: 1000px) {
+  .contactMeSection .contactMeText {
+    width: auto;
+  }
+}
+.contactMeSection .contactMeText .contactMeDescription {
+  font-family: Manrope;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 57px;
+  text-align: left;
+  color: black;
+}
+.contactMeSection .contactMeText .contactMeInfo {
+  display: flex;
+  flex-direction: column;
+  row-gap: 29px;
+}
+.contactMeSection .contactMeText .contactMeInfo .contactMeInfoWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  gap: 17px;
+}
+.contactMeSection .contactMeText .contactMeInfo .contactMeInfoWrapper .contactMeImgBorder {
+  width: 70px;
+  height: 70px;
+  border: 1px solid #994d61;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 500px) {
+  .contactMeSection .contactMeText .contactMeInfo .contactMeInfoWrapper .contactMeImgBorder {
+    width: 40px;
+    height: 40px;
+  }
+}
+.contactMeSection .contactMeText .contactMeInfo .contactMeInfoWrapper .contactMeImgBorder img {
+  filter: invert(0.4);
+}
+@media screen and (max-width: 500px) {
+  .contactMeSection .contactMeText .contactMeInfo .contactMeInfoWrapper .contactMeImgBorder img {
+    width: 20px;
+    height: 20px;
+  }
+}
+.contactMeSection .contactMeText .contactMeInfo .contactMeInfoWrapper p {
+  font-family: Manrope;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: left;
+  letter-spacing: 3px;
+}
+@media screen and (max-width: 500px) {
+  .contactMeSection .contactMeText .contactMeInfo .contactMeInfoWrapper p {
+    font-size: 15px;
+  }
+}
+.contactMeSection .contactMeForm {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid #994d61;
+  border-left: 2px solid #994d61;
+  border-right: 2px solid #994d61;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 40px;
+}
+@media screen and (max-width: 1000px) {
+  .contactMeSection .contactMeForm {
+    width: calc(100% - 60px);
+  }
+}
+@media screen and (max-width: 600px) {
+  .contactMeSection .contactMeForm {
+    width: calc(100% - 60px);
+    padding: 40px 20px;
+  }
+}
+.contactMeSection .contactMeForm label {
+  font-family: Manrope;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 23px;
+  text-align: left;
+  color: #79818a;
+  margin-bottom: 10px;
+}
+.contactMeSection .contactMeForm input {
+  height: 45px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background-color: #f9fafb;
+  padding-left: 25px;
+  font-family: Manrope;
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 23px;
+  text-align: left;
+  color: #444445;
+  margin-bottom: 25px;
+}
+.contactMeSection .contactMeForm input::placeholder {
+  color: #9ca3af;
+  font-size: 19px;
+}
+.contactMeSection .contactMeForm textarea {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background-color: #f9fafb;
+  padding-top: 15px;
+  padding-left: 25px;
+  font-family: Manrope;
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 23px;
+  text-align: left;
+  color: #444445;
+  min-height: 120px;
+  margin-bottom: 25px;
+}
+.contactMeSection .contactMeForm textarea::placeholder {
+  color: #9ca3af;
+  font-size: 19px;
+}
+.contactMeSection .contactMeForm button {
+  background: linear-gradient(190deg, #485a6f, 60%, #994d61);
+  border: none;
+  height: 50px;
+  border-radius: 8px;
+  font-family: Manrope;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 21.86px;
+  text-align: left;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
 .aboutSection {
   padding-bottom: 50px;
 }
@@ -1472,13 +1649,13 @@ html {
   border: 1px rgb(181, 180, 180) solid;
   padding: 3px;
   padding-left: 10px;
-  color: rgb(177, 177, 177);
+  color: rgb(46, 45, 45);
 }
 .addProduct form input::placeholder,
 .addProduct form textarea::placeholder,
 .modifyProduct form input::placeholder,
 .modifyProduct form textarea::placeholder {
-  color: rgb(59, 58, 58);
+  color: rgb(125, 123, 123);
 }
 @media screen and (max-width: 700px) {
   .addProduct form input,
@@ -1492,6 +1669,7 @@ html {
 .addProduct form label,
 .modifyProduct form label {
   margin-top: 30px;
+  margin-bottom: 20px;
   font-size: 20px;
   padding-left: 10px;
 }
