@@ -17,11 +17,12 @@ export default function page() {
   const router = useRouter();
   const url = useParams().id;
 
-  const [data, setData] = useState(null);
+  const [data, setData] = useState("loading");
 
   useEffect(() => {
     const fetchData = async function () {
-      fetch(`https://mineraux83-api.vercel.app/api/product/${url}`)
+      fetch(`https://mineraux83-api.vercel.app
+/api/product/${url}`)
         .then((response) => {
           if (response.status === 200) {
             response.json().then((data) => {
@@ -59,15 +60,22 @@ export default function page() {
       formData.append("files", elements.file.files[i]);
     }
 
-    fetch(`https://mineraux83-api.vercel.app/api/product/${data._id}`, {
-      method: "PUT",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("userInfoToken")}`,
-      },
-      body: formData,
-    })
+    fetch(
+      `https://mineraux83-api.vercel.app
+/api/product/${data._id}`,
+      {
+        method: "PUT",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("userInfoToken")}`,
+        },
+        body: formData,
+      }
+    )
       .then((response) => {
         if (response.status === 200) {
+          response.json().then((data) => {
+            setData(data.data[0]);
+          });
           setIsLoading(false);
           showToast();
         } else {
@@ -82,7 +90,7 @@ export default function page() {
       });
   };
 
-  if (!data) {
+  if (data === "loading") {
     return <Loader />;
   } else if (data === "erreur") {
     router.push("/erreur");
