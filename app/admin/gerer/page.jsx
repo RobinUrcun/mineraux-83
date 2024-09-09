@@ -8,19 +8,14 @@ import { fetchAllData } from "@/app/utils/fetchs/fetchAllProduct";
 export default function page() {
   const [page, setPage] = useState(1);
 
-  const loadMoreProduct = function () {
+  const loadMoreProduct = async function () {
     const url = `https://mineraux83-api.vercel.app/api/product?page=${
       page + 1
     }`;
 
-    fetchAllData(url, null)
+    await fetchAllData(url, null)
       .then((data) => {
-        const productList = products;
-
-        for (let index = 0; index < data.stones.length; index++) {
-          productList.push(data.stones[index]);
-        }
-        setProducts(productList);
+        setProducts((prevProducts) => [...prevProducts, ...data.stones]);
         setPage(page + 1);
       })
       .catch(() => {
@@ -35,9 +30,16 @@ export default function page() {
       setProducts(data.stones);
     });
   }, []);
+  useEffect(() => {
+    if (products.length > 8) {
+      document
+        .getElementById("manageProductWrapper")
+        .scrollBy({ top: 2000, behavior: "smooth" });
+    }
+  }, [products]);
   return (
     <article className="manageProduct">
-      <div className="manageProductWrapper">
+      <div className="manageProductWrapper" id="manageProductWrapper">
         {products.map((product) => (
           <CardGestion
             product={product}
@@ -49,9 +51,9 @@ export default function page() {
       </div>
       <form
         className="loadMore"
-        onSubmit={(e) => {
+        onSubmit={async (e) => {
           e.preventDefault();
-          loadMoreProduct();
+          await loadMoreProduct();
         }}
       >
         <button>afficher plus</button>
