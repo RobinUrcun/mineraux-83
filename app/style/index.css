@@ -1666,6 +1666,12 @@ html {
     margin: 15px auto;
   }
 }
+.addProduct form #file,
+.addProduct form #mainFile,
+.modifyProduct form #file,
+.modifyProduct form #mainFile {
+  color: white;
+}
 .addProduct form label,
 .modifyProduct form label {
   margin-top: 30px;
