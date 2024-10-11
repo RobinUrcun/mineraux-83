@@ -8,8 +8,13 @@ export default function HomeFirstSection() {
       <article className="homeFirstSectionArticle">
         <div className="homeFirstSectionH1">
           <h1>
-            <span>Mineraux du monde spécialiste du Var et de la Corse</span>
-            <span>Sciage et polissage dans mon atelier</span>
+            <span className="title_name">
+              Mineraux et fossiles du monde spécialiste du Var et de la Corse
+            </span>
+            <span className="title_aside">
+              Sciage et polissage dans mon atelier
+            </span>
+            <span className="title_shipping">Livraison offerte dès 60 €</span>
           </h1>
           <Link href="#homePresentationSection" className="doubleArrowWrapper">
             <Image

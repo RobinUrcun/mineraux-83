@@ -211,7 +211,7 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 190px);
+  min-height: calc(100vh - 190px);
   overflow: hidden;
 }
 @media screen and (max-width: 700px) {
@@ -272,17 +272,21 @@ html {
   font-size: 50px;
   font-weight: 100;
   max-width: 650px;
+  row-gap: 20px;
 }
-.homeFirstSection .homeFirstSectionArticle .homeFirstSectionH1 h1 span:first-child {
+.homeFirstSection .homeFirstSectionArticle .homeFirstSectionH1 h1 .title_name {
   font-weight: 400;
-  margin-bottom: 30px;
 }
-.homeFirstSection .homeFirstSectionArticle .homeFirstSectionH1 h1 span:last-child {
+.homeFirstSection .homeFirstSectionArticle .homeFirstSectionH1 h1 .title_aside {
   font-size: 40px;
   -webkit-text-fill-color: white;
 }
+.homeFirstSection .homeFirstSectionArticle .homeFirstSectionH1 h1 .title_shipping {
+  font-size: 40px;
+  font-weight: 400;
+}
 .homeFirstSection .homeFirstSectionArticle .homeFirstSectionH1 .doubleArrowWrapper {
-  margin-top: 70px;
+  margin-top: 20px;
   transform: rotate(-90deg);
   cursor: pointer;
 }
