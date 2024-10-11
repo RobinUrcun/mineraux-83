@@ -50,7 +50,7 @@ export default function Summary() {
   useEffect(() => {
     const cartPrice =
       productCart.reduce((total, produit) => total + produit.price, 0) / 100;
-    if (cartPrice < 80) {
+    if (cartPrice < 60) {
       if (deliveryInfo.deliveryCompany === "MR") {
         if (deliveryInfo.country) {
           const price = shippingFunctionMR(productCart, deliveryInfo.country);
