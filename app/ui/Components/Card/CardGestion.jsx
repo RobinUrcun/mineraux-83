@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Toast from "../Toast/Toast";
 import ToastFailed from "../Toast/ToastFailed";
 import showToast from "@/app/utils/toast/showToast";
@@ -19,10 +20,12 @@ export default function CardGestion({ product, products, setProducts }) {
     )
       .then((response) => {
         if (response.status === 200) {
-          const filterProducts = products.filter((singleProduct) => {
-            return singleProduct._id !== product._id;
-          });
-          setProducts(filterProducts);
+          const filterProducts = products.productList.filter(
+            (singleProduct) => {
+              return singleProduct._id !== product._id;
+            }
+          );
+          setProducts({ ...products, productList: filterProducts });
           showToast();
         } else {
           showToastFailed();
@@ -35,10 +38,12 @@ export default function CardGestion({ product, products, setProducts }) {
   return (
     <div className="productCard">
       <div className="productCardImgCont">
-        <img
-          src={`https://lithosphere83-bucket.s3.eu-west-3.amazonaws.com/upload/${product.mainFile}`}
+        <Image
+          src={`https://lithosphere83-bucket.s3.eu-west-3.amazonaws.com/upload/${product.mainFile[0]}`}
           alt="ok"
           className="productCardImg"
+          width={150}
+          height={200}
         />
       </div>
       <div className="productCardInfo">

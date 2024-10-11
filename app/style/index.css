@@ -1703,6 +1703,7 @@ html {
 .manageProduct .manageProductWrapper {
   max-height: 100vh;
   overflow-y: scroll;
+  margin-top: 30px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

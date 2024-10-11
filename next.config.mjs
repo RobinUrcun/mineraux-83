@@ -12,6 +12,16 @@ const nextConfig = {
 
     return config;
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "lithosphere83-bucket.s3.eu-west-3.amazonaws.com",
+        port: "",
+        pathname: "**",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
