@@ -18,6 +18,7 @@ export default function ProductCard({ product }) {
           className="productCardImg"
           width={200}
           height={200}
+          priority={true}
         />
       </div>
       <div className="productCardInfo">
