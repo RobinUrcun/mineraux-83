@@ -11,7 +11,7 @@ export default function FilterSelection({ products, setProducts }) {
         name="filterSelect"
         id="filterSelect"
         onChange={(e) => {
-          setProducts({ ...products, sort: e.target.value });
+          setProducts({ ...products, sort: e.target.value, page: 1 });
         }}
       >
         <option value="new">Nouveauté</option>
@@ -23,7 +23,7 @@ export default function FilterSelection({ products, setProducts }) {
         onSubmit={(e) => {
           e.preventDefault();
 
-          setProducts({ ...products, filter: e.target.search.value });
+          setProducts({ ...products, filter: e.target.search.value, page: 1 });
         }}
       >
         <label className="searchSelect" htmlFor="search">
