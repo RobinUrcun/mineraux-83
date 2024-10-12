@@ -19,7 +19,7 @@ export default function page() {
                   alt="Lien pour téléphoner"
                 />
               </div>
-              <p>+ 33X XX XX XX XX</p>
+              <p>06 43 02 18 13</p>
             </a>
             <a
               href="mailto:robinurcun@gmail.com"
@@ -33,7 +33,7 @@ export default function page() {
                   alt="Lien pour envoyer un mail"
                 />
               </div>
-              <p>xxxxxxxxxxxxx@gmail.com</p>
+              <p>moragerard@hotmail.fr</p>
             </a>
             <div className="contactMeInfoWrapper">
               <div className="contactMeImgBorder">
