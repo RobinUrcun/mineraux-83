@@ -11,9 +11,26 @@ import Toast from "@/app/ui/Components/Toast/Toast";
 import ToastFailed from "@/app/ui/Components/Toast/ToastFailed";
 import showToast from "@/app/utils/toast/showToast";
 import showToastFailed from "@/app/utils/toast/showToastFailed";
+import Creatable from "react-select/creatable";
+import options from "@/app/utils/shopCategories/shopCategories.json";
+
+const selectStyles = {
+  control: (styles) => ({ ...styles, backgroundColor: "white" }),
+  option: (styles) => ({ ...styles, color: "grey" }),
+  dropdownIndicator: (style) => ({
+    ...style,
+    color: "grey",
+    svg: {
+      fill: "grey",
+    },
+  }),
+};
 
 export default function page() {
   const [isLoading, setIsLoading] = useState(false);
+  const [select, setIsSelect] = useState([]);
+  console.log(select);
+
   const router = useRouter();
   const url = useParams().id;
 
@@ -27,6 +44,12 @@ export default function page() {
           if (response.status === 200) {
             response.json().then((data) => {
               setData(data[0]);
+              setIsSelect(
+                data[0].categories?.map((categorie) => ({
+                  label: categorie,
+                  value: categorie,
+                }))
+              );
             });
           } else {
             setData("erreur");
@@ -54,23 +77,22 @@ export default function page() {
     formData.append("weight", elements.weight.value);
     formData.append("origin", elements.origin.value);
     formData.append("reference", elements.reference.value);
+    for (let index = 0; index < select.length; index++) {
+      formData.append("categories", select[index].value);
+    }
     formData.append("mainFile", elements.mainFile.files[0]);
 
     for (let i = 0; i < elements.file.files.length; i++) {
       formData.append("files", elements.file.files[i]);
     }
-
-    fetch(
-      `https://mineraux83-api.vercel.app
-/api/product/${data._id}`,
-      {
-        method: "PUT",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("userInfoToken")}`,
-        },
-        body: formData,
-      }
-    )
+    // `https://mineraux83-api.vercel.app/api/product/${data._id}` //
+    fetch(`http://localhost:3000/api/product/${data._id}`, {
+      method: "PUT",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("userInfoToken")}`,
+      },
+      body: formData,
+    })
       .then((response) => {
         if (response.status === 200) {
           response.json().then((data) => {
@@ -103,7 +125,7 @@ export default function page() {
             name="title"
             type="text"
             id="title"
-            value={data.title}
+            value={data.title ? data.title : undefined}
             placeholder="Nom de la pierre"
             onChange={(e) => {
               setData({ ...data, title: e.target.value });
@@ -113,7 +135,7 @@ export default function page() {
             name="description"
             id="description"
             placeholder="Description"
-            value={data.description}
+            value={data.description ? data.description : undefined}
             onChange={(e) => {
               setData({ ...data, description: e.target.value });
             }}
@@ -124,7 +146,7 @@ export default function page() {
             step="0.01"
             type="number"
             placeholder="Prix"
-            value={data.price / 100}
+            value={data.price ? data.price / 100 : undefined}
             onChange={(e) => {
               setData({ ...data, price: e.target.value * 100 });
             }}
@@ -134,7 +156,7 @@ export default function page() {
             id="size"
             type="text"
             placeholder="Taille"
-            value={data.size}
+            value={data.size ? data.size : undefined}
             onChange={(e) => {
               setData({ ...data, size: e.target.value });
             }}
@@ -144,7 +166,7 @@ export default function page() {
             id="weight"
             type="number"
             placeholder="Poids (en grammes)"
-            value={data.weight}
+            value={data.weight ? data.weight : undefined}
             onChange={(e) => {
               setData({ ...data, weight: e.target.value });
             }}
@@ -154,7 +176,7 @@ export default function page() {
             id="origin"
             type="text"
             placeholder="Provenance"
-            value={data.origin}
+            value={data.origin ? data.origin : undefined}
             onChange={(e) => {
               setData({ ...data, origin: e.target.value });
             }}
@@ -164,9 +186,19 @@ export default function page() {
             type="text"
             id="reference"
             placeholder="Référence"
-            value={data.reference}
+            value={data.reference ? data.reference : undefined}
             onChange={(e) => {
               setData({ ...data, reference: e.target.value });
+            }}
+          />
+          <Creatable
+            id="categories"
+            options={options}
+            isMulti
+            defaultValue={select ? select : false}
+            styles={selectStyles}
+            onChange={(e) => {
+              setIsSelect(e.map((e) => e));
             }}
           />
           <label htmlFor="mainFile">Photo principale</label>

@@ -10,13 +10,28 @@ import Toast from "@/app/ui/Components/Toast/Toast";
 import showToast from "@/app/utils/toast/showToast";
 import ToastFailed from "@/app/ui/Components/Toast/ToastFailed";
 import showToastFailed from "@/app/utils/toast/showToastFailed";
+import Creatable from "react-select/creatable";
+import options from "@/app/utils/shopCategories/shopCategories.json";
+
+const selectStyles = {
+  control: (styles) => ({ ...styles, backgroundColor: "white" }),
+  option: (styles) => ({ ...styles, color: "grey" }),
+  dropdownIndicator: (style) => ({
+    ...style,
+    color: "grey",
+    svg: {
+      fill: "grey",
+    },
+  }),
+};
 
 export default function page() {
   const router = useRouter();
   const url = useParams().id;
   const [isLoading, setIsLoading] = useState(false);
-
+  const [select, setIsSelect] = useState([]);
   const [data, setData] = useState(null);
+  console.log(select);
 
   useEffect(() => {
     const fetchData = async function () {
@@ -26,7 +41,14 @@ export default function page() {
             response.json().then((data) => {
               delete data[0].mainFile;
               delete data[0].file;
+              console.log(data);
 
+              setIsSelect(
+                data[0].categories?.map((categorie) => ({
+                  label: categorie,
+                  value: categorie,
+                }))
+              );
               setData({ ...data[0], mainFile: [], file: [] });
             });
           } else {
@@ -55,6 +77,9 @@ export default function page() {
     formData.append("weight", elements.weight.value);
     formData.append("origin", elements.origin.value);
     formData.append("reference", elements.reference.value);
+    for (let index = 0; index < select.length; index++) {
+      formData.append("categories", select[index].value);
+    }
     formData.append("mainFile", elements.mainFile.files[0]);
 
     for (let i = 0; i < elements.file.files.length; i++) {
@@ -97,7 +122,7 @@ export default function page() {
             name="title"
             type="text"
             id="title"
-            value={data.title}
+            value={data.title ? data.title : undefined}
             placeholder="Nom de la pierre"
             onChange={(e) => {
               setData({ ...data, title: e.target.value });
@@ -107,7 +132,7 @@ export default function page() {
             name="description"
             id="description"
             placeholder="Description"
-            value={data.description}
+            value={data.description ? data.description : undefined}
             onChange={(e) => {
               setData({ ...data, description: e.target.value });
             }}
@@ -118,7 +143,7 @@ export default function page() {
             step="0.01"
             type="number"
             placeholder="Prix"
-            value={data.price / 100}
+            value={data.price ? data.price / 100 : undefined}
             onChange={(e) => {
               setData({ ...data, price: e.target.value * 100 });
             }}
@@ -128,7 +153,7 @@ export default function page() {
             id="size"
             type="text"
             placeholder="Taille"
-            value={data.size}
+            value={data.size ? data.size : undefined}
             onChange={(e) => {
               setData({ ...data, size: e.target.value });
             }}
@@ -138,7 +163,7 @@ export default function page() {
             id="weight"
             type="number"
             placeholder="Poids (en grammes)"
-            value={data.weight}
+            value={data.weight ? data.weight : undefined}
             onChange={(e) => {
               setData({ ...data, weight: e.target.value });
             }}
@@ -148,7 +173,7 @@ export default function page() {
             id="origin"
             type="text"
             placeholder="Provenance"
-            value={data.origin}
+            value={data.origin ? data.origin : undefined}
             onChange={(e) => {
               setData({ ...data, origin: e.target.value });
             }}
@@ -158,9 +183,19 @@ export default function page() {
             type="text"
             id="reference"
             placeholder="Référence"
-            value={data.reference}
+            value={data.reference ? data.reference : undefined}
             onChange={(e) => {
               setData({ ...data, reference: e.target.value });
+            }}
+          />
+          <Creatable
+            id="categories"
+            options={options}
+            isMulti
+            defaultValue={select ? select : false}
+            styles={selectStyles}
+            onChange={(e) => {
+              setIsSelect(e.map((e) => e.value));
             }}
           />
           <label htmlFor="mainFile">Photo principale</label>

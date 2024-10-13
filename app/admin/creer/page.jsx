@@ -8,8 +8,25 @@ import Toast from "@/app/ui/Components/Toast/Toast";
 import ToastFailed from "@/app/ui/Components/Toast/ToastFailed";
 import showToast from "@/app/utils/toast/showToast";
 import showToastFailed from "@/app/utils/toast/showToastFailed";
+import Creatable from "react-select/creatable";
+import options from "@/app/utils/shopCategories/shopCategories.json";
+
+const selectStyles = {
+  control: (styles) => ({ ...styles, backgroundColor: "white" }),
+  option: (styles) => ({ ...styles, color: "grey" }),
+  dropdownIndicator: (style) => ({
+    ...style,
+    color: "grey",
+    svg: {
+      fill: "grey",
+    },
+  }),
+};
 
 export default function page() {
+  const [select, setIsSelect] = useState([]);
+  console.log(select);
+
   const [isLoading, setIsLoading] = useState(false);
   const submitProduct = (e) => {
     setIsLoading(true);
@@ -25,11 +42,14 @@ export default function page() {
     formData.append("weight", elements.weight.value);
     formData.append("origin", elements.origin.value);
     formData.append("reference", elements.reference.value);
+    for (let index = 0; index < select.length; index++) {
+      formData.append("categories", select[index].value);
+    }
     formData.append("mainFile", elements.mainFile.files[0]);
     for (let i = 0; i < elements.file.files.length; i++) {
       formData.append("files", elements.file.files[i]);
     }
-
+    // http://localhost:3000/api/product //
     fetch("https://mineraux83-api.vercel.app/api/product/", {
       method: "POST",
       headers: {
@@ -87,6 +107,15 @@ export default function page() {
           type="text"
           id="reference"
           placeholder="Référence"
+        />
+        <Creatable
+          id="categories"
+          options={options}
+          isMulti
+          styles={selectStyles}
+          onChange={(e) => {
+            setIsSelect(e);
+          }}
         />
         <label htmlFor="mainFile">Photo principale</label>
         <input
