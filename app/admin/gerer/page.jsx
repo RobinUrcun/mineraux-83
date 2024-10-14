@@ -72,9 +72,9 @@ export default function page() {
       </div>
       <form
         className="loadMore"
-        onSubmit={async (e) => {
+        onSubmit={(e) => {
           e.preventDefault();
-          await loadMoreProduct();
+          loadMoreProduct();
         }}
       >
         <button>afficher plus</button>

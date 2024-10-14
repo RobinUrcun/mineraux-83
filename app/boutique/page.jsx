@@ -44,7 +44,7 @@ export default function page() {
   }, [products.filter, products.sort, products.categorie]);
   const loadMoreProduct = function () {
     const url = `https://mineraux83-api.vercel.app/api/product?page=${
-      products.page
+      products.page + 1
     }${products.filter ? `&name=${products.filter}` : ""}${
       products.sort ? `&sort=${products.sort}` : ""
     }${products.categorie ? `&categorie=${products.categorie}` : ""}`;
