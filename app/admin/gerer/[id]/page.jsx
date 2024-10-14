@@ -11,7 +11,7 @@ import Toast from "@/app/ui/Components/Toast/Toast";
 import ToastFailed from "@/app/ui/Components/Toast/ToastFailed";
 import showToast from "@/app/utils/toast/showToast";
 import showToastFailed from "@/app/utils/toast/showToastFailed";
-import Creatable from "react-select/creatable";
+import Select from "react-select";
 import options from "@/app/utils/shopCategories/shopCategories.json";
 
 const selectStyles = {
@@ -191,7 +191,7 @@ export default function page() {
               setData({ ...data, reference: e.target.value });
             }}
           />
-          <Creatable
+          <Select
             id="categories"
             options={options}
             isMulti
