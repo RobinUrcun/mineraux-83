@@ -644,6 +644,43 @@ html {
   filter: invert(0.8);
 }
 
+.displayNone {
+  display: none;
+}
+
+.displayCategories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.displayCategories p {
+  font-size: 20px;
+}
+
+.categories_wrapper {
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.categories_wrapper .categorie_wrapper h2 {
+  font-size: 23px;
+  margin-bottom: 15px;
+  color: #485a6f;
+}
+.categories_wrapper .categorie_wrapper ul li {
+  padding: 5px 0px;
+  cursor: pointer;
+  font-size: 18px;
+}
+.categories_wrapper .categorie_wrapper ul li:hover {
+  color: #994d61;
+}
+.categories_wrapper .categorie_wrapper:nth-child(1) ul {
+  column-count: 4;
+}
+
 .contactSection {
   display: flex;
   margin: 70px 0;

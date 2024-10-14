@@ -1,0 +1,42 @@
+.displayNone {
+  display: none;
+}
+
+.displayCategories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  p {
+    font-size: 20px;
+  }
+}
+
+.categories_wrapper {
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  .categorie_wrapper {
+    h2 {
+      font-size: 23px;
+      margin-bottom: 15px;
+      color: $deg-color-begin;
+    }
+    ul {
+      li {
+        padding: 5px 0px;
+        cursor: pointer;
+        font-size: 18px;
+        &:hover {
+          color: $deg-color-end;
+        }
+      }
+    }
+    &:nth-child(1) {
+      ul {
+        column-count: 4;
+      }
+    }
+  }
+}

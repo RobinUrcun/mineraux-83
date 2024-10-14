@@ -1,7 +1,12 @@
 import React from "react";
 import Image from "next/image";
 
-export default function FilterSelection({ products, setProducts }) {
+export default function FilterSelection({
+  products,
+  setProducts,
+  isCategoriesDisplay,
+  setIsCategoriesDisplay,
+}) {
   return (
     <div className="boutiqueFilter">
       <label className="filerSelect" htmlFor="filterSelect">
@@ -44,6 +49,14 @@ export default function FilterSelection({ products, setProducts }) {
           />
         </button>
       </form>
+      <div
+        onClick={() => {
+          setIsCategoriesDisplay(!isCategoriesDisplay);
+        }}
+        className="displayCategories"
+      >
+        <p>Afficher les categories</p>
+      </div>
     </div>
   );
 }
