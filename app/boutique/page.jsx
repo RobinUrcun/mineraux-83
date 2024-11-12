@@ -71,21 +71,25 @@ export default function page() {
         setIsCategoriesDisplay={setIsCategoriesDisplay}
         setProducts={setProducts}
       />
-      <Categories
-        isCategoriesDisplay={isCategoriesDisplay}
-        products={products}
-        setProducts={setProducts}
-      />
+
       <div className="boutiqueProducts">
-        {isLoading ? (
-          <Loader />
-        ) : !products.productList.length ? (
-          <p> aucun produits</p>
-        ) : (
-          products.productList.map((product, index) => (
-            <ProductCard key={product._id} product={product} />
-          ))
-        )}
+        <Categories
+          setIsCategoriesDisplay={setIsCategoriesDisplay}
+          isCategoriesDisplay={isCategoriesDisplay}
+          products={products}
+          setProducts={setProducts}
+        />
+        <div className="productList">
+          {isLoading ? (
+            <Loader />
+          ) : !products.productList.length ? (
+            <p> aucun produits</p>
+          ) : (
+            products.productList.map((product, index) => (
+              <ProductCard key={product._id} product={product} />
+            ))
+          )}
+        </div>
       </div>
       <form
         className="loadMore"

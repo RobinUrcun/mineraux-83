@@ -7,6 +7,7 @@ export default function Categories({
   products,
   setProducts,
   isCategoriesDisplay,
+  setIsCategoriesDisplay,
 }) {
   return (
     <div
@@ -14,6 +15,18 @@ export default function Categories({
         isCategoriesDisplay ? "categories_wrapper" : "displayNone"
       }`}
     >
+      <div
+        onClick={() => {
+          setIsCategoriesDisplay(!isCategoriesDisplay);
+        }}
+        className="displayCategories"
+      >
+        <p>
+          {isCategoriesDisplay
+            ? "Masquer les catégories"
+            : "Afficher les categories"}
+        </p>
+      </div>
       <div className="categorie_wrapper">
         <h2>Mineraux</h2>
         <ul>

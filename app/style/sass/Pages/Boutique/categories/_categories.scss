@@ -15,8 +15,21 @@
 .categories_wrapper {
   padding: 30px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
+  row-gap: 30px;
+  flex-shrink: 0;
+  background-color: #000000;
+  z-index: 99;
+  width: 150px !important;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  max-height: 1000px;
+  @media screen and (max-width: 800px) {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+  }
   .categorie_wrapper {
     h2 {
       font-size: 23px;
@@ -27,15 +40,13 @@
       li {
         padding: 5px 0px;
         cursor: pointer;
-        font-size: 18px;
+        font-weight: 300;
+        font-size: 15px;
+        color: white;
+
         &:hover {
           color: $deg-color-end;
         }
-      }
-    }
-    &:nth-child(1) {
-      ul {
-        column-count: 4;
       }
     }
   }

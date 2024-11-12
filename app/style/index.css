@@ -437,27 +437,31 @@ html {
   }
 }
 
-.boutiqueSection {
-  padding: 0 50px;
-}
 @media screen and (max-width: 500px) {
   .boutiqueSection {
     padding: 0;
   }
 }
 .boutiqueSection .boutiqueProducts {
+  display: flex;
+  flex-direction: row;
   margin-top: 40px;
+  align-items: flex-start;
+}
+.boutiqueSection .boutiqueProducts .productList {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   row-gap: 60px;
   column-gap: 20px;
+  padding: 0 10px;
   justify-content: space-around;
 }
 
 .boutiqueFilter {
   margin-top: 30px;
   display: flex;
+  padding: 0 20px;
   flex-direction: row;
   flex-wrap: wrap;
   row-gap: 20px;
@@ -465,6 +469,11 @@ html {
 @media screen and (max-width: 1150px) {
   .boutiqueFilter {
     justify-content: center;
+  }
+}
+@media screen and (max-width: 800px) {
+  .boutiqueFilter {
+    position: relative;
   }
 }
 .boutiqueFilter .filerSelect {
@@ -661,8 +670,23 @@ html {
 .categories_wrapper {
   padding: 30px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
+  row-gap: 30px;
+  flex-shrink: 0;
+  background-color: #000000;
+  z-index: 99;
+  width: 150px !important;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  max-height: 1000px;
+}
+@media screen and (max-width: 800px) {
+  .categories_wrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+  }
 }
 .categories_wrapper .categorie_wrapper h2 {
   font-size: 23px;
@@ -672,13 +696,12 @@ html {
 .categories_wrapper .categorie_wrapper ul li {
   padding: 5px 0px;
   cursor: pointer;
-  font-size: 18px;
+  font-weight: 300;
+  font-size: 15px;
+  color: white;
 }
 .categories_wrapper .categorie_wrapper ul li:hover {
   color: #994d61;
-}
-.categories_wrapper .categorie_wrapper:nth-child(1) ul {
-  column-count: 4;
 }
 
 .contactSection {

@@ -55,7 +55,11 @@ export default function FilterSelection({
         }}
         className="displayCategories"
       >
-        <p>Afficher les categories</p>
+        <p>
+          {isCategoriesDisplay
+            ? "Masquer les catégories"
+            : "Afficher les categories"}
+        </p>
       </div>
     </div>
   );
