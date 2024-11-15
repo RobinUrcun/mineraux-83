@@ -14,6 +14,7 @@
   { "value": "Diorites", "label": "Diorites" },
   { "value": "Fluorite", "label": "Fluorite" },
   { "value": "Fossiles", "label": "Fossiles" },
+  { "value": "Géodinos", "label": "Géodinos" },
   { "value": "Granites", "label": "Granites" },
   { "value": "Grenats", "label": "Grenats" },
   { "value": "Grenatite", "label": "Grenatite" },
@@ -23,6 +24,8 @@
   { "value": "Lapis lazuli", "label": "Lapis lazuli" },
   { "value": "Lithophyses", "label": "Lithophyses" },
   { "value": "Mokaïte", "label": "Mokaïte" },
+  { "value": "Météorites", "label": "Météorites" },
+
   { "value": "Oeil de tigre", "label": "Oeil de tigre" },
   { "value": "Pyrite", "label": "Pyrite" },
   { "value": "Quartz", "label": "Quartz" },
@@ -33,10 +36,13 @@
   { "value": "Schiste lustré", "label": "Schiste lustré" },
   { "value": "Serpentine", "label": "Serpentine" },
   { "value": "Septaria", "label": "Septaria" },
+  { "value": "Silhouettes Corse", "label": "Silhouettes Corse" },
   { "value": "Spangolite", "label": "Spangolite" },
   { "value": "Staurotide", "label": "Staurotide" },
   { "value": "Turquoise", "label": "Turquoise" },
+  { "value": "Vert d'Orezza", "label": "Vert d'Orezza" },
   { "value": "Vésuvianite", "label": "Vésuvianite" },
   { "value": "Wiborgite", "label": "Wiborgite" },
-  { "value": "Zoisite à rubis", "label": "Zoisite à rubis" }
+  { "value": "Zoisite à rubis", "label": "Zoisite à rubis" },
+  { "value": "Divers", "label": "Divers" }
 ]
