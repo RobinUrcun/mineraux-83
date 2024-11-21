@@ -10,8 +10,13 @@ export default function RootLayout({ children }) {
       <head>
         <title>Lithosphere83: minéraux du monde.</title>
         <meta
+          name="keywords"
+          content="minéraux, fossiles, pierres naturelles, cristaux, sciage, polissage, atelier de minéraux, minéraux Var, minéraux Corse, fossiles du monde, vente de minéraux, boutique minéraux, collection fossiles, pierres polies, atelier de sciage, cristaux naturels, géodes, ammonites, trilobites, minéraux rares, pierres semi-précieuses, Lithosphere83, lithosphere, lithosphere 83"
+        />
+
+        <meta
           name="description"
-          content="Expertise unique en minéraux du Var et de la Corse. Sélection exclusive de spécimens rares et authentiques. Achat personnalisé et enrichissant garanti."
+          content="Lithosphere 83. Expertise unique en minéraux du Var et de la Corse. Sélection exclusive de spécimens rares et authentiques. Achat personnalisé et enrichissant garanti."
         />
         <link
           rel="stylesheet"
