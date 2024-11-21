@@ -9,6 +9,7 @@ export default function RootLayout({ children }) {
     <html lang="fr">
       <head>
         <title>Lithosphere83: minéraux du monde.</title>
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <meta
           name="keywords"
           content="minéraux, fossiles, pierres naturelles, cristaux, sciage, polissage, atelier de minéraux, minéraux Var, minéraux Corse, fossiles du monde, vente de minéraux, boutique minéraux, collection fossiles, pierres polies, atelier de sciage, cristaux naturels, géodes, ammonites, trilobites, minéraux rares, pierres semi-précieuses, Lithosphere83, lithosphere, lithosphere 83"
