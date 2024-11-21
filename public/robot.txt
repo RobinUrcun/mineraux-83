@@ -1,0 +1,14 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /signup/
+Disallow: /confirmation/
+Disallow: /email-envoye/
+Disallow: /erreur/
+Disallow: /mon-compte/
+Disallow: /mot-de-passe-oublie/
+Disallow: /panier/
+Disallow: /reset-password/
+Disallow: /reset-password-success/
+
+Allow: /
