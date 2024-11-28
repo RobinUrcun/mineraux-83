@@ -12,13 +12,10 @@ export default function ProductCard({ product }) {
   return (
     <Link href={`/produit/${product._id}`} className="productCard">
       <div className="productCardImgCont">
-        <Image
+        <img
           src={`https://lithosphere83-bucket.s3.eu-west-3.amazonaws.com/upload/${product.mainFile[0]}`}
           alt="ok"
           className="productCardImg"
-          width={200}
-          height={200}
-          priority={true}
         />
       </div>
       <div className="productCardInfo">
